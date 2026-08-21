@@ -48,5 +48,5 @@ Dự án sử dụng **Tailwind CSS v4** với hệ thống token màu sắc đ�
 
 1. **Clone repository về máy:**
    ```bash
-   git clone [https://github.com/your-username/book-showroom.git](https://github.com/your-username/book-showroom.git)
+   git clone [https://github.com/Mini-17/du_an_nhom.git](https://github.com/Mini-17/du_an_nhom.git)
    cd book-showroom
