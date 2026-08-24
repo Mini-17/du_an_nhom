@@ -25,7 +25,8 @@ Một nền tảng web hiện đại kết hợp giữa **không gian trưng bà
 
 # Thành viên:
 
-- Nguyễn Hoàng Phúc - MSSV: 2551050174
+- Nguyễn Hoàng Phúc - MSSV: 2551050174 - email: 2551050174phuc@ou.edu.vn
+- Bùi Nguyệt Như - MSSV: 2551050166 - email: 2551050166nhu@ou.edu.vn
 
 ---
 
