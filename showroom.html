@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cửa Hàng — BookNest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./dist/output.css" />
+</head>
+<body class="bg-surface text-ink font-body antialiased">
+
+<!-- Header -->
+<header class="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center gap-8 px-5 py-4 lg:px-8">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 font-display text-lg text-surface">B</span>
+      <span class="leading-tight">
+        <span class="block font-display text-lg font-semibold text-ink">BookNest</span>
+        <span class="block text-[10px] uppercase tracking-widest text-muted">Vũ Trụ Sách</span>
+      </span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-muted">
+      <a href="#" class="hover:text-ink">Trang Chủ</a>
+      <a href="#" class="text-ink font-semibold border-b-2 border-accent-500 pb-1">Cửa Hàng</a>
+      <a href="#" class="hover:text-ink">Thể Loại</a>
+      <a href="#" class="hover:text-ink">Khuyến Mãi</a>
+      <a href="#" class="hover:text-ink">Liên Hệ</a>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-4">
+      <label class="hidden sm:flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-sm text-muted w-64">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" placeholder="Tìm sách, tác giả, thể loại..." class="w-full bg-transparent outline-none placeholder:text-muted/70" />
+      </label>
+
+      <button aria-label="Tài khoản" class="text-ink hover:text-brand-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+
+      <a href="#" aria-label="Giỏ hàng" class="relative text-ink hover:text-brand-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-accent-500 text-[10px] font-bold text-white">2</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Page banner -->
+<section class="border-b border-line bg-[#f1ece2]">
+  <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+    <h1 class="font-display text-3xl md:text-4xl font-bold text-ink">Không Gian Sách</h1>
+    <p class="mt-2 text-muted">Hãy thử thả tìm về cuốn sách bạn đang mong đợi.</p>
+  </div>
+</section>
+
+<!-- Main content -->
+<main class="mx-auto max-w-7xl px-5 py-10 lg:px-8">
+  <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10">
+
+    <!-- Sidebar filters -->
+    <aside class="space-y-9">
+
+      <div>
+        <h3 class="font-display text-base font-semibold text-ink mb-4">Thể Loại Sách</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="chip"><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Văn Học</label><span class="text-muted">(1704)</span></li>
+          <li class="chip"><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Kinh Tế</label><span class="text-muted">(955)</span></li>
+          <li class="chip"><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Tâm Lý Học</label><span class="text-muted">(847)</span></li>
+          <li class="chip"><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Khoa Học</label><span class="text-muted">(621)</span></li>
+          <li class="chip"><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Thiếu Nhi</label><span class="text-muted">(398)</span></li>
+          <li class="chip"><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Lịch Sử</label><span class="text-muted">(321)</span></li>
+          <li class="chip"><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Ngoại Ngữ</label><span class="text-muted">(287)</span></li>
+        </ul>
+      </div>
+
+      <div class="pt-7 border-t border-line">
+        <h3 class="font-display text-base font-semibold text-ink mb-4">Khoảng Giá</h3>
+        <input type="range" min="50000" max="500000" value="250000" class="w-full accent-accent-500" />
+        <div class="mt-2 flex justify-between text-sm text-muted">
+          <span>50.000 đ</span>
+          <span>500.000 đ</span>
+        </div>
+      </div>
+
+      <div class="pt-7 border-t border-line">
+        <h3 class="font-display text-base font-semibold text-ink mb-4">Đánh Giá</h3>
+        <ul class="space-y-3 text-sm">
+          <li><label class="flex items-center gap-2.5"><input type="radio" name="rating" class="h-4 w-4 accent-accent-500" /> <span class="text-accent-500">★★★★★</span> Từ 5 sao</label></li>
+          <li><label class="flex items-center gap-2.5"><input type="radio" name="rating" class="h-4 w-4 accent-accent-500" /> <span class="text-accent-500">★★★★☆</span> Từ 4 sao</label></li>
+          <li><label class="flex items-center gap-2.5"><input type="radio" name="rating" class="h-4 w-4 accent-accent-500" /> <span class="text-accent-500">★★★☆☆</span> Từ 3 sao</label></li>
+        </ul>
+      </div>
+
+      <div class="pt-7 border-t border-line">
+        <h3 class="font-display text-base font-semibold text-ink mb-4">Tác Giả</h3>
+        <ul class="space-y-3 text-sm">
+          <li><label class="flex items-center gap-2.5"><input type="checkbox" checked class="h-4 w-4 rounded border-line accent-accent-500" /> Nguyễn Nhật Ánh</label></li>
+          <li><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Rosie Nguyễn</label></li>
+          <li><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Thích Nhất Hạnh</label></li>
+          <li><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Haruki Murakami</label></li>
+          <li><label class="flex items-center gap-2.5"><input type="checkbox" class="h-4 w-4 rounded border-line accent-accent-500" /> Dale Carnegie</label></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Book grid -->
+    <div>
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <p class="text-sm text-muted">Hiển thị 8 trên <span class="font-semibold text-ink">482</span> kết quả</p>
+        <label class="flex items-center gap-2 text-sm">
+          <span class="text-muted">Sắp xếp theo:</span>
+          <select class="rounded-card border border-line bg-white px-3 py-2 text-ink outline-none">
+            <option>Mới nhất</option>
+            <option>Giá: Thấp đến cao</option>
+            <option>Giá: Cao đến thấp</option>
+            <option>Đánh giá cao nhất</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Book card template -->
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/1c3f39/faf8f5?text=Tu%E1%BB%95i+Tr%E1%BA%BB" alt="Bìa sách Tuổi Trẻ Đáng Giá Bao Nhiêu" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">Rosie Nguyễn</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Tuổi Trẻ Đáng Giá Bao Nhiêu</h3>
+            <p class="text-accent-500 text-xs">★★★★★</p>
+            <p class="text-sm"><span class="font-bold text-ink">72.000 đ</span> <span class="ml-1 text-muted line-through">89.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/2f5148/faf8f5?text=M%E1%BA%AFt+Bi%E1%BA%BFc" alt="Bìa sách Mắt Biếc" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">Nguyễn Nhật Ánh</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Mắt Biếc</h3>
+            <p class="text-accent-500 text-xs">★★★★★</p>
+            <p class="text-sm"><span class="font-bold text-ink">88.000 đ</span> <span class="ml-1 text-muted line-through">110.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/3d2b1f/faf8f5?text=Hi%E1%BB%83u+V%E1%BB%81+Tr%C3%A1i+Tim" alt="Bìa sách Hiểu Về Trái Tim" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">Thích Nhất Hạnh</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Hiểu Về Trái Tim</h3>
+            <p class="text-accent-500 text-xs">★★★★★</p>
+            <p class="text-sm"><span class="font-bold text-ink">118.000 đ</span> <span class="ml-1 text-muted line-through">148.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/e8ddc9/1c3f39?text=C%C3%A2y+Cam+Ng%E1%BB%8Dt" alt="Bìa sách Cây Cam Ngọt Của Tôi" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">José Mauro de Vasconcelos</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Cây Cam Ngọt Của Tôi</h3>
+            <p class="text-accent-500 text-xs">★★★★★</p>
+            <p class="text-sm"><span class="font-bold text-ink">81.000 đ</span> <span class="ml-1 text-muted line-through">108.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/f1ece2/1c3f39?text=Hai+Con+M%C3%A8o" alt="Bìa sách Có Hai Con Mèo Ngồi Bên Cửa Sổ" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">Nguyễn Nhật Ánh</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Có Hai Con Mèo Ngồi Bên Cửa Sổ...</h3>
+            <p class="text-accent-500 text-xs">★★★★★</p>
+            <p class="text-sm"><span class="font-bold text-ink">76.000 đ</span> <span class="ml-1 text-muted line-through">95.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/d97706/faf8f5?text=%C4%90%E1%BA%AFc+Nh%C3%A2n+T%C3%A2m" alt="Bìa sách Đắc Nhân Tâm" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">Dale Carnegie</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Đắc Nhân Tâm</h3>
+            <p class="text-accent-500 text-xs">★★★★★</p>
+            <p class="text-sm"><span class="font-bold text-ink">68.000 đ</span> <span class="ml-1 text-muted line-through">88.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/1c3f39/fbbf24?text=Kh%E1%BB%9Fi+Nghi%E1%BB%87p+Tinh+G%E1%BB%8Dn" alt="Bìa sách Khởi Nghiệp Tinh Gọn" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">Eric Ries</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Khởi Nghiệp Tinh Gọn</h3>
+            <p class="text-accent-500 text-xs">★★★★☆</p>
+            <p class="text-sm"><span class="font-bold text-ink">144.000 đ</span> <span class="ml-1 text-muted line-through">180.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="aspect-[3/4] bg-line/40"><img src="https://placehold.co/400x520/e8ddc9/92400e?text=Ng%C3%A0y+X%C6%B0a" alt="Bìa sách Ngày Xưa Có Một Chuyện Tình" class="h-full w-full object-cover" /></div>
+          <div class="p-4 flex flex-col gap-1.5">
+            <p class="text-xs text-muted">Nguyễn Nhật Ánh</p>
+            <h3 class="font-display text-sm font-semibold text-ink leading-snug">Ngày Xưa Có Một Chuyện Tình</h3>
+            <p class="text-accent-500 text-xs">★★★★☆</p>
+            <p class="text-sm"><span class="font-bold text-ink">96.000 đ</span> <span class="ml-1 text-muted line-through">120.000 đ</span></p>
+            <button class="btn btn-outline mt-2 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              Thêm Vào Giỏ
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Pagination -->
+      <nav class="mt-10 flex items-center justify-center gap-2" aria-label="Phân trang">
+        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-card bg-brand-600 text-sm font-semibold text-surface">1</a>
+        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-card border border-line text-sm text-ink hover:border-ink">2</a>
+        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-card border border-line text-sm text-ink hover:border-ink">3</a>
+        <a href="#" aria-label="Trang sau" class="flex h-9 w-9 items-center justify-center rounded-card border border-line text-ink hover:border-ink">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="mt-16 bg-brand-600 text-surface">
+  <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-accent-500 font-display text-lg text-surface">B</span>
+        <span class="font-display text-lg font-semibold">BookNest</span>
+      </div>
+      <p class="text-sm text-surface/70 leading-relaxed">Không gian sách dành cho những tâm hồn yêu con chữ. Sách chọn lọc, giao hàng phát tận nhà, chăm sóc bạn đọc suốt hành trình mua sách.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" aria-label="Facebook" class="flex h-8 w-8 items-center justify-center rounded-full border border-surface/30 hover:border-surface">f</a>
+        <a href="#" aria-label="Instagram" class="flex h-8 w-8 items-center justify-center rounded-full border border-surface/30 hover:border-surface">ig</a>
+        <a href="#" aria-label="Zalo" class="flex h-8 w-8 items-center justify-center rounded-full border border-surface/30 hover:border-surface">zl</a>
+        <a href="#" aria-label="Youtube" class="flex h-8 w-8 items-center justify-center rounded-full border border-surface/30 hover:border-surface">yt</a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="font-display text-sm font-semibold mb-4">Liên Kết Nhanh</h4>
+      <ul class="space-y-2.5 text-sm text-surface/70">
+        <li><a href="#" class="hover:text-surface">Trang chủ</a></li>
+        <li><a href="#" class="hover:text-surface">Tất cả sản phẩm</a></li>
+        <li><a href="#" class="hover:text-surface">Sách mới phát hành</a></li>
+        <li><a href="#" class="hover:text-surface">Khuyến mãi hot</a></li>
+        <li><a href="#" class="hover:text-surface">Tin tức sách</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-display text-sm font-semibold mb-4">Hỗ Trợ Khách Hàng</h4>
+      <ul class="space-y-2.5 text-sm text-surface/70">
+        <li><a href="#" class="hover:text-surface">Chính sách đổi trả</a></li>
+        <li><a href="#" class="hover:text-surface">Chính sách vận chuyển</a></li>
+        <li><a href="#" class="hover:text-surface">Phương thức thanh toán</a></li>
+        <li><a href="#" class="hover:text-surface">Hướng dẫn mua hàng</a></li>
+        <li><a href="#" class="hover:text-surface">Câu hỏi thường gặp (FAQ)</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-display text-sm font-semibold mb-4">Thông Tin Liên Hệ</h4>
+      <ul class="space-y-3 text-sm text-surface/70">
+        <li class="flex gap-2"><span>📍</span> 123 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh</li>
+        <li class="flex gap-2"><span>📞</span> 028 7300 1234 (8:00 - 21:00)</li>
+        <li class="flex gap-2"><span>✉️</span> lienhe@booknest.vn</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-surface/15">
+    <div class="mx-auto max-w-7xl px-5 py-5 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-surface/60">
+      <p>Bản quyền © 2026 BookNest. Thiết kế bởi tổ ba của Kỳ thực hành thiết kế web.</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-surface">Điều khoản sử dụng</a>
+        <a href="#" class="hover:text-surface">Bảo mật thông tin</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
