@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ Hàng Của Bạn - BookNest</title>
+
+    <!-- Tailwind Output CSS -->
+    <link href="dist/output.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-body bg-[#F4EFEB] dark:bg-surface-invert text-ink dark:text-ink-invert transition-colors duration-300 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- 1. HEADER / NAVBAR -->
+    <header class="bg-surface/90 dark:bg-surface-invert/90 backdrop-blur-sm border-b border-line dark:border-line-invert sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brand-600 text-surface flex items-center justify-center font-display font-bold text-xl shadow-sm">
+            📖
+          </div>
+          <div>
+            <span class="font-display text-2xl font-bold tracking-tight text-ink dark:text-ink-invert block leading-none">BookNest</span>
+            <span class="text-[10px] tracking-widest text-muted dark:text-muted-invert uppercase font-semibold">Tổ Sách Cozy</span>
+          </div>
+        </a>
+
+        <!-- Menu điều hướng -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="index.html" class="text-brand-600 dark:text-accent-400 font-bold border-b-2 border-accent-500 pb-1">Trang Chủ</a>
+          <a href="shop.html" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Cửa Hàng</a>
+          <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Thể Loại</a>
+          <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Khuyến Mãi</a>
+          <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Liên Hệ</a>
+        </nav>
+
+        <!-- Tiện ích bên phải -->
+        <div class="flex items-center gap-4">
+          <div class="relative hidden sm:block">
+            <input
+              type="text"
+              placeholder="Tìm sách, tác giả, thể loại..."
+              class="w-64 bg-line/40 dark:bg-line-invert border border-transparent focus:border-accent-500 rounded-full py-2 pl-9 pr-4 text-xs outline-none text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+            />
+            <svg class="w-4 h-4 text-muted dark:text-muted-invert absolute left-3 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+
+          <!-- Nút đổi theme -->
+          <button data-theme-toggle class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition" aria-label="Toggle Theme">
+            <span class="dark:hidden text-lg">☀️</span>
+            <span class="hidden dark:inline text-lg">🌙</span>
+          </button>
+
+          <!-- Icon tài khoản -->
+          <a href="profile.html" class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition" aria-label="Tài khoản">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+
+          <!-- Icon giỏ hàng (Active) -->
+          <a href="cart.html" class="p-2 rounded-full bg-line/60 dark:bg-line-invert text-brand-600 dark:text-accent-400 relative transition" aria-label="Giỏ hàng">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="absolute top-0 right-0 bg-accent-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">4</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. MAIN CART CONTENT -->
+    <main class="max-w-7xl mx-auto px-6 py-10 w-full">
+      <!-- Tiêu đề trang -->
+      <div class="mb-8">
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-ink dark:text-ink-invert mb-2">Giỏ Hàng Của Bạn</h1>
+        <p class="text-sm text-muted dark:text-muted-invert">Bạn có 3 sản phẩm (4 cuốn sách) trong giỏ hàng</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- ================= CỘT TRÁI: DANH SÁCH SÁCH TRONG GIỎ (CHIẾM 8/12) ================= -->
+        <section class="lg:col-span-8 space-y-4">
+          
+          <!-- Tiêu đề cột bảng -->
+          <div class="hidden sm:grid sm:grid-cols-12 gap-4 px-6 py-3 bg-[#E8DDD1] dark:bg-line-invert rounded-xl text-xs font-bold text-muted dark:text-muted-invert">
+            <div class="col-span-6">Sách</div>
+            <div class="col-span-2 text-center">Đơn Giá</div>
+            <div class="col-span-2 text-center">Số Lượng</div>
+            <div class="col-span-2 text-right">Thành Tiền</div>
+          </div>
+
+          <!-- Sách 1 -->
+          <div class="bg-surface dark:bg-line-invert rounded-card p-5 border border-line dark:border-line-invert-light shadow-sm grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+            <div class="sm:col-span-6 flex items-center gap-4">
+              <div class="w-14 h-20 rounded bg-line/60 dark:bg-surface-invert flex-shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert shadow-sm">
+                Bìa 1
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert leading-snug">Tuổi Trẻ Đáng Giá Bao Nhiêu</h3>
+                <p class="text-xs text-muted dark:text-muted-invert mt-0.5">Rosie Nguyễn</p>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 text-left sm:text-center text-sm font-semibold text-ink dark:text-ink-invert">
+              72.000 đ
+            </div>
+
+            <div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
+              <div class="flex items-center border border-line dark:border-line-invert-light rounded-lg bg-surface dark:bg-surface-invert">
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">-</button>
+                <input type="text" value="1" readonly class="w-8 text-center text-xs font-bold bg-transparent outline-none text-ink dark:text-ink-invert" />
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">+</button>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 flex items-center justify-between sm:justify-end gap-3">
+              <span class="font-bold text-sm text-accent-600 dark:text-accent-400">72.000 đ</span>
+              <button type="button" class="text-muted dark:text-muted-invert hover:text-rose-500 transition p-1" title="Xóa">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sách 2 -->
+          <div class="bg-surface dark:bg-line-invert rounded-card p-5 border border-line dark:border-line-invert-light shadow-sm grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+            <div class="sm:col-span-6 flex items-center gap-4">
+              <div class="w-14 h-20 rounded bg-line/60 dark:bg-surface-invert flex-shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert shadow-sm">
+                Bìa 2
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert leading-snug">Mắt Biếc</h3>
+                <p class="text-xs text-muted dark:text-muted-invert mt-0.5">Nguyễn Nhật Ánh</p>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 text-left sm:text-center text-sm font-semibold text-ink dark:text-ink-invert">
+              88.000 đ
+            </div>
+
+            <div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
+              <div class="flex items-center border border-line dark:border-line-invert-light rounded-lg bg-surface dark:bg-surface-invert">
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">-</button>
+                <input type="text" value="2" readonly class="w-8 text-center text-xs font-bold bg-transparent outline-none text-ink dark:text-ink-invert" />
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">+</button>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 flex items-center justify-between sm:justify-end gap-3">
+              <span class="font-bold text-sm text-accent-600 dark:text-accent-400">176.000 đ</span>
+              <button type="button" class="text-muted dark:text-muted-invert hover:text-rose-500 transition p-1" title="Xóa">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sách 3 -->
+          <div class="bg-surface dark:bg-line-invert rounded-card p-5 border border-line dark:border-line-invert-light shadow-sm grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+            <div class="sm:col-span-6 flex items-center gap-4">
+              <div class="w-14 h-20 rounded bg-line/60 dark:bg-surface-invert flex-shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert shadow-sm">
+                Bìa 3
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert leading-snug">Hiểu Về Trái Tim</h3>
+                <p class="text-xs text-muted dark:text-muted-invert mt-0.5">Thích Minh Niệm</p>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 text-left sm:text-center text-sm font-semibold text-ink dark:text-ink-invert">
+              116.000 đ
+            </div>
+
+            <div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
+              <div class="flex items-center border border-line dark:border-line-invert-light rounded-lg bg-surface dark:bg-surface-invert">
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">-</button>
+                <input type="text" value="1" readonly class="w-8 text-center text-xs font-bold bg-transparent outline-none text-ink dark:text-ink-invert" />
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">+</button>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 flex items-center justify-between sm:justify-end gap-3">
+              <span class="font-bold text-sm text-accent-600 dark:text-accent-400">116.000 đ</span>
+              <button type="button" class="text-muted dark:text-muted-invert hover:text-rose-500 transition p-1" title="Xóa">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ================= CỘT PHẢI: MÃ GIẢM GIÁ & TỔNG ĐƠN HÀNG (CHIẾM 4/12) ================= -->
+        <aside class="lg:col-span-4 space-y-6">
+          
+          <!-- Box 1: Mã Giảm Giá -->
+          <div class="bg-surface dark:bg-line-invert p-6 rounded-card border border-line dark:border-line-invert-light shadow-sm">
+            <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert mb-4">Mã Giảm Giá (Mã Quà Tặng)</h3>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                placeholder="Mã GIAM30..."
+                class="flex-1 px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent text-xs outline-none focus:border-accent-500 text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
+              />
+              <button
+                type="button"
+                class="px-5 py-2.5 rounded-lg bg-[#3A2922] hover:bg-[#2A1D18] dark:bg-accent-500 dark:hover:bg-accent-600 text-white text-xs font-bold transition"
+              >
+                Áp Dụng
+              </button>
+            </div>
+          </div>
+
+          <!-- Box 2: Tóm Tắt Đơn Hàng -->
+          <div class="bg-surface dark:bg-line-invert p-6 rounded-card border border-line dark:border-line-invert-light shadow-sm">
+            <h3 class="font-display font-bold text-xl text-ink dark:text-ink-invert mb-5">Tóm Tắt Đơn Hàng</h3>
+
+            <div class="space-y-3 text-xs pb-5 border-b border-line dark:border-line-invert-light">
+              <div class="flex justify-between">
+                <span class="text-muted dark:text-muted-invert">Tạm Tính</span>
+                <span class="font-bold text-ink dark:text-ink-invert">364.000 đ</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-muted dark:text-muted-invert">Phí Vận Chuyển</span>
+                <span class="font-bold text-ink dark:text-ink-invert">30.000 đ</span>
+              </div>
+              <div class="flex justify-between text-rose-500 dark:text-rose-400 font-semibold">
+                <span>Giảm Giá</span>
+                <span>- 50.000 đ</span>
+              </div>
+            </div>
+
+            <!-- Tổng cộng -->
+            <div class="flex items-baseline justify-between py-5">
+              <span class="font-bold text-base text-ink dark:text-ink-invert">Tổng Cộng</span>
+              <span class="font-display text-2xl font-bold text-accent-600 dark:text-accent-400">344.000 đ</span>
+            </div>
+
+            <!-- Nút hành động -->
+            <a
+              href="checkout.html"
+              class="block w-full py-3.5 rounded-card bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white font-bold text-sm text-center transition shadow-md"
+            >
+              Tiến Hành Thanh Toán
+            </a>
+
+            <div class="text-center mt-4">
+              <a href="shop.html" class="text-xs font-semibold text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition underline">
+                Tiếp Tục Mua Sắm
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- 3. FOOTER -->
+    <footer class="bg-brand-600 text-surface/90 dark:bg-surface-invert dark:text-ink-invert pt-16 pb-8 border-t border-brand-600/20 dark:border-line-invert">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-surface/10 dark:border-line-invert text-xs">
+        
+        <!-- Cột 1: Thông tin thương hiệu -->
+        <div class="space-y-4 md:col-span-1">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">📖</span>
+            <span class="font-display text-xl font-bold text-surface dark:text-ink-invert tracking-wide">BookNest</span>
+          </div>
+          <p class="text-surface/70 dark:text-muted-invert leading-relaxed">
+            Không gian văn học ấm cúng với những tựa sách chọn lọc tỉ mỉ, đưa bạn khám phá những chân trời mới qua từng trang giấy mộc mạc thơm mùi gỗ ấm.
+          </p>
+          <div class="flex gap-3 pt-2">
+            <a href="#" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-accent-500 text-surface flex items-center justify-center transition">f</a>
+            <a href="#" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-accent-500 text-surface flex items-center justify-center transition">📷</a>
+            <a href="#" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-accent-500 text-surface flex items-center justify-center transition">▶</a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Liên kết nhanh -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-surface dark:text-ink-invert text-sm">Liên Kết Nhanh</h4>
+          <ul class="space-y-2 text-surface/70 dark:text-muted-invert">
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Giới thiệu</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Tất cả sản phẩm</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Sách mới phát hành</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Khuyến mãi hot</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Tin tức văn học</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Hỗ trợ khách hàng -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-surface dark:text-ink-invert text-sm">Hỗ Trợ Khách Hàng</h4>
+          <ul class="space-y-2 text-surface/70 dark:text-muted-invert">
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Chính sách đổi trả</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Chính sách vận chuyển</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Phương thức thanh toán</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Hướng dẫn mua hàng</a></li>
+            <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Câu hỏi thường gặp (FAQs)</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-surface dark:text-ink-invert text-sm">Thông Tin Liên Hệ</h4>
+          <ul class="space-y-2.5 text-surface/70 dark:text-muted-invert">
+            <li class="flex items-start gap-2">
+              <span>📍</span>
+              <span>128 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>📞</span>
+              <span>028 7300 1234 (8:00 - 21:00)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>✉️</span>
+              <span>lienhe@booknest.vn</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="max-w-7xl mx-auto px-6 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-surface/60 dark:text-muted-invert">
+        <p>Bản quyền © 2026 BookNest. Thiết kế bởi sự tao nhã và ấm cúng của tình yêu văn học.</p>
+        <div class="flex gap-4 mt-2 sm:mt-0">
+          <a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Điều khoản sử dụng</a>
+          <a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Bảo mật thông tin</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script dùng chung -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
