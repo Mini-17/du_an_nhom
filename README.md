@@ -27,6 +27,7 @@ Một nền tảng web hiện đại kết hợp giữa **không gian trưng bà
 
 - Nguyễn Hoàng Phúc - MSSV: 2551050174 - email: 2551050174phuc@ou.edu.vn
 - Bùi Nguyệt Như - MSSV: 2551050166 - email: 2551050166nhu@ou.edu.vn
+- Trần Quang Anh - MSSV: 2551050009 - email: 2551050009anh@ou.edu.vn
 
 ---
 
@@ -51,3 +52,5 @@ Dự án sử dụng **Tailwind CSS v4** với hệ thống token màu sắc đ�
    ```bash
    git clone [https://github.com/Mini-17/du_an_nhom.git](https://github.com/Mini-17/du_an_nhom.git)
    cd book-showroom
+   npm install
+   npm run dev
