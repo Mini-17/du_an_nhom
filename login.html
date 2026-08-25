@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập & Đăng Ký - BookNest</title>
+  </head>
+  <body>
+
+    <!-- 1. HEADER / NAVBAR -->
+    <header>
+      <div>
+        <!-- Logo -->
+        <a href="index.html">
+          <div>📖</div>
+          <div>
+            <span>BookNest</span>
+            <span>Tổ Sách Cozy</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav>
+          <a href="index.html">Trang Chủ</a>
+          <a href="shop.html">Cửa Hàng</a>
+          <a href="#">Thể Loại</a>
+          <a href="#">Khuyến Mãi</a>
+          <a href="#">Liên Hệ</a>
+        </nav>
+
+        <!-- Right Controls -->
+        <div>
+          <div>
+            <input type="text" placeholder="Tìm sách, tác giả, thể loại..." />
+          </div>
+
+          <!-- Theme Toggle Button -->
+          <button data-theme-toggle aria-label="Toggle Theme">
+            <span>☀️</span>
+            <span>🌙</span>
+          </button>
+
+          <!-- User Icon -->
+          <a href="login.html">
+            <span>Tài khoản</span>
+          </a>
+
+          <!-- Cart Icon -->
+          <a href="cart.html">
+            <span>Giỏ hàng</span>
+            <span>3</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. MAIN AUTH CONTAINER -->
+    <main>
+      <div>
+        
+        <!-- CỘT TRÁI: ĐĂNG NHẬP -->
+        <div>
+          <div>
+            <h2>Đăng Nhập Hệ Thống</h2>
+            <p>Chào mừng bạn quay trở lại Tổ Sách BookNest!</p>
+
+            <!-- Pill Switch Tabs -->
+            <div>
+              <button type="button">Đăng Nhập</button>
+              <button type="button">Đăng Ký</button>
+            </div>
+
+            <!-- Form Đăng Nhập -->
+            <form>
+              <div>
+                <label>Địa chỉ Email</label>
+                <input type="email" value="nguyenvana@gmail.com" required />
+              </div>
+
+              <div>
+                <label>Mật khẩu</label>
+                <input type="password" value="password123" required />
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" checked />
+                  <span>Ghi nhớ đăng nhập</span>
+                </label>
+                <a href="#">Quên mật khẩu?</a>
+              </div>
+
+              <button type="submit">Đăng Nhập Ngay</button>
+            </form>
+
+            <!-- Social Login Divider -->
+            <div>
+              <span>Hoặc tiếp tục bằng tài khoản</span>
+            </div>
+
+            <!-- Social Buttons -->
+            <div>
+              <button type="button">
+                <span>Facebook</span>
+              </button>
+              <button type="button">
+                <span>Google</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CỘT PHẢI: ĐĂNG KÝ THÀNH VIÊN -->
+        <div>
+          <div>
+            <h2>Đăng Ký Thành Viên</h2>
+            <p>Trở thành tổ viên của Tổ Sách Cozy ngay hôm nay!</p>
+
+            <!-- Form Đăng Ký -->
+            <form>
+              <div>
+                <label>Họ và tên</label>
+                <input type="text" placeholder="Ví dụ: Nguyễn Văn A..." required />
+              </div>
+
+              <div>
+                <label>Địa chỉ Email</label>
+                <input type="email" placeholder="Nhập địa chỉ email của bạn..." required />
+              </div>
+
+              <div>
+                <label>Mật khẩu</label>
+                <input type="password" placeholder="Tạo mật khẩu an toàn..." required />
+              </div>
+
+              <div>
+                <label>Nhập lại mật khẩu</label>
+                <input type="password" placeholder="Xác nhận lại mật khẩu..." required />
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" required />
+                  <span>Tôi đồng ý với các Điều khoản & Chính sách bảo mật của BookNest</span>
+                </label>
+              </div>
+
+              <button type="submit">Đăng Ký Tài Khoản</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- 3. FOOTER -->
+    <footer>
+      <div>
+        
+        <!-- Cột 1: Thông tin thương hiệu -->
+        <div>
+          <div>
+            <span>📖</span>
+            <span>BookNest</span>
+          </div>
+          <p>Không gian văn học ấm cúng với những tựa sách chọn lọc tỉ mỉ, đưa bạn khám phá những chân trời mới qua từng trang giấy mộc mạc thơm mùi gỗ ấm.</p>
+          <div>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Liên kết nhanh -->
+        <div>
+          <h4>Liên Kết Nhanh</h4>
+          <ul>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Tất cả sản phẩm</a></li>
+            <li><a href="#">Sách mới phát hành</a></li>
+            <li><a href="#">Khuyến mãi hot</a></li>
+            <li><a href="#">Tin tức văn học</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Hỗ trợ khách hàng -->
+        <div>
+          <h4>Hỗ Trợ Khách Hàng</h4>
+          <ul>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách vận chuyển</a></li>
+            <li><a href="#">Phương thức thanh toán</a></li>
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ -->
+        <div>
+          <h4>Thông Tin Liên Hệ</h4>
+          <ul>
+            <li>
+              <span>128 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh</span>
+            </li>
+            <li>
+              <span>028 7300 1234 (8:00 - 21:00)</span>
+            </li>
+            <li>
+              <span>lienhe@booknest.vn</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div>
+        <p>Bản quyền © 2026 BookNest. Thiết kế bởi sự tao nhã và ấm cúng của tình yêu văn học.</p>
+        <div>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Bảo mật thông tin</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script dùng chung -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
