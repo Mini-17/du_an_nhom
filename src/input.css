@@ -1,31 +1,51 @@
 @import "tailwindcss";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Màu sắc giao diện web */
-  --color-brand-600: #1c3f39;     /* Xanh rừng sâu (Deep Forest) cổ điển */
+  /* ================================
+     COLORS
+  ================================= */
 
-  --color-accent-400: #fbbf24;    /* Vàng hổ phách sáng: nút phụ, highlight */
-  --color-accent-500: #d97706;    /* Vàng hổ phách (Amber): nút chính, nhãn nổi bật */
-  --color-accent-600: #b45309;    /* Hổ phách đậm: hiệu ứng hover nút */
-  --color-accent-700: #92400e;    /* Hổ phách đậm hơn: hiệu ứng active */
+  /* Brand - xanh rừng */
+  --color-brand-600: #1c3f39;
 
-  --color-ink: #18181b;           /* Màu chữ chính: Đen than */
-  --color-muted: #71717a;         /* Màu chữ phụ: Xám trung tính */
-  --color-surface: #faf8f5;       /* Màu nền trang: Trắng kem màu giấy sách */
-  --color-line: #e4e4e7;          /* Màu đường viền: Xám nhạt */
+  /* Accent - vàng hổ phách */
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #d97706;
+  --color-accent-600: #b45309;
+  --color-accent-700: #92400e;
 
-  /* Cặp màu Dark Mode (Hậu tố -invert) */
-  --color-ink-invert: #f4f4f5;          /* Chữ sáng dịu mắt cho nền tối */
-  --color-muted-invert: #a1a1aa;        /* Chữ phụ xám bạc */
-  --color-surface-invert: #0f172a;      /* Nền tối: Midnight Slate */
-  --color-line-invert: #27272a;         /* Viền đậm cho nền tối */
-  --color-line-invert-light: #3f3f46;   /* Viền sáng hơn tạo khối cho thẻ */
+  /* Text */
+  --color-ink: #18181b;
+  --color-muted: #71717a;
 
-  /* Phông chữ */
+  /* Background */
+  --color-surface: #faf9f6;
+
+  /* Border */
+  --color-line: #e4e4e7;
+
+  /* ================================
+     DARK MODE
+  ================================= */
+
+  --color-ink-invert: #f4f4f5;
+  --color-muted-invert: #a1a1aa;
+  --color-surface-invert: #0f172a;
+  --color-line-invert: #27272a;
+  --color-line-invert-light: #3f3f46;
+
+  /* ================================
+     FONTS
+  ================================= */
+
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 
-  /* Bo góc */
+  /* ================================
+     BORDER RADIUS
+  ================================= */
+
   --radius-card: 0.75rem;
 }
