@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hồ Sơ Cá Nhân - BookNest</title>
+  </head>
+  <body>
+
+    <!-- 1. HEADER / NAVBAR -->
+    <header>
+      <div>
+        <!-- Logo -->
+        <a href="index.html">
+          <div>📖</div>
+          <div>
+            <span>BookNest</span>
+            <span>Tổ Sách Cozy</span>
+          </div>
+        </a>
+
+        <!-- Menu điều hướng -->
+        <nav>
+          <a href="index.html">Trang Chủ</a>
+          <a href="shop.html">Cửa Hàng</a>
+          <a href="#">Thể Loại</a>
+          <a href="#">Khuyến Mãi</a>
+          <a href="#">Liên Hệ</a>
+        </nav>
+
+        <!-- Tiện ích bên phải -->
+        <div>
+          <div>
+            <input type="text" placeholder="Tìm sách, tác giả, thể loại..." />
+          </div>
+
+          <!-- Nút đổi theme -->
+          <button data-theme-toggle aria-label="Toggle Theme">
+            <span>☀️</span>
+            <span>🌙</span>
+          </button>
+
+          <!-- Icon tài khoản -->
+          <a href="profile.html">
+            <span>Tài khoản</span>
+          </a>
+
+          <!-- Icon giỏ hàng -->
+          <a href="cart.html">
+            <span>Giỏ hàng</span>
+            <span>3</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. NỘI DUNG CHÍNH (MAIN CONTAINER) -->
+    <main>
+      <div>
+
+        <!-- ================= CỘT TRÁI: SIDEBAR THÀNH VIÊN ================= -->
+        <aside>
+          <!-- Thông tin Avatar & Tên -->
+          <div>
+            <div>A</div>
+            <h3>Nguyễn Văn A</h3>
+            <p>Tổ viên thân thiết</p>
+          </div>
+
+          <hr />
+
+          <!-- Menu chức năng cá nhân -->
+          <nav>
+            <ul>
+              <li>
+                <a href="#profile">Thông tin cá nhân</a>
+              </li>
+              <li>
+                <a href="#orders">Đơn hàng của tôi</a>
+              </li>
+              <li>
+                <a href="#wishlist">Sách đã yêu thích</a>
+              </li>
+              <li>
+                <a href="login.html">Đăng xuất tài khoản</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- ================= CỘT PHẢI: CHI TIẾT HỒ SƠ & ĐƠN HÀNG ================= -->
+        <section>
+
+          <!-- KHUNG 1: FORM HỒ SƠ CÁ NHÂN -->
+          <article id="profile">
+            <div>
+              <h2>Hồ Sơ Cá Nhân</h2>
+              <span>Mã KH: BN9923</span>
+            </div>
+
+            <form>
+              <div>
+                <div>
+                  <label for="fullname">Họ và tên hiển thị</label>
+                  <input type="text" id="fullname" value="Nguyễn Văn A" required />
+                </div>
+                <div>
+                  <label for="email">Địa chỉ Email</label>
+                  <input type="email" id="email" value="nguyenvana@gmail.com" required />
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <label for="phone">Số điện thoại</label>
+                  <input type="tel" id="phone" value="0901234567" required />
+                </div>
+                <div>
+                  <label for="birthday">Ngày tháng năm sinh</label>
+                  <input type="text" id="birthday" value="15/08/1995" />
+                </div>
+              </div>
+
+              <div>
+                <small>Cập nhật lần cuối: 2 ngày trước</small>
+                <button type="submit">Cập Nhật Thông Tin</button>
+              </div>
+            </form>
+          </article>
+
+          <!-- KHUNG 2: BẢNG LỊCH SỬ ĐƠN HÀNG -->
+          <article id="orders">
+            <h2>Lịch Sử Đơn Hàng Gần Đây</h2>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã đơn hàng</th>
+                  <th>Ngày mua</th>
+                  <th>Sách đã mua</th>
+                  <th>Tổng tiền</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#BN-8893</td>
+                  <td>12/03/2026</td>
+                  <td>Tuổi Trẻ Đáng Giá Bao Nhiêu? (x1), Mắt Biếc (x1)</td>
+                  <td>160.000 đ</td>
+                  <td><span>Đã giao</span></td>
+                </tr>
+                <tr>
+                  <td>#BN-8712</td>
+                  <td>01/02/2026</td>
+                  <td>Hiểu Về Trái Tim (x1)</td>
+                  <td>116.000 đ</td>
+                  <td><span>Đang xử lý</span></td>
+                </tr>
+                <tr>
+                  <td>#BN-8521</td>
+                  <td>15/12/2025</td>
+                  <td>Cây Cam Ngọt Của Tôi (x1), Nhà Giả Kim (x2)</td>
+                  <td>223.400 đ</td>
+                  <td><span>Đã hủy</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+        </section>
+
+      </div>
+    </main>
+
+    <!-- 3. FOOTER -->
+    <footer>
+      <div>
+        <!-- Cột 1: Thông tin thương hiệu -->
+        <div>
+          <div>
+            <span>📖</span>
+            <span>BookNest</span>
+          </div>
+          <p>Không gian văn học ấm cúng với những tựa sách chọn lọc tỉ mỉ, đưa bạn khám phá những chân trời mới qua từng trang giấy mộc mạc thơm mùi gỗ ấm.</p>
+          <div>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Liên kết nhanh -->
+        <div>
+          <h4>Liên Kết Nhanh</h4>
+          <ul>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Tất cả sản phẩm</a></li>
+            <li><a href="#">Sách mới phát hành</a></li>
+            <li><a href="#">Khuyến mãi hot</a></li>
+            <li><a href="#">Tin tức văn học</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Hỗ trợ khách hàng -->
+        <div>
+          <h4>Hỗ Trợ Khách Hàng</h4>
+          <ul>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách vận chuyển</a></li>
+            <li><a href="#">Phương thức thanh toán</a></li>
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ -->
+        <div>
+          <h4>Thông Tin Liên Hệ</h4>
+          <ul>
+            <li>
+              <span>128 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh</span>
+            </li>
+            <li>
+              <span>028 7300 1234 (8:00 - 21:00)</span>
+            </li>
+            <li>
+              <span>lienhe@booknest.vn</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div>
+        <p>Bản quyền © 2026 BookNest. Thiết kế bởi sự tao nhã và ấm cúng của tình yêu văn học.</p>
+        <div>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Bảo mật thông tin</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script dùng chung -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
