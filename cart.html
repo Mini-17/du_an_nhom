@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ Hàng Của Bạn - BookNest</title>
+  </head>
+  <body>
+
+    <!-- 1. HEADER / NAVBAR -->
+    <header>
+      <div>
+        <!-- Logo -->
+        <a href="index.html">
+          <div>📖</div>
+          <div>
+            <span>BookNest</span>
+            <span>Tổ Sách Cozy</span>
+          </div>
+        </a>
+
+        <!-- Menu điều hướng -->
+        <nav>
+          <a href="index.html">Trang Chủ</a>
+          <a href="shop.html">Cửa Hàng</a>
+          <a href="#">Thể Loại</a>
+          <a href="#">Khuyến Mãi</a>
+          <a href="#">Liên Hệ</a>
+        </nav>
+
+        <!-- Tiện ích bên phải -->
+        <div>
+          <div>
+            <input type="text" placeholder="Tìm sách, tác giả, thể loại..." />
+          </div>
+
+          <!-- Nút đổi theme -->
+          <button data-theme-toggle aria-label="Toggle Theme">
+            <span>☀️</span>
+            <span>🌙</span>
+          </button>
+
+          <!-- Icon tài khoản -->
+          <a href="profile.html" aria-label="Tài khoản">
+            <span>Tài khoản</span>
+          </a>
+
+          <!-- Icon giỏ hàng -->
+          <a href="cart.html" aria-label="Giỏ hàng">
+            <span>Giỏ hàng</span>
+            <span>4</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. MAIN CART CONTENT -->
+    <main>
+      <!-- Tiêu đề trang -->
+      <div>
+        <h1>Giỏ Hàng Của Bạn</h1>
+        <p>Bạn có 3 sản phẩm (4 cuốn sách) trong giỏ hàng</p>
+      </div>
+
+      <div>
+        
+        <!-- ================= CỘT TRÁI: DANH SÁCH SÁCH TRONG GIỎ ================= -->
+        <section>
+          
+          <!-- Tiêu đề các cột -->
+          <div>
+            <div>Sách</div>
+            <div>Đơn Giá</div>
+            <div>Số Lượng</div>
+            <div>Thành Tiền</div>
+          </div>
+
+          <!-- Sách 1 -->
+          <div>
+            <div>
+              <div>Bìa 1</div>
+              <div>
+                <h3>Tuổi Trẻ Đáng Giá Bao Nhiêu</h3>
+                <p>Rosie Nguyễn</p>
+              </div>
+            </div>
+
+            <div>72.000 đ</div>
+
+            <div>
+              <div>
+                <button type="button">-</button>
+                <input type="text" value="1" readonly />
+                <button type="button">+</button>
+              </div>
+            </div>
+
+            <div>
+              <span>72.000 đ</span>
+              <button type="button" title="Xóa">Xóa</button>
+            </div>
+          </div>
+
+          <!-- Sách 2 -->
+          <div>
+            <div>
+              <div>Bìa 2</div>
+              <div>
+                <h3>Mắt Biếc</h3>
+                <p>Nguyễn Nhật Ánh</p>
+              </div>
+            </div>
+
+            <div>88.000 đ</div>
+
+            <div>
+              <div>
+                <button type="button">-</button>
+                <input type="text" value="2" readonly />
+                <button type="button">+</button>
+              </div>
+            </div>
+
+            <div>
+              <span>176.000 đ</span>
+              <button type="button" title="Xóa">Xóa</button>
+            </div>
+          </div>
+
+          <!-- Sách 3 -->
+          <div>
+            <div>
+              <div>Bìa 3</div>
+              <div>
+                <h3>Hiểu Về Trái Tim</h3>
+                <p>Thích Minh Niệm</p>
+              </div>
+            </div>
+
+            <div>116.000 đ</div>
+
+            <div>
+              <div>
+                <button type="button">-</button>
+                <input type="text" value="1" readonly />
+                <button type="button">+</button>
+              </div>
+            </div>
+
+            <div>
+              <span>116.000 đ</span>
+              <button type="button" title="Xóa">Xóa</button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ================= CỘT PHẢI: MÃ GIẢM GIÁ & TỔNG ĐƠN HÀNG ================= -->
+        <aside>
+          
+          <!-- Box 1: Mã Giảm Giá -->
+          <div>
+            <h3>Mã Giảm Giá (Mã Quà Tặng)</h3>
+            <div>
+              <input type="text" placeholder="Mã GIAM30..." />
+              <button type="button">Áp Dụng</button>
+            </div>
+          </div>
+
+          <!-- Box 2: Tóm Tắt Đơn Hàng -->
+          <div>
+            <h3>Tóm Tắt Đơn Hàng</h3>
+
+            <div>
+              <div>
+                <span>Tạm Tính</span>
+                <span>364.000 đ</span>
+              </div>
+              <div>
+                <span>Phí Vận Chuyển</span>
+                <span>30.000 đ</span>
+              </div>
+              <div>
+                <span>Giảm Giá</span>
+                <span>- 50.000 đ</span>
+              </div>
+            </div>
+
+            <!-- Tổng cộng -->
+            <div>
+              <span>Tổng Cộng</span>
+              <span>344.000 đ</span>
+            </div>
+
+            <!-- Nút hành động -->
+            <a href="checkout.html">Tiến Hành Thanh Toán</a>
+
+            <div>
+              <a href="shop.html">Tiếp Tục Mua Sắm</a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- 3. FOOTER -->
+    <footer>
+      <div>
+        
+        <!-- Cột 1: Thông tin thương hiệu -->
+        <div>
+          <div>
+            <span>📖</span>
+            <span>BookNest</span>
+          </div>
+          <p>Không gian văn học ấm cúng với những tựa sách chọn lọc tỉ mỉ, đưa bạn khám phá những chân trời mới qua từng trang giấy mộc mạc thơm mùi gỗ ấm.</p>
+          <div>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Liên kết nhanh -->
+        <div>
+          <h4>Liên Kết Nhanh</h4>
+          <ul>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Tất cả sản phẩm</a></li>
+            <li><a href="#">Sách mới phát hành</a></li>
+            <li><a href="#">Khuyến mãi hot</a></li>
+            <li><a href="#">Tin tức văn học</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Hỗ trợ khách hàng -->
+        <div>
+          <h4>Hỗ Trợ Khách Hàng</h4>
+          <ul>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách vận chuyển</a></li>
+            <li><a href="#">Phương thức thanh toán</a></li>
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Câu hỏi thường gặp (FAQs)</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ -->
+        <div>
+          <h4>Thông Tin Liên Hệ</h4>
+          <ul>
+            <li>
+              <span>128 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh</span>
+            </li>
+            <li>
+              <span>028 7300 1234 (8:00 - 21:00)</span>
+            </li>
+            <li>
+              <span>lienhe@booknest.vn</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div>
+        <p>Bản quyền © 2026 BookNest. Thiết kế bởi sự tao nhã và ấm cúng của tình yêu văn học.</p>
+        <div>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Bảo mật thông tin</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script dùng chung -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
