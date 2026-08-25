@@ -1,15 +1,191 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dự án nhóm</title>
-
-
-  
-  <link rel="stylesheet" href="./dist/output.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookNest - Khám Phá Thế Giới Qua Từng Trang Sách</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dist/output.css">
 </head>
-<body>
-  <h1 class="font-display text-brand-600 text-3xl font-bold p-8">Thiết lập dự án thành công!</h1>
+<body class="bg-surface text-ink font-body dark:bg-surface-invert dark:text-ink-invert">
+
+<header class="bg-white/70 dark:bg-surface-invert border-b border-line dark:border-line-invert backdrop-blur">
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-8 py-4">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-card bg-accent-500 flex items-center justify-center text-white">📖</div>
+      <div class="font-display font-bold text-lg leading-tight text-brand-600 dark:text-ink-invert">
+        BookNest
+        <span class="block font-body font-normal text-[11px] text-muted dark:text-muted-invert">Nhà sách trực tuyến</span>
+      </div>
+    </div>
+    <nav class="hidden md:block">
+      <ul class="flex gap-8 text-sm font-medium">
+        <li><a href="#" class="hover:text-accent-600 transition-colors">Trang chủ</a></li>
+        <li><a href="#" class="hover:text-accent-600 transition-colors">Cửa hàng</a></li>
+        <li><a href="#" class="hover:text-accent-600 transition-colors">Thể loại</a></li>
+        <li><a href="#" class="hover:text-accent-600 transition-colors">Khuyến mãi</a></li>
+        <li><a href="#" class="hover:text-accent-600 transition-colors">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="hidden sm:flex items-center gap-2 bg-surface dark:bg-surface-invert border border-line dark:border-line-invert rounded-full px-4 py-2 text-xs text-muted dark:text-muted-invert">
+        🔍 <span>Tìm sách...</span>
+      </div>
+      <span class="opacity-75">👤</span>
+      <span class="opacity-75">🛒</span>
+    </div>
+  </div>
+</header>
+
+<section class="bg-brand-600/5 dark:bg-surface-invert py-16">
+  <div class="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h1 class="font-display font-bold text-4xl md:text-5xl leading-tight text-brand-600 dark:text-ink-invert mb-5">
+        Khám Phá Thế Giới<br>Qua Từng Trang Sách
+      </h1>
+      <p class="text-muted dark:text-muted-invert text-[15px] leading-relaxed mb-7 max-w-md">
+        Chào mừng bạn đến với BookNest — nơi mang đến hàng ngàn cuốn sách hay dành cho mọi lứa tuổi, mọi sở thích, với ưu đãi hấp dẫn mỗi ngày.
+      </p>
+      <div class="flex gap-4">
+        <button class="bg-accent-500 hover:bg-accent-600 text-white font-semibold text-sm px-7 py-3 rounded-full transition-colors">Khám Phá Ngay</button>
+        <button class="border border-brand-600 dark:border-line-invert-light text-brand-600 dark:text-ink-invert font-semibold text-sm px-7 py-3 rounded-full">Xem Khuyến Mãi</button>
+      </div>
+    </div>
+    <div class="rounded-card overflow-hidden aspect-[4/3]">
+      <img src="https://picsum.photos/seed/reading-room/700/900" alt="Không gian đọc sách ấm cúng" class="w-full h-full object-cover">
+    </div>
+  </div>
+</section>
+
+<section class="py-14">
+  <div class="max-w-6xl mx-auto px-8">
+    <h2 class="font-display text-2xl text-center text-brand-600 dark:text-ink-invert mb-2">Danh Mục Sách Nổi Bật</h2>
+    <p class="text-center text-muted dark:text-muted-invert text-sm mb-9">Khám phá đa dạng thể loại sách phù hợp với sở thích của bạn</p>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-5">
+      <div class="bg-white dark:bg-surface-invert border border-line dark:border-line-invert rounded-card py-6 px-2 text-center text-sm font-semibold hover:-translate-y-1 hover:shadow-lg transition-all">
+        <div class="text-2xl mb-2">📕</div>Văn học
+      </div>
+      <div class="bg-white dark:bg-surface-invert border border-line dark:border-line-invert rounded-card py-6 px-2 text-center text-sm font-semibold hover:-translate-y-1 hover:shadow-lg transition-all">
+        <div class="text-2xl mb-2">💹</div>Kinh tế
+      </div>
+      <div class="bg-white dark:bg-surface-invert border border-line dark:border-line-invert rounded-card py-6 px-2 text-center text-sm font-semibold hover:-translate-y-1 hover:shadow-lg transition-all">
+        <div class="text-2xl mb-2">🧠</div>Tâm lý
+      </div>
+      <div class="bg-white dark:bg-surface-invert border border-line dark:border-line-invert rounded-card py-6 px-2 text-center text-sm font-semibold hover:-translate-y-1 hover:shadow-lg transition-all">
+        <div class="text-2xl mb-2">🔬</div>Khoa học
+      </div>
+      <div class="bg-white dark:bg-surface-invert border border-line dark:border-line-invert rounded-card py-6 px-2 text-center text-sm font-semibold hover:-translate-y-1 hover:shadow-lg transition-all">
+        <div class="text-2xl mb-2">🧸</div>Thiếu nhi
+      </div>
+      <div class="bg-white dark:bg-surface-invert border border-line dark:border-line-invert rounded-card py-6 px-2 text-center text-sm font-semibold hover:-translate-y-1 hover:shadow-lg transition-all">
+        <div class="text-2xl mb-2">🏛️</div>Lịch sử
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-14">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="flex justify-between items-end mb-6">
+      <div>
+        <h2 class="font-display text-xl text-brand-600 dark:text-ink-invert">Đề Xuất Cho Bạn</h2>
+        <p class="text-muted dark:text-muted-invert text-xs mt-1.5">Những cuốn sách được lựa chọn dựa trên sở thích đọc của bạn</p>
+      </div>
+      <div class="flex gap-2">
+        <button class="w-9 h-9 rounded-full bg-surface dark:bg-surface-invert border border-line dark:border-line-invert text-brand-600 dark:text-ink-invert">‹</button>
+        <button class="w-9 h-9 rounded-full bg-surface dark:bg-surface-invert border border-line dark:border-line-invert text-brand-600 dark:text-ink-invert">›</button>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4" id="suggested-books"></div>
+  </div>
+</section>
+
+<section class="py-14">
+  <div class="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-10">
+    <div>
+      <h3 class="font-display text-lg text-brand-600 dark:text-ink-invert mb-4">Bán Chạy Nhất</h3>
+      <div id="bestseller-list"></div>
+    </div>
+    <div>
+      <h3 class="font-display text-lg text-brand-600 dark:text-ink-invert mb-4">Sách Mới Về</h3>
+      <div id="new-list"></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-14">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="bg-brand-600 rounded-card px-10 py-11 flex flex-col md:flex-row items-center justify-between gap-6 text-white">
+      <div>
+        <div class="text-accent-400 text-xs font-bold tracking-widest mb-2">CHƯƠNG TRÌNH ĐẶC BIỆT</div>
+        <h3 class="font-display text-2xl mb-2">Giảm 30% Sách Văn Học</h3>
+        <p class="text-white/70 text-sm max-w-md">Áp dụng cho toàn bộ danh mục sách văn học trong tuần này. Số lượng ưu đãi có hạn, nhanh tay đặt sách yêu thích của bạn.</p>
+      </div>
+      <button class="bg-accent-500 hover:bg-accent-600 text-white font-semibold text-sm px-7 py-3 rounded-full whitespace-nowrap transition-colors">Xem Ưu Đãi</button>
+    </div>
+  </div>
+</section>
+
+<section class="text-center py-16">
+  <div class="max-w-6xl mx-auto px-8">
+    <h3 class="font-display text-2xl text-brand-600 dark:text-ink-invert mb-2">Theo Dõi Tủ Sách</h3>
+    <p class="text-muted dark:text-muted-invert text-sm mb-6">Đăng ký để nhận thông báo về sách mới và ưu đãi hấp dẫn từ BookNest</p>
+    <form class="flex flex-col sm:flex-row justify-center gap-3" onsubmit="return false;">
+      <input type="email" placeholder="Nhập email của bạn" required
+        class="px-5 py-3 rounded-full border border-line dark:border-line-invert bg-white dark:bg-surface-invert w-full sm:w-80 text-sm">
+      <button type="submit" class="bg-accent-500 hover:bg-accent-600 text-white font-semibold text-sm px-7 py-3 rounded-full transition-colors">Đăng ký</button>
+    </form>
+  </div>
+</section>
+
+<footer class="bg-brand-600 text-white/70 pt-14 pb-5">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="font-display text-white font-bold text-lg mb-3">📖 BookNest</div>
+        <p class="text-sm leading-relaxed">Nhà sách trực tuyến uy tín, mang đến hàng ngàn đầu sách hay với giá tốt nhất cho độc giả Việt Nam.</p>
+        <div class="flex gap-2.5 mt-4">
+          <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">f</span>
+          <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">ig</span>
+          <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">tw</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Liên Kết Nhanh</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li>Về chúng tôi</li>
+          <li>Cửa hàng sách</li>
+          <li>Khuyến mãi</li>
+          <li>Liên hệ</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Hỗ Trợ Khách Hàng</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li>Chính sách đổi trả</li>
+          <li>Phương thức thanh toán</li>
+          <li>Hướng dẫn mua hàng</li>
+          <li>Câu hỏi thường gặp</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Thông Tin Liên Hệ</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li>128 Nguyễn Thị Minh Khai, Q.3, TP.HCM</li>
+          <li>(028) 1234 5678</li>
+          <li>lienhe@booknest.vn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-4 flex flex-col sm:flex-row justify-between gap-2 text-xs text-white/50">
+      <span>© 2026 BookNest. Đã đăng ký bản quyền.</span>
+      <span>Điều khoản sử dụng · Chính sách bảo mật</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
