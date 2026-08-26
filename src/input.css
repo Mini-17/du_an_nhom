@@ -36,11 +36,15 @@
      DARK MODE
   ================================= */
 
-  --color-ink-invert: #f4f4f5;
-  --color-muted-invert: #a1a1aa;
-  --color-surface-invert: #0f172a;
-  --color-line-invert: #27272a;
-  --color-line-invert-light: #3f3f46;
+  --color-ink-invert: #f7f3ed;             /* Chữ sáng màu kem giấy */
+  --color-muted-invert: #b3a59b;           /* Chữ phụ xám be sáng */
+  
+  --color-surface-invert: #1c1512;         /* Nền tối: Nâu than siêu trầm (thay vì slate xanh) */
+  --color-surface-card-invert: #261d19;    /* Nền thẻ Card tối */
+  --color-surface-soft-invert: #352923;    /* Nền thẻ phụ tối (thay thế cho #e8d8c3) */
+
+  --color-line-invert: #3f312a;            /* Viền tối */
+  --color-line-invert-light: #524037;      /* Viền phân cách nhẹ */
 
   /* ================================
      FONTS
