@@ -20,11 +20,13 @@
   --color-accent-700: #965320;       /* Cam đất active */
 
   /* Text */
+  --color-ink: #2f211b;              /* Chữ chính: Đen nâu cà phê (thay vì đen than #18181b) */
+  --color-muted: #76665c;            /* Chữ phụ: Xám nâu trung tính */
+  
+  /* Background */
   --color-surface: #f7f3ed;          /* Nền trang chính: Trắng kem màu giấy sách mộc */
   --color-surface-card: #ffffff;     /* Nền thẻ trắng (Card Đăng nhập, Input) */
   --color-surface-soft: #e8d8c3;     /* Nền thẻ màu giấy Kraft nhạt (Card Đăng ký, Banner tóm tắt) */
-  /* Background */
-  --color-surface: #faf9f6;
 
   /* Border */
   --color-line: #ddd0c2;             /* Đường viền mộc màu be nhạt */
