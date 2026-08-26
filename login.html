@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đăng Nhập & Đăng Ký - BookNest</title>
+    <title>Login & SignUp - BookNest</title>
 
     <!-- Tailwind Output CSS -->
     <link href="dist/output.css" rel="stylesheet" />
@@ -20,64 +20,110 @@
   pb-16 md:pb-0">
 
     <!-- 1. HEADER / NAVBAR -->
-    <header class="bg-surface/90 dark:bg-surface-invert/90 backdrop-blur-sm border-b border-line dark:border-line-invert sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-brand-600 text-surface flex items-center justify-center font-display font-bold text-xl shadow-sm">
-            📖
-          </div>
-          <div>
-            <span class="font-display text-2xl font-bold tracking-tight text-ink dark:text-ink-invert block leading-none">BookNest</span>
-            <span class="text-[10px] tracking-widest text-muted dark:text-muted-invert uppercase font-semibold">Tổ Sách Cozy</span>
-          </div>
-        </a>
-
-        <!-- Navigation Links -->
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="index.html" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Trang Chủ</a>
-          <a href="shop.html" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Cửa Hàng</a>
-          <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Thể Loại</a>
-          <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Khuyến Mãi</a>
-          <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Liên Hệ</a>
-        </nav>
-
-        <!-- Right Controls -->
-        <div class="flex items-center gap-4">
-          <div class="relative hidden sm:block">
-            <input
-              type="text"
-              placeholder="Tìm sách, tác giả, thể loại..."
-              class="w-64 bg-line/40 dark:bg-line-invert border border-transparent focus:border-accent-500 rounded-full py-2 pl-9 pr-4 text-xs outline-none text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
-            />
-            <svg class="w-4 h-4 text-muted dark:text-muted-invert absolute left-3 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-
-          <!-- Theme Toggle Button -->
-          <button data-theme-toggle class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition" aria-label="Toggle Theme">
-            <span class="dark:hidden text-lg">☀️</span>
-            <span class="hidden dark:inline text-lg">🌙</span>
-          </button>
-
-          <!-- User Icon -->
-          <a href="login.html" class="p-2 rounded-full bg-line/60 dark:bg-line-invert text-brand-600 dark:text-accent-400 transition" aria-label="Tài khoản">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </a>
-
-          <!-- Cart Icon -->
-          <a href="cart.html" class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert relative transition" aria-label="Giỏ hàng">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-            </svg>
-            <span class="absolute top-0 right-0 bg-accent-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
-          </a>
+    <header class="bg-surface/95 dark:bg-surface-invert/95 backdrop-blur-md border-b border-line dark:border-line-invert sticky top-0 z-40 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+    <div class="flex items-center justify-between gap-3">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-600 text-surface flex items-center justify-center font-display font-bold text-lg sm:text-xl shadow-sm">
+          📖
         </div>
+        <div>
+          <span class="font-display text-xl sm:text-2xl font-bold tracking-tight text-ink dark:text-ink-invert block leading-none">BookNest</span>
+          <span class="text-[9px] sm:text-[10px] tracking-widest text-muted dark:text-muted-invert uppercase font-semibold">Tổ Sách Cozy</span>
+        </div>
+      </a>
+
+      <!-- Menu Desktop (Ẩn trên Mobile) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="index.html" class="text-brand-600 dark:text-accent-400 font-bold border-b-2 border-accent-500 pb-1">Trang Chủ</a>
+        <a href="shop.html" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Cửa Hàng</a>
+        <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Thể Loại</a>
+        <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Khuyến Mãi</a>
+        <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Liên Hệ</a>
+      </nav>
+
+      <!-- Thanh tìm kiếm (Hiện trên cả Mobile lẫn Desktop) -->
+      <div class="flex-1 max-w-xs sm:max-w-sm md:w-64 md:flex-initial relative">
+        <input
+          type="search"
+          placeholder="Tìm sách, tác giả..."
+          class="w-full bg-line/40 dark:bg-line-invert border border-transparent focus:border-accent-500 rounded-full py-2 pl-8 sm:pl-9 pr-3 text-xs outline-none text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+        />
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted dark:text-muted-invert absolute left-3 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
       </div>
-    </header>
+
+      <!-- Icon Desktop (Ẩn trên Mobile vì đã đưa xuống Bottom Bar) -->
+      <div class="hidden md:flex items-center gap-3">
+        <button data-theme-toggle class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink transition" aria-label="Toggle Theme">
+          <span class="dark:hidden text-lg">☀️</span>
+          <span class="hidden dark:inline text-lg">🌙</span>
+        </button>
+        <a href="profile.html" class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink transition">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+        </a>
+        <a href="cart.html" class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink relative transition">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+          <span class="absolute top-0 right-0 bg-accent-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">4</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<!-- ==================== 2. THANH ĐIỀU HƯỚNG DƯỚI ĐÁY CHO MOBILE (FIXED BOTTOM BAR) ==================== -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/95 dark:bg-surface-invert/95 backdrop-blur-lg border-t border-line dark:border-line-invert px-2 py-1.5 shadow-lg">
+  <div class="grid grid-cols-5 items-center text-center">
+    
+    <!-- 1. Trang chủ -->
+    <a href="index.html" class="flex flex-col items-center py-1 text-accent-600 dark:text-accent-400 font-bold">
+      <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span class="text-[10px]">Trang Chủ</span>
+    </a>
+
+    <!-- 2. Cửa Hàng -->
+    <a href="shop.html" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+      <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+      <span class="text-[10px]">Cửa Hàng</span>
+    </a>
+
+    <!-- 3. Giỏ hàng (Nổi bật ở giữa) -->
+    <a href="cart.html" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert relative transition">
+      <div class="relative">
+        <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span class="absolute -top-1.5 -right-2 bg-accent-500 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">4</span>
+      </div>
+      <span class="text-[10px]">Giỏ Hàng</span>
+    </a>
+
+    <!-- 4. Tài khoản -->
+    <a href="profile.html" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+      <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+      <span class="text-[10px]">Cá Nhân</span>
+    </a>
+
+    <!-- 5. Nút Đổi Dark / Light mode -->
+    <button data-theme-toggle type="button" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+      <span class="dark:hidden text-base leading-none mb-1">☀️</span>
+      <span class="hidden dark:inline text-base leading-none mb-1">🌙</span>
+      <span class="text-[10px]">Chế Độ</span>
+    </button>
+
+  </div>
+</nav>
 
     <!-- 2. MAIN AUTH CONTAINER -->
     <main class="max-w-6xl mx-auto px-6 py-16 w-full flex items-center justify-center">
