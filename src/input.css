@@ -18,16 +18,17 @@
   --color-accent-500: #c9783a;       /* Cam đất chủ đạo: Nút chính CTA ("Đăng nhập", "Đặt hàng") */
   --color-accent-600: #b5672c;       /* Cam đất hover */
   --color-accent-700: #965320;       /* Cam đất active */
-  
+
   /* Text */
-  --color-ink: #18181b;
-  --color-muted: #71717a;
+  --color-ink: #2f211b;              /* Chữ chính: Đen nâu cà phê (thay vì đen than #18181b) */
+  --color-muted: #76665c;            /* Chữ phụ: Xám nâu trung tính */
 
   /* Background */
   --color-surface: #faf9f6;
 
   /* Border */
-  --color-line: #e4e4e7;
+  --color-line: #ddd0c2;             /* Đường viền mộc màu be nhạt */
+  --color-line-focus: #c9783a;       /* Viền khi focus vào input */
 
   /* ================================
      DARK MODE
