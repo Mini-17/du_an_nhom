@@ -57,5 +57,6 @@
      BORDER RADIUS
   ================================= */
 
-  --radius-card: 0.75rem;
+  --radius-card: 1.5rem;
+  --radius-input: 0.5rem;
 }
