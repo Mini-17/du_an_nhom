@@ -8,14 +8,17 @@
   ================================= */
 
   /* Brand - xanh rừng */
-  --color-brand-600: #1c3f39;
+  --color-brand-600: #5c3b2e;        /* Nâu gỗ ấm: Logo, Tiêu đề, Link quan trọng */
+  --color-brand-700: #4a2c20;        /* Nâu đậm: Nút phụ, Border đậm */
+  --color-brand-800: #3a2219;        /* Nâu cà phê đậm */
+  --color-brand-900: #2f211b;        /* Nâu Espresso: Footer, Thanh điều hướng tối */
 
   /* Accent - vàng hổ phách */
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #d97706;
-  --color-accent-600: #b45309;
-  --color-accent-700: #92400e;
-
+  --color-accent-400: #f59e0b;       /* Vàng cam sáng: Badge giỏ hàng, Icon */
+  --color-accent-500: #c9783a;       /* Cam đất chủ đạo: Nút chính CTA ("Đăng nhập", "Đặt hàng") */
+  --color-accent-600: #b5672c;       /* Cam đất hover */
+  --color-accent-700: #965320;       /* Cam đất active */
+  
   /* Text */
   --color-ink: #18181b;
   --color-muted: #71717a;
