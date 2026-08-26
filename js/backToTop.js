@@ -4,8 +4,10 @@ export function initBackToTop() {
     backBtn = document.createElement("button");
     backBtn.id = "back-to-top";
     backBtn.setAttribute("aria-label", "Cuộn lên đầu trang");
+    
     backBtn.className =
-      "fixed bottom-6 right-6 z-40 p-3 rounded-full bg-accent-500 hover:bg-accent-600 text-white shadow-lg transition-all duration-300 transform translate-y-12 opacity-0 pointer-events-none";
+      "fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-50 p-3 rounded-full bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white shadow-lg transition-all duration-300 transform translate-y-12 opacity-0 pointer-events-none";
+      
     backBtn.innerHTML = `
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
