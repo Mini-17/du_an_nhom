@@ -127,100 +127,50 @@ pb-16 md:pb-0">
   </section>
 
   <!-- Main content -->
-  <main class="mx-auto max-w-7xl px-6 py-10 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 items-start">
+<main class="mx-auto max-w-7xl px-6 py-10 w-full">
+  <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 items-start">
 
-      <!-- Sidebar filters -->
-      <aside class="space-y-8 bg-surface dark:bg-line-invert p-6 rounded-card border border-line dark:border-line-invert-light shadow-sm">
-        <div>
-          <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-4">Thể Loại Sách</h3>
-          <ul class="space-y-3 text-sm">
-            <li class="flex items-center justify-between"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Văn Học</label><span class="text-xs text-muted dark:text-muted-invert">(1704)</span></li>
-            <li class="flex items-center justify-between"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Kinh Tế</label><span class="text-xs text-muted dark:text-muted-invert">(955)</span></li>
-            <li class="flex items-center justify-between"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Tâm Lý Học</label><span class="text-xs text-muted dark:text-muted-invert">(847)</span></li>
-            <li class="flex items-center justify-between"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Khoa Học</label><span class="text-xs text-muted dark:text-muted-invert">(621)</span></li>
-            <li class="flex items-center justify-between"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Thiếu Nhi</label><span class="text-xs text-muted dark:text-muted-invert">(398)</span></li>
-            <li class="flex items-center justify-between"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Lịch Sử</label><span class="text-xs text-muted dark:text-muted-invert">(321)</span></li>
-          </ul>
-        </div>
-
-        <div class="pt-6 border-t border-line dark:border-line-invert-light">
-          <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-4">Tác Giả Nổi Bật</h3>
-          <ul class="space-y-3 text-sm">
-            <li><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked class="h-4 w-4 rounded accent-accent-500" /> Nguyễn Nhật Ánh</label></li>
-            <li><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Rosie Nguyễn</label></li>
-            <li><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Thích Minh Niệm</label></li>
-            <li><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Haruki Murakami</label></li>
-            <li><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="h-4 w-4 rounded accent-accent-500" /> Dale Carnegie</label></li>
-          </ul>
-        </div>
-      </aside>
-
-      <!-- Book grid -->
+    <!-- Sidebar filters -->
+    <aside class="space-y-8 bg-surface dark:bg-line-invert p-6 rounded-card border border-line dark:border-line-invert-light shadow-sm">
       <div>
-        <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-          <p class="text-sm text-muted dark:text-muted-invert">Hiển thị 6 trên <span class="font-semibold text-ink dark:text-ink-invert">482</span> kết quả</p>
-          <label class="flex items-center gap-2 text-sm text-muted dark:text-muted-invert">
-            <span>Sắp xếp theo:</span>
-            <select class="rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert px-3 py-1.5 text-xs text-ink dark:text-ink-invert outline-none">
-              <option>Mới nhất</option>
-              <option>Giá: Thấp đến cao</option>
-              <option>Giá: Cao đến thấp</option>
-            </select>
-          </label>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition">
-            <a href="book-detail.html" class=" aspect-3/4 bg-line/30 dark:bg-surface-invert flex items-center justify-center font-bold text-muted">
-              Tuổi Trẻ Đáng Giá Bao Nhiêu
-            </a>
-            <div class="p-4 flex flex-col gap-1.5">
-              <p class="text-xs text-muted dark:text-muted-invert">Rosie Nguyễn</p>
-              <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert leading-snug"><a href="book-detail.html">Tuổi Trẻ Đáng Giá Bao Nhiêu</a></h3>
-              <p class="text-sm"><span class="font-bold text-accent-600 dark:text-accent-400">72.000 đ</span> <span class="ml-1 text-xs text-muted line-through">89.000 đ</span></p>
-              <button class="mt-2 w-full py-2 bg-accent-500 hover:bg-accent-600 text-white rounded-lg text-xs font-bold transition">Thêm Vào Giỏ</button>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition">
-            <a href="book-detail.html" class=" aspect-3/4 bg-line/30 dark:bg-surface-invert flex items-center justify-center font-bold text-muted">
-              Mắt Biếc
-            </a>
-            <div class="p-4 flex flex-col gap-1.5">
-              <p class="text-xs text-muted dark:text-muted-invert">Nguyễn Nhật Ánh</p>
-              <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert leading-snug"><a href="book-detail.html">Mắt Biếc</a></h3>
-              <p class="text-sm"><span class="font-bold text-accent-600 dark:text-accent-400">88.000 đ</span> <span class="ml-1 text-xs text-muted line-through">110.000 đ</span></p>
-              <button class="mt-2 w-full py-2 bg-accent-500 hover:bg-accent-600 text-white rounded-lg text-xs font-bold transition">Thêm Vào Giỏ</button>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition">
-            <a href="book-detail.html" class=" aspect-3/4 bg-line/30 dark:bg-surface-invert flex items-center justify-center font-bold text-muted">
-              Hiểu Về Trái Tim
-            </a>
-            <div class="p-4 flex flex-col gap-1.5">
-              <p class="text-xs text-muted dark:text-muted-invert">Thích Minh Niệm</p>
-              <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert leading-snug"><a href="book-detail.html">Hiểu Về Trái Tim</a></h3>
-              <p class="text-sm"><span class="font-bold text-accent-600 dark:text-accent-400">116.000 đ</span> <span class="ml-1 text-xs text-muted line-through">145.000 đ</span></p>
-              <button class="mt-2 w-full py-2 bg-accent-500 hover:bg-accent-600 text-white rounded-lg text-xs font-bold transition">Thêm Vào Giỏ</button>
-            </div>
-          </article>
-        </div>
-
-        <!-- Pagination -->
-        <nav class="mt-10 flex items-center justify-center gap-2" aria-label="Phân trang">
-          <a href="#" class="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-sm font-semibold text-surface">1</a>
-          <a href="#" class="flex h-9 w-9 items-center justify-center rounded-lg border border-line dark:border-line-invert-light text-sm text-ink dark:text-ink-invert hover:border-accent-500 transition">2</a>
-          <a href="#" class="flex h-9 w-9 items-center justify-center rounded-lg border border-line dark:border-line-invert-light text-sm text-ink dark:text-ink-invert hover:border-accent-500 transition">3</a>
-        </nav>
+        <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-4">Thể Loại Sách</h3>
+        <ul id="category-filter-list" class="space-y-3 text-sm">
+          <!-- Danh mục sẽ được render tự động -->
+        </ul>
       </div>
 
+      <div class="pt-6 border-t border-line dark:border-line-invert-light">
+        <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-4">Tác Giả Nổi Bật</h3>
+        <ul id="author-filter-list" class="space-y-3 text-sm">
+          <!-- Tác giả sẽ được render tự động -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Book grid -->
+    <div>
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <p class="text-sm text-muted dark:text-muted-invert">
+          Hiển thị <span id="books-count" class="font-semibold text-ink dark:text-ink-invert">0</span> kết quả
+        </p>
+        <label class="flex items-center gap-2 text-sm text-muted dark:text-muted-invert">
+          <span>Sắp xếp theo:</span>
+          <select id="sort-select" class="rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert px-3 py-1.5 text-xs text-ink dark:text-ink-invert outline-none">
+            <option value="default">Mặc định</option>
+            <option value="price-asc">Giá: Thấp đến cao</option>
+            <option value="price-desc">Giá: Cao đến thấp</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Vùng chứa danh sách sách render từ JS -->
+      <div id="books-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- JS sẽ tự động bơm các Card sách vào đây -->
+      </div>
     </div>
-  </main>
+
+  </div>
+</main>
 
   <!-- ==================== FOOTER DÙNG CHUNG ==================== -->
   <footer class="bg-brand-600 text-surface/90 dark:bg-surface-invert dark:text-ink-invert pt-16 pb-8 border-t border-brand-600/20 dark:border-line-invert">

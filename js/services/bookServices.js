@@ -2,7 +2,7 @@ export const BookService = {
   // 1. Lấy toàn bộ danh sách sách
   async getAllBooks() {
     try {
-      const res = await fetch("data/books.json");
+      const res = await fetch("./data/books.json");
       if (!res.ok) throw new Error("Không thể tải tệp books.json");
       return await res.json();
     } catch (error) {
