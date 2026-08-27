@@ -5,6 +5,9 @@ import { initScrollReveal } from "./modules/scrollReveal.js";
 import { CartService } from "./services/cartService.js";
 import { initShowroomPage } from "./pages/showroom.js";
 import { initBookDetailPage } from "./pages/bookDetail.js";
+import { initCartPage } from "./pages/cartPage.js";
+import { initCheckoutPage } from "./pages/checkoutPage.js";
+import { initProfilePage } from "./pages/profilePage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
@@ -21,5 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Khởi chạy trang Chi tiết sách nếu có
   if (document.getElementById("book-detail-container")) {
     initBookDetailPage();
+  }
+
+  // 3. Khởi chạy trang Giỏ hàng
+  if (document.getElementById("cart-items-list")) {
+    initCartPage();
+  }
+
+  // 4. Khởi chạy trang Checkout
+  if (document.getElementById("checkout-form")) {
+    initCheckoutPage();
+  }
+
+  // 5. Khởi chạy trang Profile[cite: 11, 16]
+  if (document.getElementById("profile-form") || document.getElementById("orders-history-tbody")) {
+    initProfilePage();
   }
 });
