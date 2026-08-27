@@ -54,25 +54,38 @@ export async function initShowroomPage() {
     booksGrid.innerHTML = books
       .map(
         (book) => `
-        <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition flex flex-col justify-between">
-          <a href="book-detail.html?id=${book.id}" class="aspect-3/4 bg-line/30 dark:bg-surface-invert flex items-center justify-center font-bold text-muted dark:text-muted-invert text-center p-4">
-            ${book.title}
+        <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition flex flex-col justify-between group">
+          <!-- Bìa Sách -->
+          <a href="book-detail.html?id=${book.id}" class="aspect-3/4 bg-line/20 dark:bg-surface-invert overflow-hidden flex items-center justify-center relative p-3">
+            <img 
+              src="${book.cover}" 
+              alt="${book.title}" 
+              class="w-full h-full object-cover rounded shadow-sm group-hover:scale-105 transition-transform duration-300"
+              onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert text-center p-2\\'>${book.title}</div>'"
+            />
           </a>
-          <div class="p-4 flex flex-col gap-1.5">
-            <p class="text-xs text-muted dark:text-muted-invert">${book.author}</p>
-            <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert leading-snug">
-              <a href="book-detail.html?id=${book.id}" class="hover:text-accent-500 transition line-clamp-1">${book.title}</a>
-            </h3>
-            <p class="text-sm">
-              <span class="font-bold text-accent-600 dark:text-accent-400">${book.price.toLocaleString("vi-VN")} đ</span> 
-              <span class="ml-1 text-xs text-muted line-through">${book.originalPrice.toLocaleString("vi-VN")} đ</span>
-            </p>
-            <button 
-              type="button" 
-              data-add-book-id="${book.id}" 
-              class="mt-2 w-full py-2 bg-accent-500 hover:bg-accent-600 text-white rounded-lg text-xs font-bold transition">
-              Thêm Vào Giỏ
-            </button>
+
+          <!-- Thông tin Sách -->
+          <div class="p-4 flex flex-col gap-1.5 flex-1 justify-between">
+            <div>
+              <p class="text-[11px] text-muted dark:text-muted-invert">${book.author}</p>
+              <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert leading-snug mt-0.5">
+                <a href="book-detail.html?id=${book.id}" class="hover:text-accent-600 dark:hover:text-accent-400 transition line-clamp-1">${book.title}</a>
+              </h3>
+            </div>
+
+            <div class="mt-2">
+              <div class="flex items-baseline gap-2">
+                <span class="font-bold text-sm text-accent-600 dark:text-accent-400 whitespace-nowrap">${book.price.toLocaleString("vi-VN")} đ</span> 
+                <del class="text-[11px] text-muted dark:text-muted-invert whitespace-nowrap">${book.originalPrice.toLocaleString("vi-VN")} đ</del>
+              </div>
+              <button 
+                type="button" 
+                data-add-book-id="${book.id}" 
+                class="mt-3 w-full py-2 bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white rounded-lg text-xs font-bold transition shadow-sm">
+                Thêm Vào Giỏ
+              </button>
+            </div>
           </div>
         </article>
       `
