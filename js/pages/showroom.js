@@ -13,25 +13,29 @@ export async function initShowroomPage() {
   const ITEMS_PER_PAGE = 6;
   let currentPage = 1;
 
-  // Biến lưu trạng thái lọc
-  let selectedCategory = null;
-  let selectedAuthor = null;
-
   // 1. Tải toàn bộ sách
   let allBooks = await BookService.getAllBooks();
 
-  // 2. Render ban đầu
+  // 2. Nhận tham số danh mục từ URL (nếu được bấm từ trang chủ sang)
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryFromUrl = urlParams.get("category");
+
+  // Biến lưu trạng thái lọc
+  let selectedCategory = categoryFromUrl ? decodeURIComponent(categoryFromUrl) : null;
+  let selectedAuthor = null;
+
+  // 3. Render ban đầu
   applyFiltersAndSort();
   renderFilters(allBooks);
   initMobileFilterToggle();
 
-  // 3. Sắp xếp giá
+  // 4. Sắp xếp giá
   sortSelect?.addEventListener("change", () => {
     currentPage = 1; // Reset về trang 1 khi đổi sắp xếp
     applyFiltersAndSort();
   });
 
-  // 4. Bắt sự kiện Thêm vào giỏ
+  // 5. Bắt sự kiện Thêm vào giỏ
   booksGrid.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-add-book-id]");
     if (btn) {
@@ -48,7 +52,9 @@ export async function initShowroomPage() {
     let result = [...allBooks];
 
     if (selectedCategory) {
-      result = result.filter((b) => b.category === selectedCategory);
+      result = result.filter((b) =>
+        b.category.toLowerCase().includes(selectedCategory.toLowerCase())
+      );
     }
     if (selectedAuthor) {
       result = result.filter((b) => b.author === selectedAuthor);
@@ -188,22 +194,23 @@ export async function initShowroomPage() {
 
     if (categoryList) {
       categoryList.innerHTML = predefinedCategories
-        .map(
-          (cat) => `
-          <li class="flex items-center justify-between">
-            <label class="flex items-center gap-2 cursor-pointer w-full select-none text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
-              <input type="checkbox" name="filter-cat" value="${cat}" class="cat-checkbox h-3.5 w-3.5 rounded accent-accent-500 cursor-pointer" />
-              <span>${cat}</span>
-            </label>
-          </li>
-        `
-        )
+        .map((cat) => {
+          const isChecked = selectedCategory && cat.toLowerCase().includes(selectedCategory.toLowerCase());
+          return `
+            <li class="flex items-center justify-between">
+              <label class="flex items-center gap-2 cursor-pointer w-full select-none text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+                <input type="checkbox" name="filter-cat" value="${cat}" ${isChecked ? "checked" : ""} class="cat-checkbox h-3.5 w-3.5 rounded accent-accent-500 cursor-pointer" />
+                <span>${cat}</span>
+              </label>
+            </li>
+          `;
+        })
         .join("");
 
       const catInputs = categoryList.querySelectorAll(".cat-checkbox");
       catInputs.forEach((input) => {
         input.addEventListener("click", (e) => {
-          currentPage = 1; // Reset về trang 1 khi lọc
+          currentPage = 1;
           if (selectedCategory === e.target.value) {
             e.target.checked = false;
             selectedCategory = null;
@@ -235,7 +242,7 @@ export async function initShowroomPage() {
       const authorInputs = authorList.querySelectorAll(".author-checkbox");
       authorInputs.forEach((input) => {
         input.addEventListener("click", (e) => {
-          currentPage = 1; // Reset về trang 1 khi lọc
+          currentPage = 1;
           if (selectedAuthor === e.target.value) {
             e.target.checked = false;
             selectedAuthor = null;
