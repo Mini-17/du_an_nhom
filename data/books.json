@@ -1,0 +1,54 @@
+[
+  {
+    "id": "bn-001",
+    "title": "Tuổi Trẻ Đáng Giá Bao Nhiêu",
+    "author": "Rosie Nguyễn",
+    "category": "Kỹ Năng Sống",
+    "price": 72000,
+    "originalPrice": 90000,
+    "rating": 5.0,
+    "reviewsCount": 124,
+    "sold": 1200,
+    "cover": "assets/img/tuoi-tre-dang-gia-bao-nhieu.jpg",
+    "description": "Cuốn sách chia sẻ hành trình rèn luyện, định hướng bản thân và khám phá tiềm năng của người trẻ."
+  },
+  {
+    "id": "bn-002",
+    "title": "Mắt Biếc",
+    "author": "Nguyễn Nhật Ánh",
+    "category": "Văn Học",
+    "price": 88000,
+    "originalPrice": 110000,
+    "rating": 4.9,
+    "reviewsCount": 210,
+    "sold": 2500,
+    "cover": "assets/img/mat-biec.jpg",
+    "description": "Tác phẩm văn học kinh điển về tình yêu thuở học trò và những hoài niệm làng Đo Đo."
+  },
+  {
+    "id": "bn-003",
+    "title": "Hiểu Về Trái Tim",
+    "author": "Thích Minh Niệm",
+    "category": "Tâm Lý Học",
+    "price": 116000,
+    "originalPrice": 145000,
+    "rating": 5.0,
+    "reviewsCount": 350,
+    "sold": 1800,
+    "cover": "assets/img/hieu-ve-trai-tim.jpg",
+    "description": "Hướng dẫn nhận diện và chữa lành những tổn thương cảm xúc, tìm về sự an yên nội tâm."
+  },
+  {
+    "id": "bn-004",
+    "title": "Cây Cam Ngọt Của Tôi",
+    "author": "José Mauro",
+    "category": "Văn Học",
+    "price": 81000,
+    "originalPrice": 108000,
+    "rating": 4.8,
+    "reviewsCount": 98,
+    "sold": 950,
+    "cover": "assets/img/cay-cam-ngot.jpg",
+    "description": "Câu chuyện cảm động về cậu bé Zezé giàu trí tưởng tượng và bài học về lòng nhân ái."
+  }
+]
