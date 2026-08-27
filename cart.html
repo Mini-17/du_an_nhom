@@ -124,18 +124,17 @@
 </nav>
 
     <!-- 2. MAIN CART CONTENT -->
-    <main class="max-w-7xl mx-auto px-6 py-10 w-full">
+   <main class="max-w-7xl mx-auto px-6 py-10 w-full">
       <!-- Tiêu đề trang -->
       <div class="mb-8">
         <h1 class="font-display text-4xl md:text-5xl font-bold text-ink dark:text-ink-invert mb-2">Giỏ Hàng Của Bạn</h1>
-        <p class="text-sm text-muted dark:text-muted-invert">Bạn có 3 sản phẩm (4 cuốn sách) trong giỏ hàng</p>
+        <p id="cart-header-count" class="text-sm text-muted dark:text-muted-invert">Đang tải giỏ hàng...</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- ================= CỘT TRÁI: DANH SÁCH SÁCH TRONG GIỎ (CHIẾM 8/12) ================= -->
+        <!-- CỘT TRÁI: DANH SÁCH SÁCH TRONG GIỎ (CHIẾM 8/12) -->
         <section class="lg:col-span-8 space-y-4">
-          
           <!-- Tiêu đề cột bảng -->
           <div class="hidden sm:grid sm:grid-cols-12 gap-4 px-6 py-3 bg-[#E8DDD1] dark:bg-line-invert rounded-xl text-xs font-bold text-muted dark:text-muted-invert">
             <div class="col-span-6">Sách</div>
@@ -144,111 +143,11 @@
             <div class="col-span-2 text-right">Thành Tiền</div>
           </div>
 
-          <!-- Sách 1 -->
-          <div class="bg-surface dark:bg-line-invert rounded-card p-5 border border-line dark:border-line-invert-light shadow-sm grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-            <div class="sm:col-span-6 flex items-center gap-4">
-              <div class="w-14 h-20 rounded bg-line/60 dark:bg-surface-invert shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert shadow-sm">
-                Bìa 1
-              </div>
-              <div>
-                <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert leading-snug">Tuổi Trẻ Đáng Giá Bao Nhiêu</h3>
-                <p class="text-xs text-muted dark:text-muted-invert mt-0.5">Rosie Nguyễn</p>
-              </div>
-            </div>
-
-            <div class="sm:col-span-2 text-left sm:text-center text-sm font-semibold text-ink dark:text-ink-invert">
-              72.000 đ
-            </div>
-
-            <div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
-              <div class="flex items-center border border-line dark:border-line-invert-light rounded-lg bg-surface dark:bg-surface-invert">
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">-</button>
-                <input type="text" value="1" readonly class="w-8 text-center text-xs font-bold bg-transparent outline-none text-ink dark:text-ink-invert" />
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">+</button>
-              </div>
-            </div>
-
-            <div class="sm:col-span-2 flex items-center justify-between sm:justify-end gap-3">
-              <span class="font-bold text-sm text-accent-600 dark:text-accent-400">72.000 đ</span>
-              <button type="button" class="text-muted dark:text-muted-invert hover:text-rose-500 transition p-1" title="Xóa">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Sách 2 -->
-          <div class="bg-surface dark:bg-line-invert rounded-card p-5 border border-line dark:border-line-invert-light shadow-sm grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-            <div class="sm:col-span-6 flex items-center gap-4">
-              <div class="w-14 h-20 rounded bg-line/60 dark:bg-surface-invert shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert shadow-sm">
-                Bìa 2
-              </div>
-              <div>
-                <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert leading-snug">Mắt Biếc</h3>
-                <p class="text-xs text-muted dark:text-muted-invert mt-0.5">Nguyễn Nhật Ánh</p>
-              </div>
-            </div>
-
-            <div class="sm:col-span-2 text-left sm:text-center text-sm font-semibold text-ink dark:text-ink-invert">
-              88.000 đ
-            </div>
-
-            <div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
-              <div class="flex items-center border border-line dark:border-line-invert-light rounded-lg bg-surface dark:bg-surface-invert">
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">-</button>
-                <input type="text" value="2" readonly class="w-8 text-center text-xs font-bold bg-transparent outline-none text-ink dark:text-ink-invert" />
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">+</button>
-              </div>
-            </div>
-
-            <div class="sm:col-span-2 flex items-center justify-between sm:justify-end gap-3">
-              <span class="font-bold text-sm text-accent-600 dark:text-accent-400">176.000 đ</span>
-              <button type="button" class="text-muted dark:text-muted-invert hover:text-rose-500 transition p-1" title="Xóa">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Sách 3 -->
-          <div class="bg-surface dark:bg-line-invert rounded-card p-5 border border-line dark:border-line-invert-light shadow-sm grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-            <div class="sm:col-span-6 flex items-center gap-4">
-              <div class="w-14 h-20 rounded bg-line/60 dark:bg-surface-invert shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert shadow-sm">
-                Bìa 3
-              </div>
-              <div>
-                <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert leading-snug">Hiểu Về Trái Tim</h3>
-                <p class="text-xs text-muted dark:text-muted-invert mt-0.5">Thích Minh Niệm</p>
-              </div>
-            </div>
-
-            <div class="sm:col-span-2 text-left sm:text-center text-sm font-semibold text-ink dark:text-ink-invert">
-              116.000 đ
-            </div>
-
-            <div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
-              <div class="flex items-center border border-line dark:border-line-invert-light rounded-lg bg-surface dark:bg-surface-invert">
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">-</button>
-                <input type="text" value="1" readonly class="w-8 text-center text-xs font-bold bg-transparent outline-none text-ink dark:text-ink-invert" />
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition font-bold text-sm">+</button>
-              </div>
-            </div>
-
-            <div class="sm:col-span-2 flex items-center justify-between sm:justify-end gap-3">
-              <span class="font-bold text-sm text-accent-600 dark:text-accent-400">116.000 đ</span>
-              <button type="button" class="text-muted dark:text-muted-invert hover:text-rose-500 transition p-1" title="Xóa">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
+          <!-- Vùng chứa sản phẩm được render tự động -->
+          <div id="cart-items-list" class="space-y-4"></div>
         </section>
 
-        <!-- ================= CỘT PHẢI: MÃ GIẢM GIÁ & TỔNG ĐƠN HÀNG (CHIẾM 4/12) ================= -->
+        <!-- CỘT PHẢI: MÃ GIẢM GIÁ & TỔNG ĐƠN HÀNG (CHIẾM 4/12) -->
         <aside class="lg:col-span-4 space-y-6">
           
           <!-- Box 1: Mã Giảm Giá -->
@@ -257,11 +156,13 @@
             <div class="flex gap-2">
               <input
                 type="text"
-                placeholder="Mã GIAM30..."
-                class="flex-1 px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent text-xs outline-none focus:border-accent-500 text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
+                id="discount-input"
+                placeholder="Nhập mã BOOKNEST..."
+                class="flex-1 px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent text-xs outline-none focus:border-accent-500 text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert uppercase"
               />
               <button
                 type="button"
+                id="btn-apply-coupon"
                 class="px-5 py-2.5 rounded-lg bg-[#3A2922] hover:bg-[#2A1D18] dark:bg-accent-500 dark:hover:bg-accent-600 text-white text-xs font-bold transition"
               >
                 Áp Dụng
@@ -276,34 +177,35 @@
             <div class="space-y-3 text-xs pb-5 border-b border-line dark:border-line-invert-light">
               <div class="flex justify-between">
                 <span class="text-muted dark:text-muted-invert">Tạm Tính</span>
-                <span class="font-bold text-ink dark:text-ink-invert">364.000 đ</span>
+                <span id="cart-subtotal" class="font-bold text-ink dark:text-ink-invert">0 đ</span>
               </div>
               <div class="flex justify-between">
                 <span class="text-muted dark:text-muted-invert">Phí Vận Chuyển</span>
-                <span class="font-bold text-ink dark:text-ink-invert">30.000 đ</span>
+                <span id="cart-shipping" class="font-bold text-ink dark:text-ink-invert">30.000 đ</span>
               </div>
               <div class="flex justify-between text-rose-500 dark:text-rose-400 font-semibold">
                 <span>Giảm Giá</span>
-                <span>- 50.000 đ</span>
+                <span id="cart-discount">- 0 đ</span>
               </div>
             </div>
 
             <!-- Tổng cộng -->
             <div class="flex items-baseline justify-between py-5">
               <span class="font-bold text-base text-ink dark:text-ink-invert">Tổng Cộng</span>
-              <span class="font-display text-2xl font-bold text-accent-600 dark:text-accent-400">344.000 đ</span>
+              <span id="cart-total" class="font-display text-2xl font-bold text-accent-600 dark:text-accent-400">0 đ</span>
             </div>
 
             <!-- Nút hành động -->
             <a
               href="checkout.html"
+              id="btn-checkout"
               class="block w-full py-3.5 rounded-card bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white font-bold text-sm text-center transition shadow-md"
             >
               Tiến Hành Thanh Toán
             </a>
 
             <div class="text-center mt-4">
-              <a href="shop.html" class="text-xs font-semibold text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition underline">
+              <a href="showroom.html" class="text-xs font-semibold text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition underline">
                 Tiếp Tục Mua Sắm
               </a>
             </div>
