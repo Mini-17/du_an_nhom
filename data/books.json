@@ -3,14 +3,15 @@
     "id": "bn-001",
     "title": "Tuổi Trẻ Đáng Giá Bao Nhiêu",
     "author": "Rosie Nguyễn",
-    "category": "Kỹ Năng Sống",
+    "category": "Tâm Lý Học",
     "price": 72000,
-    "originalPrice": 90000,
+    "originalPrice": 89000,
     "rating": 5.0,
     "reviewsCount": 124,
-    "sold": 1200,
+    "sold": "1.2k",
     "cover": "assets/img/tuoi-tre-dang-gia-bao-nhieu.jpg",
-    "description": "Cuốn sách chia sẻ hành trình rèn luyện, định hướng bản thân và khám phá tiềm năng của người trẻ."
+    "badge": "Sách bán chạy",
+    "description": "\"Tuổi Trẻ Đáng Giá Bao Nhiêu\" không chỉ là một cuốn sách, mà còn là người bạn đồng hành giúp những người trẻ hiểu hơn về cuộc sống, học tập và hành trình trưởng thành."
   },
   {
     "id": "bn-002",
@@ -21,9 +22,10 @@
     "originalPrice": 110000,
     "rating": 4.9,
     "reviewsCount": 210,
-    "sold": 2500,
+    "sold": "2.5k",
     "cover": "assets/img/mat-biec.jpg",
-    "description": "Tác phẩm văn học kinh điển về tình yêu thuở học trò và những hoài niệm làng Đo Đo."
+    "badge": "Yêu thích",
+    "description": "Tác phẩm văn học kinh điển xoay quanh mối tình đơn phương thuần khiết của Ngạn dành cho Hà Lan giữa miền quê Đo Đo yên bình."
   },
   {
     "id": "bn-003",
@@ -34,9 +36,10 @@
     "originalPrice": 145000,
     "rating": 5.0,
     "reviewsCount": 350,
-    "sold": 1800,
+    "sold": "1.8k",
     "cover": "assets/img/hieu-ve-trai-tim.jpg",
-    "description": "Hướng dẫn nhận diện và chữa lành những tổn thương cảm xúc, tìm về sự an yên nội tâm."
+    "badge": "Tâm đắc",
+    "description": "Hành trình thấu hiểu bản thân, nhận diện và chuyển hóa những năng lượng tiêu cực để tìm lại sự bình yên trong tâm hồn."
   },
   {
     "id": "bn-004",
@@ -46,9 +49,38 @@
     "price": 81000,
     "originalPrice": 108000,
     "rating": 4.8,
-    "reviewsCount": 98,
-    "sold": 950,
+    "reviewsCount": 180,
+    "sold": "950",
     "cover": "assets/img/cay-cam-ngot.jpg",
-    "description": "Câu chuyện cảm động về cậu bé Zezé giàu trí tưởng tượng và bài học về lòng nhân ái."
+    "badge": "Kinh điển",
+    "description": "Câu chuyện cảm động về cậu bé năm tuổi Zezé với tâm hồn nhạy cảm và bài học sâu sắc về tình thương yêu giữa người với người."
+  },
+  {
+    "id": "bn-005",
+    "title": "Rừng Na Uy",
+    "author": "Haruki Murakami",
+    "category": "Văn Học",
+    "price": 125000,
+    "originalPrice": 155000,
+    "rating": 4.7,
+    "reviewsCount": 95,
+    "sold": "780",
+    "cover": "assets/img/rung-na-uy.jpg",
+    "badge": "Nổi bật",
+    "description": "Bản tình ca đầy ám ảnh về sự cô đơn, mất mát và hành trình tìm kiếm ý nghĩa sự sống của thế hệ trẻ Tokyo những năm 1960."
+  },
+  {
+    "id": "bn-006",
+    "title": "Đắc Nhân Tâm",
+    "author": "Dale Carnegie",
+    "category": "Kinh Tế",
+    "price": 68000,
+    "originalPrice": 85000,
+    "rating": 4.9,
+    "reviewsCount": 420,
+    "sold": "3.1k",
+    "cover": "assets/img/dac-nhan-tam.jpg",
+    "badge": "Bán chạy nhất",
+    "description": "Nghệ thuật thu phục lòng người và xây dựng các mối quan hệ bền vững, thành công trong cả công việc lẫn cuộc sống thường nhật."
   }
 ]
