@@ -6,6 +6,7 @@ import { CartService } from "./services/cartService.js";
 import { initShowroomPage } from "./pages/showroom.js";
 import { initBookDetailPage } from "./pages/bookDetail.js";
 import { initCartPage } from "./pages/cartPage.js";
+import { initCheckoutPage } from "./pages/checkoutPage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
@@ -27,5 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Khởi chạy trang Giỏ hàng
   if (document.getElementById("cart-items-list")) {
     initCartPage();
+  }
+
+  // 4. Khởi chạy trang Checkout
+  if (document.getElementById("checkout-form")) {
+    initCheckoutPage();
   }
 });
