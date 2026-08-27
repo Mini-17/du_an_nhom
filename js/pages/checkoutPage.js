@@ -125,30 +125,6 @@ export function initCheckoutPage() {
       window.location.href = "profile.html";
     }, 1200);
   });
-
-  function handleRadioBorderEffect() {
-  const radioGroups = ['shipping-method', 'payment-method'];
-
-  radioGroups.forEach((groupName) => {
-    const radios = document.querySelectorAll(`input[name="${groupName}"]`);
-
-    function updateGroup() {
-      radios.forEach((radio) => {
-        const label = radio.closest("label");
-        if (!label) return;
-
-        if (radio.checked) {
-          label.classList.add("border-accent-500", "bg-accent-500/5");
-          label.classList.remove("border-line", "dark:border-line-invert-light");
-        } else {
-          label.classList.remove("border-accent-500", "bg-accent-500/5");
-          label.classList.add("border-line", "dark:border-line-invert-light");
-        }
-      });
-    }
-
-    radios.forEach((radio) => radio.addEventListener("change", updateGroup));
-    updateGroup(); // Kích hoạt ngay khi tải trang
-  });
-}
+  
+  handleRadioBorderEffect();
 }
