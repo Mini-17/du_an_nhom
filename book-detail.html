@@ -1,1107 +1,209 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookNest - Thông tin sản phẩm</title>
-
-    <link rel="stylesheet" href="./dist/output.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-   
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail - BookNest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./dist/output.css">
 </head>
+<body class="bg-surface font-body text-ink dark:bg-surface-invert dark:text-ink-invert transition-colors duration-300 antialiased min-h-screen flex flex-col justify-between
+pb-16 md:pb-0">
 
-<body class="bg-surface font-body text-ink">
-
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
-
-    <header class="border-b border-line bg-surface">
-
-        <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
-
-            <!-- Logo -->
-            <a href="#" class="flex shrink-0 items-center gap-3">
-
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 font-display text-xl font-bold text-white">
-                    B
-                </div>
-
-                <div class="hidden flex-col sm:flex">
-
-                    <strong class="font-display text-xl font-bold leading-none text-brand-600">
-                        BookNest
-                    </strong>
-
-                    <span class="mt-1 text-[10px] font-medium tracking-[0.2em] text-muted">
-                        ĐỂ SÁCH CÓI
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <!-- Navigation -->
-            <nav class="hidden items-center gap-6 lg:flex">
-
-                <a
-                    href="#"
-                    class="text-sm font-medium text-ink transition hover:text-accent-600"
-                >
-                    Trang Chủ
-                </a>
-
-                <a
-                    href="#"
-                    class="text-sm font-medium text-ink transition hover:text-accent-600"
-                >
-                    Cửa Hàng
-                </a>
-
-                <a
-                    href="#"
-                    class="text-sm font-medium text-accent-600"
-                >
-                    Thể Loại
-                </a>
-
-                <a
-                    href="#"
-                    class="text-sm font-medium text-ink transition hover:text-accent-600"
-                >
-                    Khuyến Mãi
-                </a>
-
-                <a
-                    href="#"
-                    class="text-sm font-medium text-ink transition hover:text-accent-600"
-                >
-                    Liên Hệ
-                </a>
-
-            </nav>
-
-
-            <!-- Header Actions -->
-            <div class="flex items-center gap-2 sm:gap-3">
-
-                <!-- Search -->
-                <div class="hidden items-center overflow-hidden rounded-full border border-line bg-white md:flex">
-
-                    <input
-                        type="text"
-                        placeholder="Tìm sách, tác giả, thể loại..."
-                        class="w-44 border-0 bg-transparent px-4 py-2 text-sm text-ink outline-none placeholder:text-muted lg:w-56"
-                    >
-
-                    <button
-                        type="button"
-                        class="px-4 py-2 text-muted transition hover:text-accent-600"
-                        aria-label="Tìm kiếm"
-                    >
-                        🔍
-                    </button>
-
-                </div>
-
-
-                <!-- Account -->
-                <button
-                    type="button"
-                    aria-label="Tài khoản"
-                    class="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition hover:border-accent-500 hover:text-accent-600"
-                >
-                    👤
-                </button>
-
-
-                <!-- Cart -->
-                <button
-                    type="button"
-                    aria-label="Giỏ hàng"
-                    class="relative flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition hover:border-accent-500 hover:text-accent-600"
-                >
-                    🛒
-
-                    <span class="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-accent-500 px-1 text-xs font-bold text-white">
-                        2
-                    </span>
-
-                </button>
-
-            </div>
-
+  <!-- ==================== HEADER DÙNG CHUNG ==================== -->
+  <header class="bg-surface/95 dark:bg-surface-invert/95 backdrop-blur-md border-b border-line dark:border-line-invert sticky top-0 z-40 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+    <div class="flex items-center justify-between gap-3">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-600 text-surface flex items-center justify-center font-display font-bold text-lg sm:text-xl shadow-sm">
+          📖
         </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         MAIN
-    ========================================================== -->
-
-    <main>
-
-        <!-- =====================================================
-             BREADCRUMB
-        ====================================================== -->
-
-        <div class="mx-auto max-w-7xl px-4 pt-6 sm:px-6">
-
-            <nav class="flex flex-wrap items-center gap-2 text-sm">
-
-                <a
-                    href="#"
-                    class="font-medium text-accent-600 hover:text-accent-700"
-                >
-                    Sách bán chạy
-                </a>
-
-                <span class="text-muted">
-                    ›
-                </span>
-
-                <span class="text-muted">
-                    Sách phát triển bản thân
-                </span>
-
-                <span class="text-muted">
-                    ›
-                </span>
-
-                <span class="text-ink">
-                    Tuổi Trẻ Đáng Giá Bao Nhiêu
-                </span>
-
-            </nav>
-
+        <div>
+          <span class="font-display text-xl sm:text-2xl font-bold tracking-tight text-ink dark:text-ink-invert block leading-none">BookNest</span>
+          <span class="text-[9px] sm:text-[10px] tracking-widest text-muted dark:text-muted-invert uppercase font-semibold">Tổ Sách Cozy</span>
         </div>
-
-
-        <!-- =====================================================
-             PRODUCT DETAIL
-        ====================================================== -->
-
-        <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:py-12">
-
-            <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
-
-                <!-- Product Image -->
-                <div>
-
-                    <div class="flex min-h-[420px] items-center justify-center rounded-2xl border border-line bg-white p-8 shadow-sm sm:min-h-[520px]">
-
-                        <img
-                            src="images/book-main.jpg"
-                            alt="Tuổi Trẻ Đáng Giá Bao Nhiêu"
-                            class="max-h-[480px] w-auto max-w-full object-contain"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <!-- Product Information -->
-                <div class="flex flex-col">
-
-                    <!-- Category -->
-                    <p class="mb-3 text-sm font-bold uppercase tracking-wider text-accent-600">
-                        Sách bán chạy
-                    </p>
-
-
-                    <!-- Title -->
-                    <h1 class="font-display text-3xl font-bold leading-tight text-brand-600 sm:text-4xl lg:text-5xl">
-                        Tuổi Trẻ Đáng Giá Bao Nhiêu
-                    </h1>
-
-
-                    <!-- Author -->
-                    <p class="mt-4 text-base text-muted">
-
-                        Tác giả:
-
-                        <strong class="font-semibold text-ink">
-                            Rosie Nguyễn
-                        </strong>
-
-                    </p>
-
-
-                    <!-- Rating -->
-                    <div class="mt-5 flex flex-wrap items-center gap-3 border-b border-line pb-5">
-
-                        <div class="text-lg tracking-wide text-accent-500">
-                            ★★★★★
-                        </div>
-
-                        <span class="font-semibold text-ink">
-                            5.0
-                        </span>
-
-                        <span class="text-sm text-muted">
-                            (124 đánh giá)
-                        </span>
-
-                        <span class="hidden h-4 w-px bg-line sm:block"></span>
-
-                        <span class="text-sm text-muted">
-                            Đã bán 1.2k
-                        </span>
-
-                    </div>
-
-
-                    <!-- Price -->
-                    <div class="mt-6 flex flex-wrap items-center gap-4">
-
-                        <span class="text-3xl font-bold text-accent-600">
-                            72.000 đ
-                        </span>
-
-                        <del class="text-base text-muted">
-                            90.000 đ
-                        </del>
-
-                        <span class="rounded-md bg-accent-500 px-2 py-1 text-xs font-bold text-white">
-                            -20%
-                        </span>
-
-                    </div>
-
-
-                    <!-- Description -->
-                    <p class="mt-6 leading-7 text-muted">
-
-                        "Tuổi Trẻ Đáng Giá Bao Nhiêu" không chỉ là một cuốn sách,
-                        mà còn là người bạn đồng hành giúp những người trẻ hiểu hơn
-                        về cuộc sống, học tập và hành trình trưởng thành.
-
-                    </p>
-
-
-                    <!-- Product Meta -->
-                    <div class="mt-6 divide-y divide-line border-y border-line">
-
-                        <div class="flex items-center justify-between py-3">
-
-                            <span class="text-sm text-muted">
-                                Số trang
-                            </span>
-
-                            <strong class="text-sm text-ink">
-                                320 trang
-                            </strong>
-
-                        </div>
-
-                        <div class="flex items-center justify-between py-3">
-
-                            <span class="text-sm text-muted">
-                                Ngôn ngữ
-                            </span>
-
-                            <strong class="text-sm text-ink">
-                                Tiếng Việt
-                            </strong>
-
-                        </div>
-
-                        <div class="flex items-center justify-between py-3">
-
-                            <span class="text-sm text-muted">
-                                Năm xuất bản
-                            </span>
-
-                            <strong class="text-sm text-ink">
-                                2024
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Quantity + Actions -->
-                    <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-
-                        <!-- Quantity -->
-                        <div class="flex h-12 items-center justify-between rounded-lg border border-line sm:w-32">
-
-                            <button
-                                type="button"
-                                class="flex h-full w-10 items-center justify-center text-lg text-muted transition hover:text-accent-600"
-                            >
-                                −
-                            </button>
-
-                            <span class="font-semibold">
-                                1
-                            </span>
-
-                            <button
-                                type="button"
-                                class="flex h-full w-10 items-center justify-center text-lg text-muted transition hover:text-accent-600"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-
-                        <!-- Add Cart -->
-                        <button
-                            type="button"
-                            class="h-12 flex-1 rounded-lg border-2 border-accent-500 px-5 font-semibold text-accent-600 transition hover:bg-accent-500 hover:text-white"
-                        >
-                            🛒 Thêm vào giỏ
-                        </button>
-
-
-                        <!-- Buy Now -->
-                        <button
-                            type="button"
-                            class="h-12 flex-1 rounded-lg bg-accent-500 px-5 font-semibold text-white transition hover:bg-accent-600"
-                        >
-                            Mua ngay
-                        </button>
-
-                    </div>
-
-
-                    <!-- Benefits -->
-                    <div class="mt-6 grid gap-3 rounded-xl bg-brand-600/5 p-5 sm:grid-cols-3">
-
-                        <div class="text-center">
-
-                            <div class="text-xl">
-                                ✓
-                            </div>
-
-                            <p class="mt-1 text-xs font-medium text-ink">
-                                Sách chính hãng
-                            </p>
-
-                        </div>
-
-
-                        <div class="text-center">
-
-                            <div class="text-xl">
-                                🚚
-                            </div>
-
-                            <p class="mt-1 text-xs font-medium text-ink">
-                                Giao hàng nhanh
-                            </p>
-
-                        </div>
-
-
-                        <div class="text-center">
-
-                            <div class="text-xl">
-                                ♻
-                            </div>
-
-                            <p class="mt-1 text-xs font-medium text-ink">
-                                Đóng gói xanh
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             DESCRIPTION + REVIEWS
-        ====================================================== -->
-
-        <section class="mx-auto max-w-7xl px-4 pb-12 sm:px-6">
-
-            <div class="grid gap-8 lg:grid-cols-[1fr_320px]">
-
-
-                <!-- LEFT -->
-                <div>
-
-                    <!-- Tabs -->
-                    <div class="flex gap-6 border-b border-line">
-
-                        <button
-                            type="button"
-                            class="border-b-2 border-accent-500 px-1 pb-4 text-sm font-bold text-accent-600"
-                        >
-                            Mô tả sản phẩm
-                        </button>
-
-                        <button
-                            type="button"
-                            class="px-1 pb-4 text-sm font-medium text-muted transition hover:text-accent-600"
-                        >
-                            Đánh giá khách hàng
-                        </button>
-
-                    </div>
-
-
-                    <!-- Description -->
-                    <div class="py-7">
-
-                        <h2 class="font-display text-2xl font-bold text-brand-600">
-                            Tuổi Trẻ Đáng Giá Bao Nhiêu
-                        </h2>
-
-                        <p class="mt-4 leading-8 text-muted">
-
-                            Tuổi trẻ là khoảng thời gian đẹp nhất trong cuộc đời,
-                            nhưng cũng là khoảng thời gian chúng ta có rất nhiều
-                            câu hỏi về tương lai, công việc và chính bản thân mình.
-
-                        </p>
-
-                        <p class="mt-4 leading-8 text-muted">
-
-                            Cuốn sách mang đến những câu chuyện và trải nghiệm
-                            gần gũi, giúp người trẻ nhìn nhận lại cách mình học tập,
-                            làm việc, trải nghiệm và trưởng thành.
-
-                        </p>
-
-                    </div>
-
-
-                    <!-- Reviews -->
-                    <div class="space-y-5">
-
-                        <!-- Review 1 -->
-                        <article class="rounded-xl border border-line bg-white p-5">
-
-                            <div class="flex items-start justify-between gap-4">
-
-                                <div class="flex items-center gap-3">
-
-                                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 font-bold text-white">
-                                        P
-                                    </div>
-
-                                    <div>
-
-                                        <h3 class="font-semibold text-ink">
-                                            Phạm Anh Tuấn
-                                        </h3>
-
-                                        <span class="text-xs text-muted">
-                                            2 ngày trước
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="text-sm text-accent-500">
-                                    ★★★★★
-                                </div>
-
-                            </div>
-
-                            <p class="mt-4 text-sm leading-6 text-muted">
-
-                                Sách cực kỳ ý nghĩa, chữ nghĩa rõ ràng,
-                                bìa bắt mắt. Câu chuyện hành trình của
-                                những người trẻ trong sách rất đáng đọc.
-
-                            </p>
-
-                        </article>
-
-
-                        <!-- Review 2 -->
-                        <article class="rounded-xl border border-line bg-white p-5">
-
-                            <div class="flex items-start justify-between gap-4">
-
-                                <div class="flex items-center gap-3">
-
-                                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 font-bold text-white">
-                                        L
-                                    </div>
-
-                                    <div>
-
-                                        <h3 class="font-semibold text-ink">
-                                            Lê Thị Hồng Ngát
-                                        </h3>
-
-                                        <span class="text-xs text-muted">
-                                            5 ngày trước
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="text-sm text-accent-500">
-                                    ★★★★★
-                                </div>
-
-                            </div>
-
-                            <p class="mt-4 text-sm leading-6 text-muted">
-
-                                Văn phong gần gũi, những câu chuyện thú vị
-                                và truyền cảm hứng. Cuốn sách rất phù hợp
-                                với người trẻ.
-
-                            </p>
-
-                        </article>
-
-
-                        <!-- Review 3 -->
-                        <article class="rounded-xl border border-line bg-white p-5">
-
-                            <div class="flex items-start justify-between gap-4">
-
-                                <div class="flex items-center gap-3">
-
-                                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 font-bold text-white">
-                                        N
-                                    </div>
-
-                                    <div>
-
-                                        <h3 class="font-semibold text-ink">
-                                            Nguyễn Minh Triết
-                                        </h3>
-
-                                        <span class="text-xs text-muted">
-                                            1 tuần trước
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="text-sm text-accent-500">
-                                    ★★★★☆
-                                </div>
-
-                            </div>
-
-                            <p class="mt-4 text-sm leading-6 text-muted">
-
-                                Rất thích phong cách phục vụ của BookNest,
-                                đóng gói cẩn thận và giao hàng nhanh chóng.
-
-                            </p>
-
-                        </article>
-
-                    </div>
-
-                </div>
-
-
-                <!-- RIGHT SIDEBAR -->
-                <aside>
-
-                    <div class="sticky top-6 rounded-xl border border-line bg-white p-6">
-
-                        <h2 class="font-display text-xl font-bold text-brand-600">
-                            Tại sao chọn BookNest?
-                        </h2>
-
-
-                        <div class="mt-6 space-y-6">
-
-                            <div>
-
-                                <h3 class="font-semibold text-ink">
-                                    Sách chọn lọc chất lượng
-                                </h3>
-
-                                <p class="mt-2 text-sm leading-6 text-muted">
-                                    Chúng tôi cam kết 100% sách chính hãng
-                                    và được kiểm tra trước khi giao.
-                                </p>
-
-                            </div>
-
-
-                            <div>
-
-                                <h3 class="font-semibold text-ink">
-                                    Bảo vệ môi trường
-                                </h3>
-
-                                <p class="mt-2 text-sm leading-6 text-muted">
-                                    Đóng gói thân thiện với môi trường,
-                                    hạn chế tối đa rác thải nhựa.
-                                </p>
-
-                            </div>
-
-
-                            <div>
-
-                                <h3 class="font-semibold text-ink">
-                                    Hỗ trợ khách hàng
-                                </h3>
-
-                                <p class="mt-2 text-sm leading-6 text-muted">
-                                    Đội ngũ BookNest luôn sẵn sàng hỗ trợ
-                                    bạn trong quá trình mua hàng.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </aside>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             RELATED BOOKS
-        ====================================================== -->
-
-        <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-
-            <div class="mb-7 flex items-end justify-between">
-
-                <div>
-
-                    <p class="text-sm font-bold uppercase tracking-wider text-accent-600">
-                        Có thể bạn thích
-                    </p>
-
-                    <h2 class="mt-2 font-display text-3xl font-bold text-brand-600">
-                        Sách liên quan
-                    </h2>
-
-                </div>
-
-                <a
-                    href="#"
-                    class="hidden text-sm font-semibold text-accent-600 hover:text-accent-700 sm:block"
-                >
-                    Xem tất cả →
-                </a>
-
-            </div>
-
-
-            <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-
-                <!-- Book 1 -->
-                <article class="group overflow-hidden rounded-xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-lg">
-
-                    <a href="#" class="block overflow-hidden bg-surface">
-
-                        <img
-                            src="images/book-1.jpg"
-                            alt="Mắt Biếc"
-                            class="h-64 w-full object-contain p-5 transition duration-300 group-hover:scale-105 sm:h-72"
-                        >
-
-                    </a>
-
-                    <div class="p-4">
-
-                        <p class="text-xs font-medium text-muted">
-                            Nguyễn Nhật Ánh
-                        </p>
-
-                        <h3 class="mt-1 font-display text-lg font-bold text-brand-600">
-                            Mắt Biếc
-                        </h3>
-
-                        <div class="mt-2 text-sm text-accent-500">
-                            ★★★★★
-                        </div>
-
-                        <div class="mt-3 flex items-center gap-2">
-
-                            <strong class="text-base text-accent-600">
-                                68.000 đ
-                            </strong>
-
-                            <del class="text-xs text-muted">
-                                70.000 đ
-                            </del>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Book 2 -->
-                <article class="group overflow-hidden rounded-xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-lg">
-
-                    <a href="#" class="block overflow-hidden bg-surface">
-
-                        <img
-                            src="images/book-2.jpg"
-                            alt="Hiểu Về Trái Tim"
-                            class="h-64 w-full object-contain p-5 transition duration-300 group-hover:scale-105 sm:h-72"
-                        >
-
-                    </a>
-
-                    <div class="p-4">
-
-                        <p class="text-xs font-medium text-muted">
-                            Minh Niệm
-                        </p>
-
-                        <h3 class="mt-1 font-display text-lg font-bold text-brand-600">
-                            Hiểu Về Trái Tim
-                        </h3>
-
-                        <div class="mt-2 text-sm text-accent-500">
-                            ★★★★★
-                        </div>
-
-                        <div class="mt-3 flex items-center gap-2">
-
-                            <strong class="text-base text-accent-600">
-                                116.000 đ
-                            </strong>
-
-                            <del class="text-xs text-muted">
-                                145.000 đ
-                            </del>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Book 3 -->
-                <article class="group overflow-hidden rounded-xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-lg">
-
-                    <a href="#" class="block overflow-hidden bg-surface">
-
-                        <img
-                            src="images/book-3.jpg"
-                            alt="Cây Cam Ngọt Của Tôi"
-                            class="h-64 w-full object-contain p-5 transition duration-300 group-hover:scale-105 sm:h-72"
-                        >
-
-                    </a>
-
-                    <div class="p-4">
-
-                        <p class="text-xs font-medium text-muted">
-                            José Mauro de Vasconcelos
-                        </p>
-
-                        <h3 class="mt-1 font-display text-lg font-bold text-brand-600">
-                            Cây Cam Ngọt Của Tôi
-                        </h3>
-
-                        <div class="mt-2 text-sm text-accent-500">
-                            ★★★★★
-                        </div>
-
-                        <div class="mt-3 flex items-center gap-2">
-
-                            <strong class="text-base text-accent-600">
-                                81.000 đ
-                            </strong>
-
-                            <del class="text-xs text-muted">
-                                100.000 đ
-                            </del>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Book 4 -->
-                <article class="group overflow-hidden rounded-xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-lg">
-
-                    <a href="#" class="block overflow-hidden bg-surface">
-
-                        <img
-                            src="images/book-4.jpg"
-                            alt="Gió Lạnh Đầu Mùa"
-                            class="h-64 w-full object-contain p-5 transition duration-300 group-hover:scale-105 sm:h-72"
-                        >
-
-                    </a>
-
-                    <div class="p-4">
-
-                        <p class="text-xs font-medium text-muted">
-                            Nguyễn Nhật Ánh
-                        </p>
-
-                        <h3 class="mt-1 font-display text-lg font-bold text-brand-600">
-                            Gió Lạnh Đầu Mùa
-                        </h3>
-
-                        <div class="mt-2 text-sm text-accent-500">
-                            ★★★★★
-                        </div>
-
-                        <div class="mt-3 flex items-center gap-2">
-
-                            <strong class="text-base text-accent-600">
-                                76.000 đ
-                            </strong>
-
-                            <del class="text-xs text-muted">
-                                95.000 đ
-                            </del>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer class="border-t border-line bg-brand-600 text-white">
-
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
-
-            <!-- Brand -->
-            <div>
-
-                <a href="#" class="flex items-center gap-3">
-
-                    <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-500 font-display text-xl font-bold text-white">
-                        B
-                    </div>
-
-                    <div>
-
-                        <strong class="font-display text-xl font-bold">
-                            BookNest
-                        </strong>
-
-                        <span class="block text-[10px] tracking-[0.2em] text-white/60">
-                            ĐỂ SÁCH CÓI
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-                <p class="mt-5 max-w-sm text-sm leading-6 text-white/70">
-
-                    Không gian văn hóa đọc dành riêng cho
-                    những người yêu sách, nơi mỗi cuốn sách
-                    mở ra một thế giới mới.
-
-                </p>
-
-
-                <div class="mt-5 flex gap-3">
-
-                    <a
-                        href="#"
-                        class="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition hover:bg-accent-500"
-                    >
-                        f
-                    </a>
-
-                    <a
-                        href="#"
-                        class="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition hover:bg-accent-500"
-                    >
-                        𝕏
-                    </a>
-
-                    <a
-                        href="#"
-                        class="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition hover:bg-accent-500"
-                    >
-                        ◎
-                    </a>
-
-                    <a
-                        href="#"
-                        class="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition hover:bg-accent-500"
-                    >
-                        ▶
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Quick Links -->
-            <div>
-
-                <h3 class="font-display text-lg font-bold">
-                    Liên Kết Nhanh
-                </h3>
-
-                <div class="mt-5 flex flex-col gap-3 text-sm text-white/70">
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Giới thiệu
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Tất cả sản phẩm
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Sách mới nhất
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Khuyến mãi
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Tin tức về sách
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Customer Support -->
-            <div>
-
-                <h3 class="font-display text-lg font-bold">
-                    Hỗ Trợ Khách Hàng
-                </h3>
-
-                <div class="mt-5 flex flex-col gap-3 text-sm text-white/70">
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Chính sách đổi trả
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Chính sách vận chuyển
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Phương thức thanh toán
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Hướng dẫn mua hàng
-                    </a>
-
-                    <a href="#" class="transition hover:text-accent-400">
-                        Câu hỏi thường gặp
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Contact -->
-            <div>
-
-                <h3 class="font-display text-lg font-bold">
-                    Thông Tin Liên Hệ
-                </h3>
-
-                <div class="mt-5 space-y-3 text-sm leading-6 text-white/70">
-
-                    <p>
-                        📍 223 Nguyễn Thị Minh Khai, Hồ Chí Minh
-                    </p>
-
-                    <p>
-                        📞 0775544049
-                    </p>
-
-                    <p>
-                        ✉ hello@booknest.com
-                    </p>
-
-                </div>
-
-            </div>
-
+      </a>
+
+      <!-- Menu Desktop (Ẩn trên Mobile) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="index.html" class="text-brand-600 dark:text-accent-400 font-bold border-b-2 border-accent-500 pb-1">Trang Chủ</a>
+        <a href="showroom.html" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Cửa Hàng</a>
+        <a href="#" class="text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Liên Hệ</a>
+      </nav>
+
+      <!-- Thanh tìm kiếm (Hiện trên cả Mobile lẫn Desktop) -->
+      <div class="flex-1 max-w-xs sm:max-w-sm md:w-64 md:flex-initial relative">
+        <input
+          type="search"
+          placeholder="Tìm sách, tác giả..."
+          class="w-full bg-line/40 dark:bg-line-invert border border-transparent focus:border-accent-500 rounded-full py-2 pl-8 sm:pl-9 pr-3 text-xs outline-none text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+        />
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted dark:text-muted-invert absolute left-3 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+
+      <!-- Icon Desktop (Ẩn trên Mobile vì đã đưa xuống Bottom Bar) -->
+      <div class="hidden md:flex items-center gap-3">
+        <button data-theme-toggle class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink transition" aria-label="Toggle Theme">
+          <span class="dark:hidden text-lg">☀️</span>
+          <span class="hidden dark:inline text-lg">🌙</span>
+        </button>
+        <a href="profile.html" class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink transition">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+        </a>
+        <a href="cart.html" class="p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink relative transition">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+          <span data-cart-count class="absolute top-0 right-0 bg-accent-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<!-- ==================== 2. THANH ĐIỀU HƯỚNG DƯỚI ĐÁY CHO MOBILE (FIXED BOTTOM BAR) ==================== -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/95 dark:bg-surface-invert/95 backdrop-blur-lg border-t border-line dark:border-line-invert px-2 py-1.5 shadow-lg">
+  <div class="grid grid-cols-5 items-center text-center">
+    
+    <!-- 1. Trang chủ -->
+    <a href="index.html" class="flex flex-col items-center py-1 text-accent-600 dark:text-accent-400 font-bold">
+      <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span class="text-[10px]">Trang Chủ</span>
+    </a>
+
+    <!-- 2. Cửa Hàng -->
+    <a href="showroom.html" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+      <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+      <span class="text-[10px]">Cửa Hàng</span>
+    </a>
+
+    <!-- 3. Giỏ hàng (Nổi bật ở giữa) -->
+    <a href="cart.html" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert relative transition">
+      <div class="relative">
+        <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span class="absolute -top-1.5 -right-2 bg-accent-500 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">4</span>
+      </div>
+      <span class="text-[10px]">Giỏ Hàng</span>
+    </a>
+
+    <!-- 4. Tài khoản -->
+    <a href="profile.html" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+      <svg class="w-5 h-5 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+      <span class="text-[10px]">Cá Nhân</span>
+    </a>
+
+    <!-- 5. Nút Đổi Dark / Light mode -->
+    <button data-theme-toggle type="button" class="flex flex-col items-center py-1 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+      <span class="dark:hidden text-base leading-none mb-1">☀️</span>
+      <span class="hidden dark:inline text-base leading-none mb-1">🌙</span>
+      <span class="text-[10px]">Chế Độ</span>
+    </button>
+
+  </div>
+</nav>
+
+  <!-- ==================== MAIN ==================== -->
+  <main class="w-full">
+    <!-- Breadcrumb -->
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 pt-6">
+      <nav id="detail-breadcrumb" class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs">
+        <a href="showroom.html" class="font-bold text-accent-600 dark:text-accent-400">Cửa Hàng</a>
+        <span class="text-muted dark:text-muted-invert">›</span>
+        <span id="breadcrumb-category" class="text-muted dark:text-muted-invert">Thể Loại</span>
+        <span class="text-muted dark:text-muted-invert">›</span>
+        <span id="breadcrumb-title" class="text-ink dark:text-ink-invert font-semibold truncate max-w-50 sm:max-w-none">Chi Tiết Sách</span>
+      </nav>
+    </div>
+
+    <!-- Product Details Section -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8 lg:py-12">
+      <!-- Vùng chứa DocumentFragment (Không chứa class grid ở đây để tránh bị lồng đôi) -->
+      <div id="book-detail-container" class="w-full"></div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER DÙNG CHUNG ==================== -->
+  <footer class="bg-brand-600 text-surface/90 dark:bg-surface-invert dark:text-ink-invert pt-16 pb-8 border-t border-brand-600/20 dark:border-line-invert">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-surface/10 dark:border-line-invert text-xs">
+      <div class="space-y-4 md:col-span-1">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">📖</span>
+          <span class="font-display text-xl font-bold text-surface dark:text-ink-invert tracking-wide">BookNest</span>
         </div>
-
-
-        <!-- Footer Bottom -->
-        <div class="border-t border-white/10">
-
-            <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-xs text-white/60 sm:px-6 md:flex-row md:items-center md:justify-between">
-
-                <p>
-                    Bản quyền © 2026 BookNest.
-                    Thiết kế bởi đội ngũ BookNest.
-                </p>
-
-                <div class="flex gap-5">
-
-                    <a href="#" class="hover:text-white">
-                        Điều khoản sử dụng
-                    </a>
-
-                    <a href="#" class="hover:text-white">
-                        Bảo mật thông tin
-                    </a>
-
-                </div>
-
-            </div>
-
+        <p class="text-surface/70 dark:text-muted-invert leading-relaxed">
+          Không gian văn học ấm cúng với những tựa sách chọn lọc tỉ mỉ, đưa bạn khám phá những chân trời mới qua từng trang giấy mộc mạc thơm mùi gỗ ấm.
+        </p>
+        <div class="flex gap-3 pt-2">
+          <a href="#" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-accent-500 text-surface flex items-center justify-center transition">f</a>
+          <a href="#" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-accent-500 text-surface flex items-center justify-center transition">📷</a>
+          <a href="#" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-accent-500 text-surface flex items-center justify-center transition">▶</a>
         </div>
+      </div>
 
-    </footer>
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-surface dark:text-ink-invert text-sm">Liên Kết Nhanh</h4>
+        <ul class="space-y-2 text-surface/70 dark:text-muted-invert">
+          <li><a href="index.html" class="hover:text-surface dark:hover:text-ink-invert transition">Trang chủ</a></li>
+          <li><a href="showroom.html" class="hover:text-surface dark:hover:text-ink-invert transition">Tất cả sản phẩm</a></li>
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Sách mới phát hành</a></li>
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Khuyến mãi hot</a></li>
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Tin tức văn học</a></li>
+        </ul>
+      </div>
 
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-surface dark:text-ink-invert text-sm">Hỗ TrỢ Khách Hàng</h4>
+        <ul class="space-y-2 text-surface/70 dark:text-muted-invert">
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Chính sách đổi trả</a></li>
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Chính sách vận chuyển</a></li>
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Phương thức thanh toán</a></li>
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Hướng dẫn mua hàng</a></li>
+          <li><a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Câu hỏi thường gặp</a></li>
+        </ul>
+      </div>
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-surface dark:text-ink-invert text-sm">Thông Tin Liên Hệ</h4>
+        <ul class="space-y-2.5 text-surface/70 dark:text-muted-invert">
+          <li class="flex items-start gap-2">
+            <span>📍</span>
+            <span>223 Nguyễn Thị Minh Khai, Q.10, TP.HCM</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span>📞</span>
+            <span>077 554 4049 (8:00 - 21:00)</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span>✉️</span>
+            <span>lienhe@booknest.vn</span>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-    <script src="js/main.js"></script>
+    <div class="max-w-7xl mx-auto px-6 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-surface/60 dark:text-muted-invert">
+      <p>Bản quyền © 2026 BookNest. Thiết kế bởi sự tao nhã và ấm cúng của tình yêu văn học.</p>
+      <div class="flex gap-4 mt-2 sm:mt-0">
+        <a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Điều khoản sử dụng</a>
+        <a href="#" class="hover:text-surface dark:hover:text-ink-invert transition">Bảo mật thông tin</a>
+      </div>
+    </div>
+  </footer>
 
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
