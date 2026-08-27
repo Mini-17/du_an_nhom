@@ -151,7 +151,7 @@
 
     <!-- 3. MAIN FORM 2 CỘT -->
     <main class="max-w-7xl mx-auto px-6 py-12 w-full">
-      <form class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <form id="checkout-form" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- CỘT TRÁI (CHIẾM 7/12) -->
         <div class="lg:col-span-7 space-y-8">
@@ -164,7 +164,7 @@
                 <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Họ và tên người nhận</label>
                 <input
                   type="text"
-                  value="Nguyễn Văn A"
+                  id="checkout-fullname"
                   class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert"
                   required
                 />
@@ -175,7 +175,7 @@
                   <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Số điện thoại</label>
                   <input
                     type="tel"
-                    value="0901234567"
+                    id="checkout-phone"
                     class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert"
                     required
                   />
@@ -184,7 +184,7 @@
                   <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Địa chỉ email</label>
                   <input
                     type="email"
-                    value="nguyenvana@gmail.com"
+                    id="checkout-email"
                     class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert"
                     required
                   />
@@ -195,6 +195,7 @@
                 <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Địa chỉ nhận hàng</label>
                 <input
                   type="text"
+                  id="checkout-address"
                   value="128 Nguyễn Thị Minh Khai, Phường Võ Thị Sáu, Quận 3, TP. Hồ Chí Minh"
                   class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert"
                   required
@@ -205,6 +206,7 @@
                 <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Ghi chú thêm (Tùy chọn)</label>
                 <input
                   type="text"
+                  id="checkout-note"
                   placeholder="Ví dụ: Giao giờ hành chính, gọi điện trước khi đến..."
                   class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
                 />
@@ -216,11 +218,9 @@
           <section class="bg-surface dark:bg-line-invert p-7 rounded-card border border-line dark:border-line-invert-light shadow-sm">
             <h2 class="font-display text-2xl font-bold text-ink dark:text-ink-invert mb-6">Phương Thức Giao Hàng</h2>
             <div class="space-y-3">
-              
-              <!-- Standard -->
               <label class="flex items-center justify-between p-4 rounded-xl border-2 border-accent-500 bg-accent-500/5 cursor-pointer transition">
                 <div class="flex items-center gap-3.5">
-                  <input type="radio" name="shipping" checked class="accent-accent-500 w-4 h-4" />
+                  <input type="radio" name="shipping-method" value="standard" checked class="accent-accent-500 w-4 h-4" />
                   <div>
                     <span class="block text-sm font-bold text-ink dark:text-ink-invert">Giao hàng Tiêu Chuẩn</span>
                     <span class="text-xs text-muted dark:text-muted-invert">Nhận sách sau 2-3 ngày làm việc</span>
@@ -229,10 +229,9 @@
                 <span class="text-sm font-bold text-accent-600 dark:text-accent-400">30.000 đ</span>
               </label>
 
-              <!-- Express -->
               <label class="flex items-center justify-between p-4 rounded-xl border border-line dark:border-line-invert-light hover:border-accent-500/60 cursor-pointer transition">
                 <div class="flex items-center gap-3.5">
-                  <input type="radio" name="shipping" class="accent-accent-500 w-4 h-4" />
+                  <input type="radio" name="shipping-method" value="express" class="accent-accent-500 w-4 h-4" />
                   <div>
                     <span class="block text-sm font-bold text-ink dark:text-ink-invert">Giao hàng Hỏa Tốc (Chỉ tại TP.HCM)</span>
                     <span class="text-xs text-muted dark:text-muted-invert">Nhận sách ngay trong 2-4 giờ</span>
@@ -247,47 +246,32 @@
           <section class="bg-surface dark:bg-line-invert p-7 rounded-card border border-line dark:border-line-invert-light shadow-sm">
             <h2 class="font-display text-2xl font-bold text-ink dark:text-ink-invert mb-6">Phương Thức Thanh Toán</h2>
             <div class="space-y-3">
-              
-              <!-- COD -->
               <label class="flex items-center justify-between p-4 rounded-xl border-2 border-accent-500 bg-accent-500/5 cursor-pointer transition">
                 <div class="flex items-center gap-3.5">
-                  <input type="radio" name="payment" checked class="accent-accent-500 w-4 h-4" />
+                  <input type="radio" name="payment-method" value="COD" checked class="accent-accent-500 w-4 h-4" />
                   <div>
                     <span class="block text-sm font-bold text-ink dark:text-ink-invert">Thanh toán khi nhận hàng (COD)</span>
-                    <span class="text-xs text-muted dark:text-muted-invert">Bạn sẽ thanh toán bằng tiền mặt cho shipper khi nhận được sách</span>
+                    <span class="text-xs text-muted dark:text-muted-invert">Thanh toán bằng tiền mặt cho shipper</span>
                   </div>
                 </div>
               </label>
 
-              <!-- ATM / Thẻ nội địa -->
               <label class="flex items-center justify-between p-4 rounded-xl border border-line dark:border-line-invert-light hover:border-accent-500/60 cursor-pointer transition">
                 <div class="flex items-center gap-3.5">
-                  <input type="radio" name="payment" class="accent-accent-500 w-4 h-4" />
+                  <input type="radio" name="payment-method" value="OnePay" class="accent-accent-500 w-4 h-4" />
                   <div>
                     <span class="block text-sm font-bold text-ink dark:text-ink-invert">Thẻ ATM / Thẻ tín dụng nội địa</span>
-                    <span class="text-xs text-muted dark:text-muted-invert">Thanh toán trực tuyến bảo mật qua cổng OnePay</span>
+                    <span class="text-xs text-muted dark:text-muted-invert">Thanh toán trực tuyến bảo mật qua OnePay</span>
                   </div>
                 </div>
               </label>
 
-              <!-- MoMo -->
               <label class="flex items-center justify-between p-4 rounded-xl border border-line dark:border-line-invert-light hover:border-accent-500/60 cursor-pointer transition">
                 <div class="flex items-center gap-3.5">
-                  <input type="radio" name="payment" class="accent-accent-500 w-4 h-4" />
+                  <input type="radio" name="payment-method" value="MoMo" class="accent-accent-500 w-4 h-4" />
                   <div>
                     <span class="block text-sm font-bold text-ink dark:text-ink-invert">Ví điện tử MoMo</span>
-                    <span class="text-xs text-muted dark:text-muted-invert">Quét mã QR thanh toán tức thì siêu tiện lợi</span>
-                  </div>
-                </div>
-              </label>
-
-              <!-- ZaloPay -->
-              <label class="flex items-center justify-between p-4 rounded-xl border border-line dark:border-line-invert-light hover:border-accent-500/60 cursor-pointer transition">
-                <div class="flex items-center gap-3.5">
-                  <input type="radio" name="payment" class="accent-accent-500 w-4 h-4" />
-                  <div>
-                    <span class="block text-sm font-bold text-ink dark:text-ink-invert">Ví điện tử ZaloPay</span>
-                    <span class="text-xs text-muted dark:text-muted-invert">Ưu đãi giảm thêm tới 10.000đ khi liên kết ví</span>
+                    <span class="text-xs text-muted dark:text-muted-invert">Quét mã QR thanh toán tức thì</span>
                   </div>
                 </div>
               </label>
@@ -301,75 +285,31 @@
           <div class="bg-surface dark:bg-line-invert p-7 rounded-card border border-line dark:border-line-invert-light shadow-sm">
             <h2 class="font-display text-2xl font-bold text-ink dark:text-ink-invert mb-6">Tóm Tắt Đơn Hàng</h2>
 
-            <!-- Danh sách sản phẩm tóm tắt -->
-            <div class="space-y-4 pb-6 border-b border-line dark:border-line-invert-light">
-              
-              <!-- Sản phẩm 1 -->
-              <div class="flex items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                  <div class="w-12 h-16 rounded bg-line/60 dark:bg-surface-invert shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert">
-                    Bìa 1
-                  </div>
-                  <div>
-                    <h3 class="text-sm font-bold text-ink dark:text-ink-invert">Mắt Biếc</h3>
-                    <p class="text-xs text-muted dark:text-muted-invert">Số lượng: 1</p>
-                  </div>
-                </div>
-                <span class="text-sm font-bold text-ink dark:text-ink-invert">88.000 đ</span>
-              </div>
-
-              <!-- Sản phẩm 2 -->
-              <div class="flex items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                  <div class="w-12 h-16 rounded bg-line/60 dark:bg-surface-invert shrink-0 flex items-center justify-center font-bold text-xs text-muted dark:text-muted-invert">
-                    Bìa 2
-                  </div>
-                  <div>
-                    <h3 class="text-sm font-bold text-ink dark:text-ink-invert">Cây Cam Ngọt Của Tôi</h3>
-                    <p class="text-xs text-muted dark:text-muted-invert">Số lượng: 2</p>
-                  </div>
-                </div>
-                <span class="text-sm font-bold text-ink dark:text-ink-invert">81.000 đ</span>
-              </div>
-            </div>
-
-            <!-- Mã giảm giá -->
-            <div class="flex gap-2 my-6">
-              <input
-                type="text"
-                placeholder="Nhập mã giảm giá..."
-                class="flex-1 px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent text-xs outline-none focus:border-accent-500 text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
-              />
-              <button type="button" class="px-5 py-2.5 rounded-lg bg-brand-600 hover:opacity-90 text-surface text-xs font-bold transition">
-                Áp Dụng
-              </button>
-            </div>
+            <!-- Danh sách sản phẩm render tự động -->
+            <div id="checkout-items-list" class="space-y-4 pb-6 border-b border-line dark:border-line-invert-light"></div>
 
             <!-- Tính tiền chi tiết -->
-            <div class="space-y-2.5 text-xs pb-6 border-b border-line dark:border-line-invert-light">
+            <div class="space-y-2.5 text-xs py-6 border-b border-line dark:border-line-invert-light">
               <div class="flex justify-between">
-                <span class="text-muted dark:text-muted-invert">Tạm tính (3 sản phẩm)</span>
-                <span class="font-bold text-ink dark:text-ink-invert">250.000 đ</span>
+                <span id="checkout-subtotal-label" class="text-muted dark:text-muted-invert">Tạm tính (0 sản phẩm)</span>
+                <span id="checkout-subtotal" class="font-bold text-ink dark:text-ink-invert">0 đ</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-muted dark:text-muted-invert">Phí vận chuyển (Tiêu chuẩn)</span>
-                <span class="font-bold text-ink dark:text-ink-invert">30.000 đ</span>
-              </div>
-              <div class="flex justify-between text-red-500 dark:text-red-400 font-semibold">
-                <span>Mã giảm giá (BOOKNEST2026)</span>
-                <span>- 20.000 đ</span>
+                <span class="text-muted dark:text-muted-invert">Phí vận chuyển</span>
+                <span id="checkout-shipping" class="font-bold text-ink dark:text-ink-invert">30.000 đ</span>
               </div>
             </div>
 
             <!-- Tổng cộng -->
             <div class="flex items-baseline justify-between py-6">
               <span class="font-bold text-base text-ink dark:text-ink-invert">Tổng cộng</span>
-              <span class="font-display text-3xl font-bold text-accent-600 dark:text-accent-400">260.000 đ</span>
+              <span id="checkout-total" class="font-display text-3xl font-bold text-accent-600 dark:text-accent-400">0 đ</span>
             </div>
 
             <!-- Nút bấm đặt hàng -->
             <button
               type="submit"
+              id="btn-submit-order"
               class="w-full py-4 rounded-card bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white font-bold text-base transition shadow-md"
             >
               Đặt Hàng Ngay
