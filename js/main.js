@@ -8,6 +8,7 @@ import { initBookDetailPage } from "./pages/bookDetail.js";
 import { initCartPage } from "./pages/cartPage.js";
 import { initCheckoutPage } from "./pages/checkoutPage.js";
 import { initProfilePage } from "./pages/profilePage.js";
+import { initHomePage } from "./pages/homePage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
