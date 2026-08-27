@@ -23,4 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("book-detail-container")) {
     initBookDetailPage();
   }
+
+  // 3. Khởi chạy trang Giỏ hàng
+  if (document.getElementById("cart-items-list")) {
+    initCartPage();
+  }
 });
