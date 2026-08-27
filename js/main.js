@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   CartService.updateBadge();
 
+   // Khởi chạy Trang Chủ
+  if (document.getElementById("suggested-books") || document.getElementById("bestseller-list")) {
+    initHomePage();
+  }
+
   // Khởi chạy trang Showroom nếu có
   if (document.getElementById("books-grid")) {
     initShowroomPage();
