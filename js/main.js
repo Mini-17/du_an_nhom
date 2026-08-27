@@ -5,6 +5,7 @@ import { initScrollReveal } from "./modules/scrollReveal.js";
 import { CartService } from "./services/cartService.js";
 import { initShowroomPage } from "./pages/showroom.js";
 import { initBookDetailPage } from "./pages/bookDetail.js";
+import { initCartPage } from "./pages/cartPage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
