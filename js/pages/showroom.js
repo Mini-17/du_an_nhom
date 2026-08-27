@@ -7,8 +7,13 @@ export async function initShowroomPage() {
 
   const countDisplay = document.getElementById("books-count");
   const sortSelect = document.getElementById("sort-select");
+  const paginationContainer = document.getElementById("pagination-container");
 
-  // Biến lưu trạng thái lọc hiện tại
+  // Cấu hình số lượng hiển thị trên 1 trang
+  const ITEMS_PER_PAGE = 6;
+  let currentPage = 1;
+
+  // Biến lưu trạng thái lọc
   let selectedCategory = null;
   let selectedAuthor = null;
 
@@ -16,12 +21,13 @@ export async function initShowroomPage() {
   let allBooks = await BookService.getAllBooks();
 
   // 2. Render ban đầu
-  renderBooks(allBooks);
+  applyFiltersAndSort();
   renderFilters(allBooks);
   initMobileFilterToggle();
 
-  // 3. Xử lý sắp xếp giá
+  // 3. Sắp xếp giá
   sortSelect?.addEventListener("change", () => {
+    currentPage = 1; // Reset về trang 1 khi đổi sắp xếp
     applyFiltersAndSort();
   });
 
@@ -37,7 +43,7 @@ export async function initShowroomPage() {
     }
   });
 
-  // Hàm Lọc kết hợp Sắp xếp
+  // Hàm Lọc kết hợp Sắp xếp và Cắt trang (Pagination)
   function applyFiltersAndSort() {
     let result = [...allBooks];
 
@@ -55,17 +61,30 @@ export async function initShowroomPage() {
       result.sort((a, b) => b.price - a.price);
     }
 
-    renderBooks(result);
+    // Tính toán phân trang
+    const totalItems = result.length;
+    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE) || 1;
+
+    if (currentPage > totalPages) {
+      currentPage = 1;
+    }
+
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const paginatedBooks = result.slice(startIndex, endIndex);
+
+    renderBooks(paginatedBooks, totalItems);
+    renderPagination(totalPages);
   }
 
   // Hàm Render thẻ Card Sách
-  function renderBooks(books) {
-    if (countDisplay) countDisplay.textContent = books.length;
+  function renderBooks(books, totalItems) {
+    if (countDisplay) countDisplay.textContent = totalItems;
 
     if (books.length === 0) {
       booksGrid.innerHTML = `
         <div class="col-span-full py-12 text-center text-muted dark:text-muted-invert text-sm">
-          Không tìm thấy cuốn sách nào phù hợp.
+          Không tìm thấy cuốn sách nào phù hợp với bộ lọc hiện tại.
         </div>
       `;
       return;
@@ -84,7 +103,6 @@ export async function initShowroomPage() {
             />
           </a>
 
-         <!-- Thông tin Sách -->
           <div class="p-4 flex flex-col gap-1.5 flex-1 justify-between">
             <div>
               <p class="text-[11px] text-muted dark:text-muted-invert">${book.author}</p>
@@ -112,12 +130,53 @@ export async function initShowroomPage() {
       .join("");
   }
 
-  // Hàm Render Bộ Lọc với cơ chế Click để chọn / Click lần nữa để Bỏ Chọn
+  // Hàm Render Thanh Phân Trang
+  function renderPagination(totalPages) {
+    if (!paginationContainer) return;
+
+    if (totalPages <= 1) {
+      paginationContainer.innerHTML = "";
+      return;
+    }
+
+    let buttonsHtml = "";
+    for (let i = 1; i <= totalPages; i++) {
+      const isActive = i === currentPage;
+      buttonsHtml += `
+        <button 
+          type="button" 
+          data-page="${i}" 
+          class="flex h-9 w-9 items-center justify-center rounded-lg text-sm font-semibold transition ${
+            isActive
+              ? "bg-brand-600 text-surface shadow-sm cursor-default"
+              : "border border-line dark:border-line-invert-light text-ink dark:text-ink-invert hover:border-accent-500 hover:text-accent-600"
+          }">
+          ${i}
+        </button>
+      `;
+    }
+
+    paginationContainer.innerHTML = buttonsHtml;
+
+    // Gắn sự kiện chuyển trang
+    paginationContainer.querySelectorAll("[data-page]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const targetPage = Number(e.target.dataset.page);
+        if (targetPage !== currentPage) {
+          currentPage = targetPage;
+          applyFiltersAndSort();
+          // Cuộn mượt lên đầu danh sách sách
+          booksGrid.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  }
+
+  // Hàm Render Bộ Lọc
   function renderFilters(books) {
     const categoryList = document.getElementById("category-filter-list");
     const authorList = document.getElementById("author-filter-list");
 
-    // 1. Danh sách 6 thể loại chuẩn theo Danh mục nổi bật ở trang chủ
     const predefinedCategories = [
       "Văn Học",
       "Kinh Tế",
@@ -127,7 +186,6 @@ export async function initShowroomPage() {
       "Lịch Sử"
     ];
 
-    // Render Thể Loại
     if (categoryList) {
       categoryList.innerHTML = predefinedCategories
         .map(
@@ -142,10 +200,10 @@ export async function initShowroomPage() {
         )
         .join("");
 
-      // Xử lý cơ chế Single Checkbox (chọn 1 mục, bấm lại chính nó thì bỏ chọn)
       const catInputs = categoryList.querySelectorAll(".cat-checkbox");
       catInputs.forEach((input) => {
         input.addEventListener("click", (e) => {
+          currentPage = 1; // Reset về trang 1 khi lọc
           if (selectedCategory === e.target.value) {
             e.target.checked = false;
             selectedCategory = null;
@@ -159,7 +217,6 @@ export async function initShowroomPage() {
       });
     }
 
-    // Render Tác Giả
     if (authorList) {
       const authors = [...new Set(books.map((b) => b.author))];
       authorList.innerHTML = authors
@@ -178,6 +235,7 @@ export async function initShowroomPage() {
       const authorInputs = authorList.querySelectorAll(".author-checkbox");
       authorInputs.forEach((input) => {
         input.addEventListener("click", (e) => {
+          currentPage = 1; // Reset về trang 1 khi lọc
           if (selectedAuthor === e.target.value) {
             e.target.checked = false;
             selectedAuthor = null;
