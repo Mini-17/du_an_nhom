@@ -8,25 +8,24 @@ export async function initShowroomPage() {
   const countDisplay = document.getElementById("books-count");
   const sortSelect = document.getElementById("sort-select");
 
-  // 1. Tải toàn bộ sách từ Service
+  // Biến lưu trạng thái lọc hiện tại
+  let selectedCategory = null;
+  let selectedAuthor = null;
+
+  // 1. Tải toàn bộ sách
   let allBooks = await BookService.getAllBooks();
 
-  // 2. Render danh sách ban đầu
+  // 2. Render ban đầu
   renderBooks(allBooks);
   renderFilters(allBooks);
+  initMobileFilterToggle();
 
   // 3. Xử lý sắp xếp giá
-  sortSelect?.addEventListener("change", (e) => {
-    let sortedBooks = [...allBooks];
-    if (e.target.value === "price-asc") {
-      sortedBooks.sort((a, b) => a.price - b.price);
-    } else if (e.target.value === "price-desc") {
-      sortedBooks.sort((a, b) => b.price - a.price);
-    }
-    renderBooks(sortedBooks);
+  sortSelect?.addEventListener("change", () => {
+    applyFiltersAndSort();
   });
 
-  // 4. Bắt sự kiện Thêm vào giỏ hàng trực tiếp từ Card
+  // 4. Bắt sự kiện Thêm vào giỏ
   booksGrid.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-add-book-id]");
     if (btn) {
@@ -37,6 +36,27 @@ export async function initShowroomPage() {
       }
     }
   });
+
+  // Hàm Lọc kết hợp Sắp xếp
+  function applyFiltersAndSort() {
+    let result = [...allBooks];
+
+    if (selectedCategory) {
+      result = result.filter((b) => b.category === selectedCategory);
+    }
+    if (selectedAuthor) {
+      result = result.filter((b) => b.author === selectedAuthor);
+    }
+
+    const sortValue = sortSelect?.value;
+    if (sortValue === "price-asc") {
+      result.sort((a, b) => a.price - b.price);
+    } else if (sortValue === "price-desc") {
+      result.sort((a, b) => b.price - a.price);
+    }
+
+    renderBooks(result);
+  }
 
   // Hàm Render thẻ Card Sách
   function renderBooks(books) {
@@ -55,7 +75,6 @@ export async function initShowroomPage() {
       .map(
         (book) => `
         <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition flex flex-col justify-between group">
-          <!-- Bìa Sách -->
           <a href="book-detail.html?id=${book.id}" class="aspect-3/4 bg-line/20 dark:bg-surface-invert overflow-hidden flex items-center justify-center relative p-3">
             <img 
               src="${book.cover}" 
@@ -65,7 +84,7 @@ export async function initShowroomPage() {
             />
           </a>
 
-          <!-- Thông tin Sách -->
+         <!-- Thông tin Sách -->
           <div class="p-4 flex flex-col gap-1.5 flex-1 justify-between">
             <div>
               <p class="text-[11px] text-muted dark:text-muted-invert">${book.author}</p>
@@ -93,7 +112,7 @@ export async function initShowroomPage() {
       .join("");
   }
 
-  // Hàm Render danh mục lọc tự động
+  // Hàm Render Bộ Lọc với cơ chế Click để chọn / Click lần nữa để Bỏ Chọn
   function renderFilters(books) {
     const categoryList = document.getElementById("category-filter-list");
     const authorList = document.getElementById("author-filter-list");
@@ -108,57 +127,83 @@ export async function initShowroomPage() {
       "Lịch Sử"
     ];
 
+    // Render Thể Loại
     if (categoryList) {
-      categoryList.innerHTML = `
-        <li class="flex items-center justify-between">
-          <label class="flex items-center gap-2.5 cursor-pointer">
-            <input type="radio" name="filter-cat" value="all" checked class="h-4 w-4 rounded accent-accent-500" /> Tất Cả Thể Loại
-          </label>
-        </li>
-      ` + predefinedCategories
+      categoryList.innerHTML = predefinedCategories
         .map(
           (cat) => `
           <li class="flex items-center justify-between">
-            <label class="flex items-center gap-2.5 cursor-pointer">
-              <input type="radio" name="filter-cat" value="${cat}" class="h-4 w-4 rounded accent-accent-500" /> ${cat}
+            <label class="flex items-center gap-2 cursor-pointer w-full select-none text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+              <input type="checkbox" name="filter-cat" value="${cat}" class="cat-checkbox h-3.5 w-3.5 rounded accent-accent-500 cursor-pointer" />
+              <span>${cat}</span>
             </label>
           </li>
         `
         )
         .join("");
 
-      categoryList.addEventListener("change", (e) => {
-        const selectedCat = e.target.value;
-        const filtered = selectedCat === "all" ? books : books.filter((b) => b.category === selectedCat);
-        renderBooks(filtered);
+      // Xử lý cơ chế Single Checkbox (chọn 1 mục, bấm lại chính nó thì bỏ chọn)
+      const catInputs = categoryList.querySelectorAll(".cat-checkbox");
+      catInputs.forEach((input) => {
+        input.addEventListener("click", (e) => {
+          if (selectedCategory === e.target.value) {
+            e.target.checked = false;
+            selectedCategory = null;
+          } else {
+            catInputs.forEach((i) => (i.checked = false));
+            e.target.checked = true;
+            selectedCategory = e.target.value;
+          }
+          applyFiltersAndSort();
+        });
       });
     }
 
-    // Tác giả vẫn tự động trích xuất theo các sách đang có
+    // Render Tác Giả
     if (authorList) {
       const authors = [...new Set(books.map((b) => b.author))];
-      authorList.innerHTML = `
-        <li>
-          <label class="flex items-center gap-2.5 cursor-pointer">
-            <input type="radio" name="filter-author" value="all" checked class="h-4 w-4 rounded accent-accent-500" /> Tất Cả Tác Giả
-          </label>
-        </li>
-      ` + authors
+      authorList.innerHTML = authors
         .map(
           (author) => `
           <li>
-            <label class="flex items-center gap-2.5 cursor-pointer">
-              <input type="radio" name="filter-author" value="${author}" class="h-4 w-4 rounded accent-accent-500" /> ${author}
+            <label class="flex items-center gap-2 cursor-pointer w-full select-none text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+              <input type="checkbox" name="filter-author" value="${author}" class="author-checkbox h-3.5 w-3.5 rounded accent-accent-500 cursor-pointer" />
+              <span class="truncate">${author}</span>
             </label>
           </li>
         `
         )
         .join("");
 
-      authorList.addEventListener("change", (e) => {
-        const selectedAuthor = e.target.value;
-        const filtered = selectedAuthor === "all" ? books : books.filter((b) => b.author === selectedAuthor);
-        renderBooks(filtered);
+      const authorInputs = authorList.querySelectorAll(".author-checkbox");
+      authorInputs.forEach((input) => {
+        input.addEventListener("click", (e) => {
+          if (selectedAuthor === e.target.value) {
+            e.target.checked = false;
+            selectedAuthor = null;
+          } else {
+            authorInputs.forEach((i) => (i.checked = false));
+            e.target.checked = true;
+            selectedAuthor = e.target.value;
+          }
+          applyFiltersAndSort();
+        });
+      });
+    }
+  }
+
+  // Khởi tạo tính năng Đóng/Mở bộ lọc trên Mobile
+  function initMobileFilterToggle() {
+    const toggleBtn = document.getElementById("toggle-filter-mobile");
+    const filterContent = document.getElementById("filter-content");
+    const chevron = document.getElementById("filter-chevron");
+
+    if (toggleBtn && filterContent) {
+      toggleBtn.addEventListener("click", () => {
+        const isHidden = filterContent.classList.toggle("hidden");
+        if (chevron) {
+          chevron.style.transform = isHidden ? "rotate(0deg)" : "rotate(180deg)";
+        }
       });
     }
   }

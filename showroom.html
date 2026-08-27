@@ -128,22 +128,41 @@ pb-16 md:pb-0">
 <main class="mx-auto max-w-7xl px-6 py-10 w-full">
   <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 items-start">
 
-    <!-- Sidebar filters -->
-    <aside class="space-y-8 bg-surface dark:bg-line-invert p-6 rounded-card border border-line dark:border-line-invert-light shadow-sm">
+    <!-- Sidebar filters (Có nút thu gọn trên Mobile) -->
+  <aside class="bg-surface dark:bg-line-invert rounded-card border border-line dark:border-line-invert-light shadow-sm overflow-hidden">
+    
+    <!-- Nút bấm Đóng/Mở bộ lọc chỉ hiện trên Mobile -->
+    <button 
+      type="button" 
+      id="toggle-filter-mobile" 
+      class="w-full lg:hidden flex items-center justify-between p-4 font-display font-bold text-sm text-ink dark:text-ink-invert bg-line/20 dark:bg-surface-invert">
+      <span class="flex items-center gap-2">⚙️ Bộ Lọc Tìm Kiếm</span>
+      <span id="filter-chevron" class="transition-transform duration-300">▼</span>
+    </button>
+
+    <!-- Khung chứa nội dung bộ lọc (ẩn mặc định trên mobile, luôn hiện trên desktop) -->
+    <div id="filter-content" class="hidden lg:block p-6 space-y-6">
       <div>
-        <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-4">Thể Loại Sách</h3>
-        <ul id="category-filter-list" class="space-y-3 text-sm">
-          <!-- Danh mục sẽ được render tự động -->
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert">Thể Loại Sách</h3>
+          <span class="text-[10px] text-muted dark:text-muted-invert">(Nhấn để bỏ chọn)</span>
+        </div>
+        <ul id="category-filter-list" class="space-y-2.5 text-xs">
+          <!-- JS render -->
         </ul>
       </div>
 
-      <div class="pt-6 border-t border-line dark:border-line-invert-light">
-        <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-4">Tác Giả Nổi Bật</h3>
-        <ul id="author-filter-list" class="space-y-3 text-sm">
-          <!-- Tác giả sẽ được render tự động -->
+      <div class="pt-5 border-t border-line dark:border-line-invert-light">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert">Tác Giả Nổi Bật</h3>
+          <span class="text-[10px] text-muted dark:text-muted-invert">(Nhấn để bỏ chọn)</span>
+        </div>
+        <ul id="author-filter-list" class="space-y-2.5 text-xs max-h-52 overflow-y-auto pr-1">
+          <!-- JS render -->
         </ul>
       </div>
-    </aside>
+    </div>
+  </aside>
 
     <!-- Book grid -->
     <div>
