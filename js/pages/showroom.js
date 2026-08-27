@@ -98,9 +98,24 @@ export async function initShowroomPage() {
     const categoryList = document.getElementById("category-filter-list");
     const authorList = document.getElementById("author-filter-list");
 
+    // 1. Danh sách 6 thể loại chuẩn theo Danh mục nổi bật ở trang chủ
+    const predefinedCategories = [
+      "Văn Học",
+      "Kinh Tế",
+      "Tâm Lý Học",
+      "Khoa Học",
+      "Thiếu Nhi",
+      "Lịch Sử"
+    ];
+
     if (categoryList) {
-      const categories = [...new Set(books.map((b) => b.category))];
-      categoryList.innerHTML = categories
+      categoryList.innerHTML = `
+        <li class="flex items-center justify-between">
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="radio" name="filter-cat" value="all" checked class="h-4 w-4 rounded accent-accent-500" /> Tất Cả Thể Loại
+          </label>
+        </li>
+      ` + predefinedCategories
         .map(
           (cat) => `
           <li class="flex items-center justify-between">
@@ -114,14 +129,21 @@ export async function initShowroomPage() {
 
       categoryList.addEventListener("change", (e) => {
         const selectedCat = e.target.value;
-        const filtered = books.filter((b) => b.category === selectedCat);
+        const filtered = selectedCat === "all" ? books : books.filter((b) => b.category === selectedCat);
         renderBooks(filtered);
       });
     }
 
+    // Tác giả vẫn tự động trích xuất theo các sách đang có
     if (authorList) {
       const authors = [...new Set(books.map((b) => b.author))];
-      authorList.innerHTML = authors
+      authorList.innerHTML = `
+        <li>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="radio" name="filter-author" value="all" checked class="h-4 w-4 rounded accent-accent-500" /> Tất Cả Tác Giả
+          </label>
+        </li>
+      ` + authors
         .map(
           (author) => `
           <li>
@@ -135,7 +157,7 @@ export async function initShowroomPage() {
 
       authorList.addEventListener("change", (e) => {
         const selectedAuthor = e.target.value;
-        const filtered = books.filter((b) => b.author === selectedAuthor);
+        const filtered = selectedAuthor === "all" ? books : books.filter((b) => b.author === selectedAuthor);
         renderBooks(filtered);
       });
     }
