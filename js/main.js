@@ -3,6 +3,7 @@ import { initBackToTop } from "./modules/backToTop.js";
 import { initHeader } from "./modules/header.js";
 import { initScrollReveal } from "./modules/scrollReveal.js";
 import { CartService } from "./services/cartService.js";
+import { initLiveSearch } from "./modules/search.js";
 import { initShowroomPage } from "./pages/showroom.js";
 import { initBookDetailPage } from "./pages/bookDetail.js";
 import { initCartPage } from "./pages/cartPage.js";
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeader();
   initScrollReveal();
   CartService.updateBadge();
+  initLiveSearch();
 
    // Khởi chạy Trang Chủ
   if (document.getElementById("suggested-books") || document.getElementById("bestseller-list")) {
