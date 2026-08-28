@@ -9,20 +9,20 @@ export async function initShowroomPage() {
   const sortSelect = document.getElementById("sort-select");
   const paginationContainer = document.getElementById("pagination-container");
 
-  // Cấu hình số lượng hiển thị trên 1 trang
   const ITEMS_PER_PAGE = 6;
   let currentPage = 1;
 
   // 1. Tải toàn bộ sách
   let allBooks = await BookService.getAllBooks();
 
-  // 2. Nhận tham số danh mục từ URL (nếu được bấm từ trang chủ sang)
+  // 2. Nhận tham số từ URL
   const urlParams = new URLSearchParams(window.location.search);
   const categoryFromUrl = urlParams.get("category");
+  const searchFromUrl = urlParams.get("search");
 
-  // Biến lưu trạng thái lọc
   let selectedCategory = categoryFromUrl ? decodeURIComponent(categoryFromUrl) : null;
   let selectedAuthor = null;
+  let searchKeyword = searchFromUrl ? decodeURIComponent(searchFromUrl).toLowerCase() : null;
 
   // 3. Render ban đầu
   applyFiltersAndSort();
@@ -31,7 +31,7 @@ export async function initShowroomPage() {
 
   // 4. Sắp xếp giá
   sortSelect?.addEventListener("change", () => {
-    currentPage = 1; // Reset về trang 1 khi đổi sắp xếp
+    currentPage = 1;
     applyFiltersAndSort();
   });
 
@@ -47,15 +47,24 @@ export async function initShowroomPage() {
     }
   });
 
-  // Hàm Lọc kết hợp Sắp xếp và Cắt trang (Pagination)
+  // Hàm lọc, sắp xếp và phân trang
   function applyFiltersAndSort() {
     let result = [...allBooks];
+
+    if (searchKeyword) {
+      result = result.filter(
+        (b) =>
+          b.title.toLowerCase().includes(searchKeyword) ||
+          b.author.toLowerCase().includes(searchKeyword)
+      );
+    }
 
     if (selectedCategory) {
       result = result.filter((b) =>
         b.category.toLowerCase().includes(selectedCategory.toLowerCase())
       );
     }
+
     if (selectedAuthor) {
       result = result.filter((b) => b.author === selectedAuthor);
     }
@@ -67,7 +76,6 @@ export async function initShowroomPage() {
       result.sort((a, b) => b.price - a.price);
     }
 
-    // Tính toán phân trang
     const totalItems = result.length;
     const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE) || 1;
 
@@ -83,7 +91,6 @@ export async function initShowroomPage() {
     renderPagination(totalPages);
   }
 
-  // Hàm Render thẻ Card Sách
   function renderBooks(books, totalItems) {
     if (countDisplay) countDisplay.textContent = totalItems;
 
@@ -100,7 +107,7 @@ export async function initShowroomPage() {
       .map(
         (book) => `
         <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition flex flex-col justify-between group">
-          <a href="book-detail.html?id=${book.id}" class="aspect-3/4 bg-line/20 dark:bg-surface-invert overflow-hidden flex items-center justify-center relative p-3">
+          <a href="book-detail.html?id=${book.id}" class="aspect-[3/4] bg-line/20 dark:bg-surface-invert overflow-hidden flex items-center justify-center relative p-3">
             <img 
               src="${book.cover}" 
               alt="${book.title}" 
@@ -136,7 +143,6 @@ export async function initShowroomPage() {
       .join("");
   }
 
-  // Hàm Render Thanh Phân Trang
   function renderPagination(totalPages) {
     if (!paginationContainer) return;
 
@@ -164,21 +170,18 @@ export async function initShowroomPage() {
 
     paginationContainer.innerHTML = buttonsHtml;
 
-    // Gắn sự kiện chuyển trang
     paginationContainer.querySelectorAll("[data-page]").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const targetPage = Number(e.target.dataset.page);
         if (targetPage !== currentPage) {
           currentPage = targetPage;
           applyFiltersAndSort();
-          // Cuộn mượt lên đầu danh sách sách
           booksGrid.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
     });
   }
 
-  // Hàm Render Bộ Lọc
   function renderFilters(books) {
     const categoryList = document.getElementById("category-filter-list");
     const authorList = document.getElementById("author-filter-list");
@@ -211,6 +214,7 @@ export async function initShowroomPage() {
       catInputs.forEach((input) => {
         input.addEventListener("click", (e) => {
           currentPage = 1;
+          searchKeyword = null; // Bỏ lọc từ khóa khi chọn danh mục cụ thể
           if (selectedCategory === e.target.value) {
             e.target.checked = false;
             selectedCategory = null;
@@ -243,6 +247,7 @@ export async function initShowroomPage() {
       authorInputs.forEach((input) => {
         input.addEventListener("click", (e) => {
           currentPage = 1;
+          searchKeyword = null;
           if (selectedAuthor === e.target.value) {
             e.target.checked = false;
             selectedAuthor = null;
@@ -257,7 +262,6 @@ export async function initShowroomPage() {
     }
   }
 
-  // Khởi tạo tính năng Đóng/Mở bộ lọc trên Mobile
   function initMobileFilterToggle() {
     const toggleBtn = document.getElementById("toggle-filter-mobile");
     const filterContent = document.getElementById("filter-content");
