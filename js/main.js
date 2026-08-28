@@ -9,6 +9,7 @@ import { initCartPage } from "./pages/cartPage.js";
 import { initCheckoutPage } from "./pages/checkoutPage.js";
 import { initProfilePage } from "./pages/profilePage.js";
 import { initHomePage } from "./pages/homePage.js";
+import { initAuthPage } from "./pages/authPage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
@@ -16,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeader();
   initScrollReveal();
   CartService.updateBadge();
+  initLiveSearch();
+  initAuthPage();  //Kích hoạt toàn cục
 
    // Khởi chạy Trang Chủ
   if (document.getElementById("suggested-books") || document.getElementById("bestseller-list")) {
