@@ -134,142 +134,177 @@
 </nav>
 
     <!-- 2. MAIN AUTH CONTAINER -->
-    <main class="max-w-6xl mx-auto px-6 py-16 w-full flex items-center justify-center">
-      <div class="w-full bg-surface dark:bg-line-invert rounded-3xl border border-line dark:border-line-invert-light shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+    <main class="max-w-md mx-auto px-4 sm:px-6 py-10 sm:py-16 w-full flex items-center justify-center">
+      <div class="w-full bg-surface dark:bg-line-invert rounded-3xl border border-line dark:border-line-invert-light shadow-xl overflow-hidden p-6 sm:p-10">
         
-        <!-- CỘT TRÁI: ĐĂNG NHẬP (CHIẾM 6/12) -->
-        <div class="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between">
-          <div>
-            <h2 class="font-display text-3xl font-bold text-ink dark:text-ink-invert mb-1.5">Đăng Nhập Hệ Thống</h2>
-            <p class="text-xs text-muted dark:text-muted-invert mb-6">Chào mừng bạn quay trở lại Tổ Sách BookNest!</p>
-
-            <!-- Pill Switch Tabs -->
-            <div class="bg-line/40 dark:bg-surface-invert p-1 rounded-xl flex mb-6 text-xs font-semibold">
-              <button type="button" class="w-1/2 py-2 rounded-lg bg-surface dark:bg-line-invert text-ink dark:text-ink-invert shadow-sm">Đăng Nhập</button>
-              <button type="button" class="w-1/2 py-2 rounded-lg text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">Đăng Ký</button>
-            </div>
-
-            <!-- Form Đăng Nhập -->
-            <form class="space-y-4">
-              <div>
-                <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Địa chỉ Email</label>
-                <input
-                  type="email"
-                  value="nguyenvana@gmail.com"
-                  class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Mật khẩu</label>
-                <input
-                  type="password"
-                  value="password123"
-                  class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert"
-                  required
-                />
-              </div>
-
-              <div class="flex items-center justify-between text-xs pt-1">
-                <label class="flex items-center gap-2 cursor-pointer text-ink dark:text-ink-invert">
-                  <input type="checkbox" checked class="accent-accent-500 w-4 h-4 rounded" />
-                  <span>Ghi nhớ đăng nhập</span>
-                </label>
-                <a href="#" class="text-accent-600 dark:text-accent-400 font-semibold hover:underline">Quên mật khẩu?</a>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full mt-2 py-3 rounded-card bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white font-bold text-sm transition shadow-sm"
-              >
-                Đăng Nhập Ngay
-              </button>
-            </form>
-
-            <!-- Social Login Divider -->
-            <div class="relative my-6 text-center">
-              <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-line dark:border-line-invert-light"></div></div>
-              <span class="relative bg-surface dark:bg-line-invert px-3 text-[11px] text-muted dark:text-muted-invert">Hoặc tiếp tục bằng tài khoản</span>
-            </div>
-
-            <!-- Social Buttons -->
-            <div class="grid grid-cols-2 gap-3 text-xs font-semibold">
-              <button type="button" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-card border border-line dark:border-line-invert-light hover:bg-line/20 dark:hover:bg-line-invert-light transition">
-                <span class="text-blue-600 font-bold">f</span>
-                <span>Facebook</span>
-              </button>
-              <button type="button" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-card border border-line dark:border-line-invert-light hover:bg-line/20 dark:hover:bg-line-invert-light transition">
-                <span class="text-red-500 font-bold">G</span>
-                <span>Google</span>
-              </button>
-            </div>
-          </div>
+        <!-- Tiêu đề thay đổi động theo Tab -->
+        <div class="text-center mb-6">
+          <h2 id="auth-title" class="font-display text-2xl sm:text-3xl font-bold text-ink dark:text-ink-invert mb-1.5">
+            Đăng Nhập Hệ Thống
+          </h2>
+          <p id="auth-subtitle" class="text-xs text-muted dark:text-muted-invert">
+            Chào mừng bạn quay trở lại Tổ Sách BookNest!
+          </p>
         </div>
 
-        <!-- CỘT PHẢI: ĐĂNG KÝ THÀNH VIÊN (CHIẾM 6/12) -->
-        <div class="lg:col-span-6 bg-line/30 dark:bg-surface-invert/60 p-8 sm:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-line dark:border-line-invert">
+        <!-- Thanh trượt chuyển Tab (Pill Switch) -->
+        <div class="bg-line/50 dark:bg-surface-invert p-1 rounded-xl flex mb-6 text-xs font-semibold relative">
+          <button
+            type="button"
+            id="tab-login-btn"
+            class="w-1/2 py-2.5 rounded-lg bg-surface dark:bg-line-invert text-accent-600 dark:text-accent-400 font-bold shadow-sm transition-all duration-300"
+          >
+            Đăng Nhập
+          </button>
+          <button
+            type="button"
+            id="tab-register-btn"
+            class="w-1/2 py-2.5 rounded-lg text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition-all duration-300"
+          >
+            Đăng Ký
+          </button>
+        </div>
+
+        <!-- 1. FORM ĐĂNG NHẬP (Mặc định hiển thị) -->
+        <form id="login-form" class="space-y-4">
           <div>
-            <h2 class="font-display text-3xl font-bold text-ink dark:text-ink-invert mb-1.5">Đăng Ký Thành Viên</h2>
-            <p class="text-xs text-muted dark:text-muted-invert mb-6">Trở thành tổ viên của Tổ Sách Cozy ngay hôm nay!</p>
-
-            <!-- Form Đăng Ký -->
-            <form class="space-y-3.5">
-              <div>
-                <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Họ và tên</label>
-                <input
-                  type="text"
-                  placeholder="Ví dụ: Nguyễn Văn A..."
-                  class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Địa chỉ Email</label>
-                <input
-                  type="email"
-                  placeholder="Nhập địa chỉ email của bạn..."
-                  class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Mật khẩu</label>
-                <input
-                  type="password"
-                  placeholder="Tạo mật khẩu an toàn..."
-                  class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Nhập lại mật khẩu</label>
-                <input
-                  type="password"
-                  placeholder="Xác nhận lại mật khẩu..."
-                  class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert"
-                  required
-                />
-              </div>
-
-              <div class="pt-1">
-                <label class="flex items-start gap-2 cursor-pointer text-xs text-muted dark:text-muted-invert">
-                  <input type="checkbox" required class="accent-accent-500 w-4 h-4 rounded mt-0.5" />
-                  <span>Tôi đồng ý với các Điều khoản & Chính sách bảo mật của BookNest</span>
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full mt-2 py-3 rounded-card bg-brand-600 hover:opacity-90 active:bg-brand-600 text-surface font-bold text-sm transition shadow-sm"
-              >
-                Đăng Ký Tài Khoản
-              </button>
-            </form>
+            <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Địa chỉ Email</label>
+            <input
+              type="email"
+              id="login-email"
+              value="nguyenvana@gmail.com"
+              placeholder="nhapemail@example.com"
+              class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+              required
+            />
           </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Mật khẩu</label>
+            <input
+              type="password"
+              id="login-password"
+              value="password123"
+              placeholder="••••••••"
+              class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+              required
+            />
+          </div>
+
+          <div class="flex items-center justify-between text-xs pt-1">
+            <label class="flex items-center gap-2 cursor-pointer text-ink dark:text-ink-invert">
+              <input type="checkbox" checked class="accent-accent-500 w-4 h-4 rounded" />
+              <span>Ghi nhớ đăng nhập</span>
+            </label>
+            <a href="#" class="text-accent-600 dark:text-accent-400 font-semibold hover:underline">Quên mật khẩu?</a>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full mt-2 py-3 rounded-card bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white font-bold text-sm transition shadow-sm"
+          >
+            Đăng Nhập Ngay
+          </button>
+        </form>
+
+        <!-- 2. FORM ĐĂNG KÝ (Ẩn mặc định) -->
+        <form id="register-form" class="space-y-3.5 hidden">
+          <div>
+            <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Họ và tên</label>
+            <input
+              type="text"
+              id="reg-fullname"
+              placeholder="Ví dụ: Nguyễn Văn A..."
+              class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Địa chỉ Email</label>
+            <input
+              type="email"
+              id="reg-email"
+              placeholder="Nhập địa chỉ email của bạn..."
+              class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Số điện thoại</label>
+            <input
+              type="tel"
+              id="reg-phone"
+              placeholder="Ví dụ: 0901234567..."
+              class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Mật khẩu</label>
+            <input
+              type="password"
+              id="reg-password"
+              placeholder="Tạo mật khẩu an toàn..."
+              class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-ink dark:text-ink-invert mb-1.5">Nhập lại mật khẩu</label>
+            <input
+              type="password"
+              id="reg-repassword"
+              placeholder="Xác nhận lại mật khẩu..."
+              class="w-full px-4 py-2.5 rounded-lg border border-line dark:border-line-invert-light bg-transparent focus:border-accent-500 outline-none text-sm text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+              required
+            />
+          </div>
+
+          <div class="pt-1">
+            <label class="flex items-start gap-2 cursor-pointer text-xs text-muted dark:text-muted-invert">
+              <input type="checkbox" required class="accent-accent-500 w-4 h-4 rounded mt-0.5" />
+              <span>Tôi đồng ý với các Điều khoản & Chính sách của BookNest</span>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full mt-2 py-3 rounded-card bg-brand-600 hover:bg-brand-600/90 active:bg-brand-600 text-white font-bold text-sm transition shadow-sm"
+          >
+            Đăng Ký Tài Khoản
+          </button>
+        </form>
+
+        <!-- Social Login Divider -->
+        <div class="relative my-6 text-center">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-line dark:border-line-invert-light"></div>
+          </div>
+          <span class="relative bg-surface dark:bg-line-invert px-3 text-[11px] text-muted dark:text-muted-invert">
+            Hoặc tiếp tục bằng tài khoản
+          </span>
+        </div>
+
+        <!-- Social Buttons -->
+        <div class="grid grid-cols-2 gap-3 text-xs font-semibold">
+          <button
+            type="button"
+            class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-card border border-line dark:border-line-invert-light hover:bg-line/20 dark:hover:bg-surface-invert transition"
+          >
+            <span class="text-blue-600 font-bold">f</span>
+            <span>Facebook</span>
+          </button>
+          <button
+            type="button"
+            class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-card border border-line dark:border-line-invert-light hover:bg-line/20 dark:hover:bg-surface-invert transition"
+          >
+            <span class="text-red-500 font-bold">G</span>
+            <span>Google</span>
+          </button>
         </div>
 
       </div>
