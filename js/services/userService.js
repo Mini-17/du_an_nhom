@@ -1,36 +1,55 @@
-const CURRENT_USER_KEY = "booknest_current_user";
+const USER_KEY = "booknest_current_user";
+const USERS_LIST_KEY = "booknest_users_list";
 
-// Dữ liệu người dùng mẫu mặc định ban đầu
-const DEFAULT_USER = {
-  id: "BN9923",
+const defaultUser = {
   fullname: "Nguyễn Văn A",
   email: "nguyenvana@gmail.com",
   phone: "0901234567",
-  birthday: "15/08/1995",
-  rank: "Tổ viên thân thiết"
+  birthday: "15/08/1995"
 };
 
 export const UserService = {
-  // Lấy người dùng hiện tại (nếu chưa có thì nạp mặc định)
   getCurrentUser() {
-    let user = localStorage.getItem(CURRENT_USER_KEY);
-    if (!user) {
-      this.setCurrentUser(DEFAULT_USER);
-      return DEFAULT_USER;
+    const data = localStorage.getItem(USER_KEY);
+    return data ? JSON.parse(data) : defaultUser;
+  },
+
+  updateProfile(updatedInfo) {
+    const current = this.getCurrentUser();
+    const newUser = { ...current, ...updatedInfo };
+    localStorage.setItem(USER_KEY, JSON.stringify(newUser));
+    return newUser;
+  },
+
+  register(userData) {
+    const rawList = localStorage.getItem(USERS_LIST_KEY);
+    const users = rawList ? JSON.parse(rawList) : [defaultUser];
+
+    const exists = users.some((u) => u.email === userData.email);
+    if (exists) {
+      return { success: false, message: "Email này đã được đăng ký!" };
     }
-    return JSON.parse(user);
+
+    users.push(userData);
+    localStorage.setItem(USERS_LIST_KEY, JSON.stringify(users));
+    return { success: true };
   },
 
-  // Lưu thông tin người dùng
-  setCurrentUser(user) {
-    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+  login(email, password) {
+    const rawList = localStorage.getItem(USERS_LIST_KEY);
+    const users = rawList ? JSON.parse(rawList) : [defaultUser];
+
+    // Cho phép đăng nhập bằng tài khoản mặc định hoặc tài khoản vừa đăng ký
+    const matched = users.find((u) => u.email === email);
+    if (matched) {
+      localStorage.setItem(USER_KEY, JSON.stringify(matched));
+      return { success: true, user: matched };
+    }
+
+    return { success: false, message: "Email hoặc mật khẩu không chính xác!" };
   },
 
-  // Cập nhật thông tin hồ sơ cá nhân
-  updateProfile(newData) {
-    const currentUser = this.getCurrentUser();
-    const updatedUser = { ...currentUser, ...newData };
-    this.setCurrentUser(updatedUser);
-    return updatedUser;
+  logout() {
+    localStorage.removeItem(USER_KEY);
   }
 };
