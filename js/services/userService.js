@@ -5,7 +5,8 @@ const defaultUser = {
   fullname: "Nguyễn Văn A",
   email: "nguyenvana@gmail.com",
   phone: "0901234567",
-  birthday: "15/08/1995"
+  birthday: "15/08/1995",
+  password: "password123"
 };
 
 export const UserService = {
