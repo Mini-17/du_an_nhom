@@ -32,16 +32,16 @@ export async function initBookDetailPage() {
   
   wrapper.innerHTML = `
     <!-- Cột 1: Ảnh bìa -->
-    <div class="w-full">
-      <div class="flex aspect-square sm:aspect-4/3 lg:aspect-square items-center justify-center rounded-2xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert p-6 sm:p-8 shadow-sm">
-        <img 
-          src="${book.cover}" 
-          alt="${book.title}" 
-          class="h-64 sm:h-80 w-auto object-cover rounded shadow-md"
-          onerror="this.parentElement.innerHTML='<div class=\\'h-64 sm:h-80 w-48 rounded bg-line/60 dark:bg-surface-invert flex items-center justify-center font-bold text-muted dark:text-muted-invert shadow-md text-center p-4 text-xs\\'>${book.title}</div>'"
-        />
-      </div>
-    </div>
+<div class="w-full max-w-95 mx-auto lg:mx-0">
+  <div class="flex items-center justify-center rounded-2xl border border-line dark:border-line-invert-light bg-white dark:bg-[#2c2621] p-4 sm:p-5 shadow-sm overflow-hidden">
+    <img
+      src="${book.cover}"
+      alt="${book.title}"
+      class="w-full aspect-17/24 object-cover rounded-xl shadow-md"
+      onerror="this.parentElement.innerHTML='<div class=\\'w-full aspect-[17/24] rounded-xl bg-line/60 dark:bg-surface-invert flex items-center justify-center font-bold text-muted dark:text-muted-invert shadow-md text-center p-4 text-xs\\'>${book.title}</div>'"
+    />
+  </div>
+</div>
 
     <!-- Cột 2: Thông tin chi tiết -->
     <div class="flex flex-col">

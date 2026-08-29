@@ -144,6 +144,99 @@ pb-16 md:pb-0">
       <!-- Vùng chứa DocumentFragment (Không chứa class grid ở đây để tránh bị lồng đôi) -->
       <div id="book-detail-container" class="w-full"></div>
     </section>
+
+    <!-- ==================== KHU VỰC BÌNH LUẬN ==================== -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 pb-12 lg:pb-16">
+      <div class="border-t border-line dark:border-line-invert pt-8 sm:pt-10">
+
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="font-display text-xl sm:text-2xl font-bold text-ink dark:text-ink-invert">
+            Bình Luận Của Độc Giả
+          </h2>
+          <span id="comment-count" class="text-xs font-semibold text-muted dark:text-muted-invert bg-line/40 dark:bg-line-invert px-3 py-1 rounded-full">
+            0 bình luận
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+          <!-- Form gửi bình luận -->
+          <div class="lg:col-span-2">
+            <form id="comment-form" class="bg-line/20 dark:bg-line-invert/40 border border-line dark:border-line-invert rounded-2xl p-5 space-y-3">
+              <h3 class="font-display font-bold text-sm text-ink dark:text-ink-invert">Để lại cảm nhận của bạn</h3>
+
+              <div>
+                <label for="comment-name" class="sr-only">Tên của bạn</label>
+                <input
+                  id="comment-name"
+                  name="comment-name"
+                  type="text"
+                  required
+                  placeholder="Tên của bạn"
+                  class="w-full bg-surface dark:bg-surface-invert border border-line dark:border-line-invert focus:border-accent-500 rounded-lg py-2 px-3 text-sm outline-none text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+                />
+              </div>
+
+              <!-- Chọn số sao đánh giá -->
+              <div id="comment-rating" class="flex items-center gap-1" data-rating="0">
+                <button type="button" data-star="1" class="comment-star text-lg text-line dark:text-line-invert hover:scale-110 transition" aria-label="1 sao">★</button>
+                <button type="button" data-star="2" class="comment-star text-lg text-line dark:text-line-invert hover:scale-110 transition" aria-label="2 sao">★</button>
+                <button type="button" data-star="3" class="comment-star text-lg text-line dark:text-line-invert hover:scale-110 transition" aria-label="3 sao">★</button>
+                <button type="button" data-star="4" class="comment-star text-lg text-line dark:text-line-invert hover:scale-110 transition" aria-label="4 sao">★</button>
+                <button type="button" data-star="5" class="comment-star text-lg text-line dark:text-line-invert hover:scale-110 transition" aria-label="5 sao">★</button>
+              </div>
+
+              <div>
+                <label for="comment-content" class="sr-only">Nội dung bình luận</label>
+                <textarea
+                  id="comment-content"
+                  name="comment-content"
+                  rows="3"
+                  required
+                  placeholder="Bạn nghĩ gì về cuốn sách này?"
+                  class="w-full bg-surface dark:bg-surface-invert border border-line dark:border-line-invert focus:border-accent-500 rounded-lg py-2 px-3 text-sm outline-none resize-none text-ink dark:text-ink-invert placeholder:text-muted dark:placeholder:text-muted-invert transition"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-brand-600 hover:bg-brand-700 text-surface font-bold text-sm py-2.5 rounded-lg transition"
+              >
+                Gửi Bình Luận
+              </button>
+            </form>
+          </div>
+
+          <!-- Danh sách bình luận -->
+          <div class="lg:col-span-3">
+            <ul id="comment-list" class="space-y-4">
+              <!-- Trạng thái rỗng, JS sẽ thay thế khi có bình luận -->
+              <li id="comment-empty" class="text-sm text-muted dark:text-muted-invert italic border border-dashed border-line dark:border-line-invert rounded-xl p-5 text-center">
+                Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nhận!
+              </li>
+            </ul>
+
+            <!-- Mẫu (template) cho 1 bình luận, JS sẽ nhân bản mẫu này -->
+            <template id="comment-template">
+              <li class="comment-item bg-surface dark:bg-surface-invert border border-line dark:border-line-invert rounded-xl p-4 flex gap-3">
+                <div class="w-9 h-9 shrink-0 rounded-full bg-brand-600 text-surface flex items-center justify-center font-display font-bold text-sm">
+                  <span class="comment-avatar-letter">?</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-center justify-between gap-1">
+                    <span class="comment-name font-semibold text-sm text-ink dark:text-ink-invert"></span>
+                    <span class="comment-date text-[11px] text-muted dark:text-muted-invert"></span>
+                  </div>
+                  <div class="comment-stars text-accent-500 text-xs my-1"></div>
+                  <p class="comment-content text-sm text-muted dark:text-muted-invert leading-relaxed"></p>
+                </div>
+              </li>
+            </template>
+          </div>
+
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ==================== FOOTER DÙNG CHUNG ==================== -->
@@ -215,5 +308,6 @@ pb-16 md:pb-0">
   </footer>
 
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/comments.js"></script>
 </body>
 </html>
