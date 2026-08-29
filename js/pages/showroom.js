@@ -191,24 +191,41 @@ export async function initShowroomPage() {
     const authorList = document.getElementById("author-filter-list");
     const ratingGroup = document.getElementById("rating-filter-group");
 
-    // 1. Thể Loại Sách kèm số lượng đếm chuẩn Figma
-    const categoriesData = [
-      { name: "Văn Học", count: 124 },
-      { name: "Kinh Tế", count: 85 },
-      { name: "Tâm Lý Học", count: 62 },
-      { name: "Khoa Học", count: 47 },
-      { name: "Thiếu Nhi", count: 91 },
-      { name: "Lịch Sử", count: 33 },
-      { name: "Ngoại Ngữ", count: 58 }
+    // 1. Danh sách các thể loại hiển thị
+    const categoriesToShow = [
+      "Văn Học",
+      "Kinh Tế",
+      "Tâm Lý Học",
+      "Khoa Học",
+      "Thiếu Nhi",
+      "Lịch Sử",
+      "Ngoại Ngữ"
     ];
+
+    // Tính toán số lượng sách thực tế cho từng thể loại từ allBooks
+    const categoriesData = categoriesToShow.map((catName) => {
+      const realCount = allBooks.filter((book) =>
+        book.category && book.category.toLowerCase().trim() === catName.toLowerCase().trim()
+      ).length;
+
+      return {
+        name: catName,
+        count: realCount
+      };
+    });
 
     if (categoryList) {
       categoryList.innerHTML = categoriesData
         .map((cat) => {
-          const isActive = selectedCategory && selectedCategory.toLowerCase().includes(cat.name.toLowerCase());
+          const isActive =
+            selectedCategory &&
+            selectedCategory.toLowerCase().trim() === cat.name.toLowerCase().trim();
+
           return `
             <li class="flex items-center justify-between cursor-pointer py-1 text-xs select-none transition ${
-              isActive ? "font-bold text-accent-600 dark:text-accent-400" : "text-ink dark:text-ink-invert hover:text-accent-600"
+              isActive
+                ? "font-bold text-accent-600 dark:text-accent-400"
+                : "text-ink dark:text-ink-invert hover:text-accent-600"
             }" data-cat-name="${cat.name}">
               <span>${cat.name}</span>
               <span class="text-muted dark:text-muted-invert text-[11px]">(${cat.count})</span>
@@ -217,6 +234,7 @@ export async function initShowroomPage() {
         })
         .join("");
 
+      // Gắn sự kiện click lọc / bỏ lọc thể loại
       categoryList.querySelectorAll("[data-cat-name]").forEach((el) => {
         el.addEventListener("click", () => {
           const clickedCat = el.dataset.catName;
@@ -228,10 +246,10 @@ export async function initShowroomPage() {
       });
     }
 
-    // 2. Đánh giá sao
+    // 2. Đánh giá sao (Click chọn / Click lại để bỏ chọn)
     const ratingRadios = ratingGroup?.querySelectorAll(".rating-radio");
     ratingRadios?.forEach((radio) => {
-      radio.addEventListener("click", (e) => {
+      radio.onclick = (e) => {
         const val = Number(e.target.value);
         if (selectedRating === val) {
           e.target.checked = false;
@@ -241,23 +259,31 @@ export async function initShowroomPage() {
         }
         currentPage = 1;
         applyFiltersAndSort();
-      });
+      };
     });
 
-    // 3. Tác Giả Checkbox chuẩn Figma
+    // 3. Tác Giả Checkbox (Kèm số lượng sách thực tế của mỗi tác giả)
     if (authorList) {
       const authors = [...new Set(books.map((b) => b.author))];
       authorList.innerHTML = authors
-        .map(
-          (author) => `
-          <li>
-            <label class="flex items-center gap-2.5 cursor-pointer w-full select-none text-ink dark:text-ink-invert hover:text-accent-600 transition">
-              <input type="checkbox" name="filter-author" value="${author}" class="author-checkbox h-3.5 w-3.5 rounded accent-accent-500 cursor-pointer" ${selectedAuthor === author ? "checked" : ""} />
-              <span class="truncate">${author}</span>
-            </label>
-          </li>
-        `
-        )
+        .map((author) => {
+          const authorBookCount = allBooks.filter((b) => b.author === author).length;
+          const isChecked = selectedAuthor === author;
+
+          return `
+            <li>
+              <label class="flex items-center justify-between gap-2.5 cursor-pointer w-full select-none text-ink dark:text-ink-invert hover:text-accent-600 transition">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" name="filter-author" value="${author}" class="author-checkbox h-3.5 w-3.5 rounded accent-accent-500 cursor-pointer" ${
+                    isChecked ? "checked" : ""
+                  } />
+                  <span class="truncate">${author}</span>
+                </div>
+                <span class="text-muted dark:text-muted-invert text-[11px]">(${authorBookCount})</span>
+              </label>
+            </li>
+          `;
+        })
         .join("");
 
       const authorInputs = authorList.querySelectorAll(".author-checkbox");
