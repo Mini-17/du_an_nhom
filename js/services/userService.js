@@ -10,6 +10,16 @@ const defaultUser = {
 };
 
 export const UserService = {
+  // Lấy danh sách toàn bộ người dùng
+  getUsersList() {
+    const rawList = localStorage.getItem(USERS_LIST_KEY);
+    if (!rawList) {
+      localStorage.setItem(USERS_LIST_KEY, JSON.stringify([defaultUser]));
+      return [defaultUser];
+    }
+    return JSON.parse(rawList);
+  },
+
   getCurrentUser() {
     const data = localStorage.getItem(USER_KEY);
     return data ? JSON.parse(data) : defaultUser;
@@ -19,12 +29,20 @@ export const UserService = {
     const current = this.getCurrentUser();
     const newUser = { ...current, ...updatedInfo };
     localStorage.setItem(USER_KEY, JSON.stringify(newUser));
+
+    // Đồng bộ lại vào danh sách users
+    const users = this.getUsersList();
+    const index = users.findIndex((u) => u.email === current.email);
+    if (index !== -1) {
+      users[index] = newUser;
+      localStorage.setItem(USERS_LIST_KEY, JSON.stringify(users));
+    }
+
     return newUser;
   },
 
   register(userData) {
-    const rawList = localStorage.getItem(USERS_LIST_KEY);
-    const users = rawList ? JSON.parse(rawList) : [defaultUser];
+    const users = this.getUsersList();
 
     const exists = users.some((u) => u.email === userData.email);
     if (exists) {
@@ -37,11 +55,10 @@ export const UserService = {
   },
 
   login(email, password) {
-    const rawList = localStorage.getItem(USERS_LIST_KEY);
-    const users = rawList ? JSON.parse(rawList) : [defaultUser];
+    const users = this.getUsersList();
 
-    // Cho phép đăng nhập bằng tài khoản mặc định hoặc tài khoản vừa đăng ký
-    const matched = users.find((u) => u.email === email);
+    // Kiểm tra chính xác cả Email và Password
+    const matched = users.find((u) => u.email === email && u.password === password);
     if (matched) {
       localStorage.setItem(USER_KEY, JSON.stringify(matched));
       return { success: true, user: matched };
