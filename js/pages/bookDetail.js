@@ -26,13 +26,13 @@ export async function initBookDetailPage() {
     return;
   }
 
-  // 3. Cập nhật Breadcrumb
+  // Đồng bộ Breadcrumb
   const catBreadcrumb = document.getElementById("breadcrumb-category");
   const titleBreadcrumb = document.getElementById("breadcrumb-title");
   if (catBreadcrumb) catBreadcrumb.textContent = book.category || "Sách";
   if (titleBreadcrumb) titleBreadcrumb.textContent = book.title;
 
-  // 4. Lọc 4 cuốn sách liên quan (cùng thể loại, khác cuốn hiện tại)
+  // Lọc 4 sách liên quan
   const relatedBooks = allBooks
     .filter((b) => b.id !== book.id && b.category === book.category)
     .slice(0, 4);
@@ -71,91 +71,102 @@ export async function initBookDetailPage() {
   // 6. Tạo DocumentFragment để render tối ưu hiệu năng
   const fragment = document.createDocumentFragment();
   const wrapper = document.createElement("div");
-  wrapper.className = "space-y-16";
+  wrapper.className = "space-y-16 lg:space-y-20";
 
   wrapper.innerHTML = `
-    <!-- PHẦN 1: THÔNG TIN CHI TIẾT SÁCH CHÍNH -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-      <!-- Cột trái: Bìa sách -->
-      <div class="w-full">
-        <div class="flex aspect-square sm:aspect-4/3 lg:aspect-4/5 items-center justify-center rounded-2xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert p-6 sm:p-10 shadow-sm">
+    <!-- PHẦN 1: HERO DETAIL KHỚP FIGMA -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      
+      <!-- Cột trái: Khung Bìa Sách Chuẩn Figma (5/12) -->
+      <div class="lg:col-span-5 w-full">
+        <div class="w-full aspect-4/5] sm:aspect-square lg:aspect-4/5 max-h-125 flex items-center justify-center rounded-3xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert p-6 sm:p-10 shadow-sm">
           <img 
             src="${book.cover}" 
             alt="${book.title}" 
-            class="h-72 sm:h-96 w-auto object-cover rounded shadow-lg transition-transform duration-300 hover:scale-105"
-            onerror="this.parentElement.innerHTML='<div class=\\'h-72 sm:h-96 w-60 rounded bg-line/60 dark:bg-surface-invert flex items-center justify-center font-bold text-muted dark:text-muted-invert shadow-md text-center p-4 text-xs\\'>${book.title}</div>'"
+            class="h-full max-h-95 w-auto aspect-2/3 object-cover rounded-xl shadow-2xl transition-transform duration-300 hover:scale-105"
+            onerror="this.parentElement.innerHTML='<div class=\\'h-80 w-56 rounded-xl bg-line/60 dark:bg-surface-invert flex items-center justify-center font-bold text-muted dark:text-muted-invert shadow-md text-center p-4 text-xs\\'>${book.title}</div>'"
           />
         </div>
       </div>
 
-      <!-- Cột phải: Thông số, Giá, Nút Mua -->
-      <div class="flex flex-col">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-accent-600 dark:text-accent-400">
-            ${book.badge || "Sách bán chạy"}
-          </span>
-          <span class="text-xs text-muted dark:text-muted-invert">•</span>
-          <span class="text-xs text-muted dark:text-muted-invert">Nhà xuất bản: <strong>NXB Trẻ</strong></span>
-        </div>
-
-        <h1 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-ink dark:text-ink-invert">
-          ${book.title}
-        </h1>
-        <p class="mt-2 text-xs sm:text-sm text-muted dark:text-muted-invert">
-          Tác giả: <strong class="font-semibold text-ink dark:text-ink-invert">${book.author}</strong>
-        </p>
-
-        <div class="mt-3 flex flex-wrap items-center gap-2 sm:gap-3 border-b border-line dark:border-line-invert-light pb-4 text-xs">
-          <span class="text-amber-500 text-sm">★★★★★</span>
-          <span class="font-bold text-ink dark:text-ink-invert">${book.rating ? book.rating.toFixed(1) : "5.0"}</span>
-          <span class="text-muted dark:text-muted-invert">(${book.reviewsCount || 124} đánh giá)</span>
-          <span class="h-3 w-px bg-line dark:bg-line-invert-light"></span>
-          <span class="text-muted dark:text-muted-invert">Đã bán ${book.sold || "1.2k"}</span>
-        </div>
-
-        <div class="mt-4 flex items-baseline gap-3">
-          <span class="text-3xl font-bold text-accent-600 dark:text-accent-400 whitespace-nowrap">
-            ${book.price.toLocaleString("vi-VN")} đ
-          </span>
-          <del class="text-sm text-muted dark:text-muted-invert whitespace-nowrap">
-            ${book.originalPrice.toLocaleString("vi-VN")} đ
-          </del>
-          <span class="rounded bg-accent-500 px-2 py-0.5 text-[10px] sm:text-xs font-bold text-white whitespace-nowrap">
-            -${Math.round((1 - book.price / book.originalPrice) * 100)}%
-          </span>
-        </div>
-
-        <p class="mt-4 text-xs sm:text-sm leading-relaxed text-muted dark:text-muted-invert">
-          ${book.description}
-        </p>
-
-        <!-- Bảng thông số phụ -->
-        <div class="mt-6 rounded-xl border border-line dark:border-line-invert-light bg-line/10 dark:bg-surface-invert/40 p-4 space-y-2 text-xs">
-          <div class="flex justify-between py-1 border-b border-line/60 dark:border-line-invert-light">
-            <span class="text-muted dark:text-muted-invert">Số trang</span>
-            <span class="font-semibold text-ink dark:text-ink-invert">320 trang</span>
+      <!-- Cột phải: Thông Tin Chi Tiết (7/12) -->
+      <div class="lg:col-span-7 flex flex-col justify-between">
+        <div>
+          <!-- Tag danh mục & Nhà xuất bản -->
+          <div class="flex items-center gap-2 mb-2 text-xs">
+            <span class="font-bold uppercase tracking-wider text-accent-600 dark:text-accent-400">
+              ${book.badge || "Sách Bán Chạy"}
+            </span>
+            <span class="text-muted dark:text-muted-invert">•</span>
+            <span class="text-muted dark:text-muted-invert">Nhà xuất bản: <strong class="text-ink dark:text-ink-invert font-semibold">NXB Trẻ</strong></span>
           </div>
-          <div class="flex justify-between py-1 border-b border-line/60 dark:border-line-invert-light">
-            <span class="text-muted dark:text-muted-invert">Ngôn ngữ</span>
-            <span class="font-semibold text-ink dark:text-ink-invert">Tiếng Việt</span>
+
+          <!-- Tên sách -->
+          <h1 class="font-display text-3xl sm:text-4xl font-bold leading-tight text-ink dark:text-ink-invert">
+            ${book.title}
+          </h1>
+
+          <!-- Tác giả -->
+          <p class="mt-2 text-sm text-muted dark:text-muted-invert">
+            Tác giả: <strong class="font-semibold text-ink dark:text-ink-invert">${book.author}</strong>
+          </p>
+
+          <!-- Đánh giá sao & lượt bán -->
+          <div class="mt-4 flex flex-wrap items-center gap-3 border-b border-line dark:border-line-invert-light pb-4 text-xs">
+            <span class="text-amber-500 text-sm">★★★★★</span>
+            <span class="font-bold text-ink dark:text-ink-invert">${book.rating ? book.rating.toFixed(1) : "5.0"}</span>
+            <span class="text-muted dark:text-muted-invert">(${book.reviewsCount || 124} đánh giá)</span>
+            <span class="h-3 w-px bg-line dark:bg-line-invert-light"></span>
+            <span class="text-muted dark:text-muted-invert">Đã bán ${book.sold || "1.2k"}</span>
           </div>
-          <div class="flex justify-between py-1">
-            <span class="text-muted dark:text-muted-invert">Năm xuất bản</span>
-            <span class="font-semibold text-ink dark:text-ink-invert">2026</span>
+
+          <!-- Giá tiền & Giảm giá -->
+          <div class="mt-5 flex items-baseline gap-3.5">
+            <span class="font-display text-3xl sm:text-4xl font-bold text-accent-600 dark:text-accent-400 whitespace-nowrap">
+              ${book.price.toLocaleString("vi-VN")} đ
+            </span>
+            <del class="text-sm sm:text-base text-muted dark:text-muted-invert whitespace-nowrap">
+              ${book.originalPrice.toLocaleString("vi-VN")} đ
+            </del>
+            <span class="rounded-md bg-accent-500/10 px-2 py-0.5 text-xs font-bold text-accent-600 dark:text-accent-400 whitespace-nowrap">
+              -${Math.round((1 - book.price / book.originalPrice) * 100)}%
+            </span>
+          </div>
+
+          <!-- Đoạn mô tả ngắn gọn -->
+          <p class="mt-4 text-xs sm:text-sm leading-relaxed text-muted dark:text-muted-invert line-clamp-3">
+            "${book.description}"
+          </p>
+
+          <!-- Bảng thông số sách -->
+          <div class="mt-6 rounded-2xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert px-5 py-3 text-xs space-y-2.5">
+            <div class="flex justify-between py-1 border-b border-line/50 dark:border-line-invert-light">
+              <span class="text-muted dark:text-muted-invert">Số trang</span>
+              <span class="font-semibold text-ink dark:text-ink-invert">320 trang</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-line/50 dark:border-line-invert-light">
+              <span class="text-muted dark:text-muted-invert">Ngôn ngữ</span>
+              <span class="font-semibold text-ink dark:text-ink-invert">Tiếng Việt</span>
+            </div>
+            <div class="flex justify-between py-1">
+              <span class="text-muted dark:text-muted-invert">Năm xuất bản</span>
+              <span class="font-semibold text-ink dark:text-ink-invert">2026</span>
+            </div>
           </div>
         </div>
 
-        <!-- Bộ nút Số lượng & Mua hàng -->
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <div class="flex h-11 items-center justify-between rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert sm:w-28 px-3 text-xs font-bold">
+        <!-- Cụm Nút Tăng Giảm & Thêm/Mua Ngay -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <div class="flex h-11 items-center justify-between rounded-xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert sm:w-28 px-3 text-xs font-bold shadow-sm">
             <button type="button" id="qty-minus" class="w-6 h-full text-muted hover:text-ink text-base">-</button>
             <span id="qty-val">1</span>
             <button type="button" id="qty-plus" class="w-6 h-full text-muted hover:text-ink text-base">+</button>
           </div>
-          <button type="button" id="btn-add-cart" class="h-11 flex-1 rounded-lg border-2 border-accent-500 px-5 font-bold text-accent-600 dark:text-accent-400 hover:bg-accent-500 hover:text-white transition text-xs flex items-center justify-center gap-2">
-            🛒 Thêm Vào Giỏ
+          <button type="button" id="btn-add-cart" class="h-11 flex-1 rounded-xl border-2 border-accent-500 px-5 font-bold text-accent-600 dark:text-accent-400 hover:bg-accent-500 hover:text-white transition text-xs flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+            Thêm Vào Giỏ
           </button>
-          <button type="button" id="btn-buy-now" class="h-11 flex-1 flex items-center justify-center rounded-lg bg-accent-500 px-5 font-bold text-white hover:bg-accent-600 transition text-xs shadow-sm">
+          <button type="button" id="btn-buy-now" class="h-11 flex-1 flex items-center justify-center rounded-xl bg-accent-500 px-5 font-bold text-white hover:bg-accent-600 active:bg-accent-700 transition text-xs shadow-sm">
             Mua Ngay
           </button>
         </div>
@@ -173,15 +184,14 @@ export async function initBookDetailPage() {
         </button>
       </div>
 
-      <!-- Nội dung tab Mô tả (ẩn mặc định) -->
+      <!-- Tab Mô tả -->
       <div id="tab-desc-content" class="hidden text-sm leading-relaxed text-muted dark:text-muted-invert space-y-4">
         <p>${book.description}</p>
         <p>Mỗi trang sách là một bước đi chiêm nghiệm, được đóng gói kỹ lưỡng và chuyển đến tay bạn với tinh thần trân quý nhất từ BookNest.</p>
       </div>
 
-      <!-- Nội dung tab Đánh giá -->
-      <div id="tab-reviews-content" class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-        <!-- Cột danh sách bình luận (2/3) -->
+      <!-- Tab Đánh giá -->
+      <div id="tab-reviews-content" class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
         <div class="lg:col-span-2 space-y-4">
           <div id="reviews-list" class="space-y-4">
             ${reviews
@@ -190,7 +200,7 @@ export async function initBookDetailPage() {
               <div class="rounded-2xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert p-5 shadow-sm">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 font-bold flex items-center justify-center text-xs">
+                    <div class="w-9 h-9 rounded-full bg-[#E5D5C5] dark:bg-surface-invert text-[#5C3D2E] dark:text-accent-400 font-bold flex items-center justify-center text-xs">
                       ${rev.name.charAt(0)}
                     </div>
                     <div>
@@ -207,7 +217,7 @@ export async function initBookDetailPage() {
               .join("")}
           </div>
 
-          <!-- Form gửi nhận xét mới -->
+          <!-- Form đánh giá mới -->
           <form id="comment-form" class="mt-6 rounded-2xl border border-line dark:border-line-invert-light bg-line/10 dark:bg-surface-invert/40 p-5 space-y-3">
             <h4 class="font-bold text-xs text-ink dark:text-ink-invert">Viết nhận xét của bạn</h4>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -219,14 +229,14 @@ export async function initBookDetailPage() {
               </select>
             </div>
             <textarea id="comment-text" rows="3" placeholder="Cảm nhận của bạn về cuốn sách này..." required class="w-full rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert px-3 py-2 text-xs outline-none focus:border-accent-500 text-ink dark:text-ink-invert"></textarea>
-            <button type="submit" class="px-5 py-2 rounded-lg bg-accent-500 hover:bg-accent-600 text-white font-bold text-xs transition shadow-sm">
+            <button type="submit" class="px-5 py-2.5 rounded-card bg-accent-500 hover:bg-accent-600 text-white font-bold text-xs transition shadow-sm">
               Gửi Đánh Giá
             </button>
           </form>
         </div>
 
-        <!-- Cột Box Cam kết BookNest (1/3) -->
-        <div class="rounded-2xl border border-line dark:border-line-invert-light bg-[#F5EBE1]/60 dark:bg-line-invert p-6 space-y-4">
+        <!-- Box Cam Kết -->
+        <div class="rounded-3xl border border-line dark:border-line-invert-light bg-[#F5EBE1]/70 dark:bg-line-invert p-6 space-y-4">
           <h4 class="font-display text-base font-bold text-brand-600 dark:text-ink-invert">Tại sao chọn BookNest?</h4>
           <div>
             <h5 class="text-xs font-bold text-ink dark:text-ink-invert mb-1">Sách chọn lọc chất lượng</h5>
@@ -243,11 +253,11 @@ export async function initBookDetailPage() {
     <!-- PHẦN 3: SÁCH LIÊN QUAN -->
     <div class="border-t border-line dark:border-line-invert-light pt-10">
       <h2 class="font-display text-2xl font-bold text-ink dark:text-ink-invert mb-6">Sách Liên Quan</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         ${relatedBooks
           .map(
             (b) => `
-          <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition flex flex-col justify-between group">
+          <article class="bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition flex flex-col justify-between group">
             <a href="book-detail.html?id=${b.id}" class="aspect-3/4 bg-line/20 dark:bg-surface-invert overflow-hidden flex items-center justify-center p-3">
               <img 
                 src="${b.cover}" 
@@ -281,7 +291,7 @@ export async function initBookDetailPage() {
   container.innerHTML = "";
   container.appendChild(fragment);
 
-  // 7. Gắn sự kiện Tăng/Giảm số lượng & Mua hàng
+  // Gắn sự kiện nút
   let quantity = 1;
   const qtyVal = document.getElementById("qty-val");
 
@@ -306,7 +316,7 @@ export async function initBookDetailPage() {
     window.location.href = "checkout.html";
   });
 
-  // 8. Gắn sự kiện chuyển Tab (Mô tả <-> Đánh giá)
+  // Chuyển Tab
   const tabDescBtn = document.getElementById("tab-desc-btn");
   const tabReviewsBtn = document.getElementById("tab-reviews-btn");
   const tabDescContent = document.getElementById("tab-desc-content");
@@ -326,7 +336,7 @@ export async function initBookDetailPage() {
     tabDescContent?.classList.add("hidden");
   });
 
-  // 9. Gắn sự kiện gửi Form bình luận
+  // Gửi Form bình luận
   const commentForm = document.getElementById("comment-form");
   commentForm?.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -356,7 +366,7 @@ export async function initBookDetailPage() {
         <div class="rounded-2xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert p-5 shadow-sm">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 font-bold flex items-center justify-center text-xs">
+              <div class="w-9 h-9 rounded-full bg-[#E5D5C5] dark:bg-surface-invert text-[#5C3D2E] dark:text-accent-400 font-bold flex items-center justify-center text-xs">
                 ${newReview.name.charAt(0)}
               </div>
               <div>
