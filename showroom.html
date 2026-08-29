@@ -137,83 +137,127 @@
     </div>
   </nav>
 
-  <!-- Page banner -->
-  <section class="border-b border-line dark:border-line-invert bg-line/30 dark:bg-line-invert/50">
-    <div class="mx-auto max-w-7xl px-6 py-12">
-      <h1 class="font-display text-4xl font-bold text-ink dark:text-ink-invert">Không Gian Sách</h1>
-      <p class="mt-2 text-sm text-muted dark:text-muted-invert">Hãy thảnh thơi tìm về cuốn sách bạn đang mong đợi.</p>
+  <!-- ==================== BANNER HEADER ==================== -->
+  <section class="border-b border-line dark:border-line-invert bg-[#F4EDE5] dark:bg-line-invert/40 py-10 sm:py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h1 class="font-display text-3xl sm:text-4xl font-bold text-ink dark:text-ink-invert">Không Gian Sách</h1>
+      <p class="mt-2 text-xs sm:text-sm text-muted dark:text-muted-invert">Hãy thư thả tìm kiếm tri thức ấm áp riêng của bạn</p>
     </div>
   </section>
 
-  <!-- Main content -->
-<main class="mx-auto max-w-7xl px-6 py-10 w-full">
-  <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 items-start">
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-    <!-- Sidebar filters (Có nút thu gọn trên Mobile) -->
-  <aside class="bg-surface dark:bg-line-invert rounded-card border border-line dark:border-line-invert-light shadow-sm overflow-hidden">
-    
-    <!-- Nút bấm Đóng/Mở bộ lọc chỉ hiện trên Mobile -->
-    <button 
-      type="button" 
-      id="toggle-filter-mobile" 
-      class="w-full lg:hidden flex items-center justify-between p-4 font-display font-bold text-sm text-ink dark:text-ink-invert bg-line/20 dark:bg-surface-invert">
-      <span class="flex items-center gap-2">Bộ Lọc</span>
-      <span id="filter-chevron" class="transition-transform duration-300">▼</span>
-    </button>
+      <!-- ================= SIDEBAR BỘ LỌC CHUẨN FIGMA (3/12) ================= -->
+      <aside class="lg:col-span-3 space-y-8">
+        
+        <!-- Nút toggle mobile -->
+        <button 
+          type="button" 
+          id="toggle-filter-mobile" 
+          class="w-full lg:hidden flex items-center justify-between p-4 rounded-2xl font-display font-bold text-sm text-ink dark:text-ink-invert bg-line/30 dark:bg-surface-invert">
+          <span class="flex items-center gap-2">⚙️ Bộ Lọc Tìm Kiếm</span>
+          <span id="filter-chevron" class="transition-transform duration-300">▼</span>
+        </button>
 
-    <!-- Khung chứa nội dung bộ lọc (ẩn mặc định trên mobile, luôn hiện trên desktop) -->
-    <div id="filter-content" class="hidden lg:block p-6 space-y-6">
-      <div>
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert">Thể Loại Sách</h3>
-          <span class="text-[10px] text-muted dark:text-muted-invert">(Nhấn để bỏ chọn)</span>
+        <div id="filter-content" class="hidden lg:block space-y-8">
+          
+          <!-- 1. THỂ LOẠI SÁCH -->
+          <div>
+            <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-4">Thể Loại Sách</h3>
+            <ul id="category-filter-list" class="space-y-3 text-xs">
+              <!-- Render động từ JS -->
+            </ul>
+          </div>
+
+          <!-- 2. KHOẢNG GIÁ (Range Slider) -->
+          <div class="pt-6 border-t border-line dark:border-line-invert-light">
+            <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-3">Khoảng Giá</h3>
+            <input 
+              type="range" 
+              id="price-range" 
+              min="50000" 
+              max="500000" 
+              step="10000" 
+              value="500000" 
+              class="w-full h-2 bg-line dark:bg-line-invert-light rounded-lg appearance-none cursor-pointer accent-accent-500 shadow-inner"
+            />
+            <div class="flex justify-between items-center text-xs text-muted dark:text-muted-invert mt-2">
+              <span>50.000 đ</span>
+              <span id="price-range-val" class="font-bold text-accent-600 dark:text-accent-400">500.000 đ</span>
+            </div>
+          </div>
+
+          <!-- 3. ĐÁNH GIÁ SAO -->
+          <div class="pt-6 border-t border-line dark:border-line-invert-light">
+            <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-3">Đánh Giá</h3>
+            <div class="space-y-2.5 text-xs" id="rating-filter-group">
+              <label class="flex items-center justify-between cursor-pointer group">
+                <span class="flex items-center gap-2 text-amber-500">
+                  <span>★★★★★</span>
+                  <span class="text-ink dark:text-ink-invert group-hover:text-accent-600 transition">Từ 5 sao</span>
+                </span>
+                <input type="radio" name="filter-rating" value="5" class="rating-radio accent-accent-500 cursor-pointer" />
+              </label>
+              <label class="flex items-center justify-between cursor-pointer group">
+                <span class="flex items-center gap-2 text-amber-500">
+                  <span>★★★★☆</span>
+                  <span class="text-ink dark:text-ink-invert group-hover:text-accent-600 transition">Từ 4 sao</span>
+                </span>
+                <input type="radio" name="filter-rating" value="4" class="rating-radio accent-accent-500 cursor-pointer" />
+              </label>
+              <label class="flex items-center justify-between cursor-pointer group">
+                <span class="flex items-center gap-2 text-amber-500">
+                  <span>★★★☆☆</span>
+                  <span class="text-ink dark:text-ink-invert group-hover:text-accent-600 transition">Từ 3 sao</span>
+                </span>
+                <input type="radio" name="filter-rating" value="3" class="rating-radio accent-accent-500 cursor-pointer" />
+              </label>
+            </div>
+          </div>
+
+          <!-- 4. TÁC GIẢ -->
+          <div class="pt-6 border-t border-line dark:border-line-invert-light">
+            <h3 class="font-display text-base font-bold text-ink dark:text-ink-invert mb-3">Tác Giả</h3>
+            <ul id="author-filter-list" class="space-y-2.5 text-xs max-h-56 overflow-y-auto pr-1">
+              <!-- Render động từ JS -->
+            </ul>
+          </div>
+
         </div>
-        <ul id="category-filter-list" class="space-y-2.5 text-xs">
-          <!-- JS render -->
-        </ul>
-      </div>
+      </aside>
 
-      <div class="pt-5 border-t border-line dark:border-line-invert-light">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-display text-sm font-bold text-ink dark:text-ink-invert">Tác Giả Nổi Bật</h3>
-          <span class="text-[10px] text-muted dark:text-muted-invert">(Nhấn để bỏ chọn)</span>
+      <!-- ================= GRID SÁCH CHUẨN FIGMA (9/12) ================= -->
+      <section class="lg:col-span-9">
+        
+        <!-- Top Toolbar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <p class="text-xs sm:text-sm text-muted dark:text-muted-invert">
+            Hiển thị <span id="books-count" class="font-semibold text-ink dark:text-ink-invert">0</span> trong <span id="books-total" class="font-semibold text-ink dark:text-ink-invert">0</span> kết quả
+          </p>
+          <div class="flex items-center gap-2 text-xs text-muted dark:text-muted-invert">
+            <span>Sắp xếp theo:</span>
+            <select id="sort-select" class="rounded-xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert px-3.5 py-2 text-xs font-semibold text-ink dark:text-ink-invert outline-none cursor-pointer">
+              <option value="newest">Mới Nhất</option>
+              <option value="price-asc">Giá: Thấp đến cao</option>
+              <option value="price-desc">Giá: Cao đến thấp</option>
+              <option value="popular">Bán chạy nhất</option>
+            </select>
+          </div>
         </div>
-        <ul id="author-filter-list" class="space-y-2.5 text-xs max-h-52 overflow-y-auto pr-1">
-          <!-- JS render -->
-        </ul>
-      </div>
+
+        <!-- Lưới sản phẩm (3 cột chuẩn Figma) -->
+        <div id="books-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Render động các thẻ sách -->
+        </div>
+
+        <!-- Thanh phân trang -->
+        <nav id="pagination-container" class="mt-12 flex items-center justify-center gap-2" aria-label="Phân trang"></nav>
+      </section>
+
     </div>
-  </aside>
-
-    <!-- Book grid -->
-    <div>
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <p class="text-sm text-muted dark:text-muted-invert">
-          Hiển thị <span id="books-count" class="font-semibold text-ink dark:text-ink-invert">0</span> kết quả
-        </p>
-        <label class="flex items-center gap-2 text-sm text-muted dark:text-muted-invert">
-          <span>Sắp xếp theo:</span>
-          <select id="sort-select" class="rounded-lg border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert px-3 py-1.5 text-xs text-ink dark:text-ink-invert outline-none">
-            <option value="default">Mặc định</option>
-            <option value="price-asc">Giá: Thấp đến cao</option>
-            <option value="price-desc">Giá: Cao đến thấp</option>
-          </select>
-        </label>
-      </div>
-
-      <!-- Vùng chứa danh sách sách render từ JS -->
-      <div id="books-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- JS sẽ tự động bơm các Card sách vào đây -->
-      </div>
-
-      <!-- Vùng phân trang (Đã bổ sung) -->
-        <nav id="pagination-container" class="mt-10 flex items-center justify-center gap-2" aria-label="Phân trang">
-          <!-- JS sẽ tự render các nút số trang 1, 2, 3... -->
-        </nav>
-    </div>
-
-  </div>
-</main>
+  </main>
 
   <!-- ==================== FOOTER DÙNG CHUNG ==================== -->
   <footer class="footer-root">

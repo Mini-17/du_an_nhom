@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BookNest - Tổ Sách Cozy</title>
+    <title>Thanh toán - BookNest</title>
 
     <!-- SEO Cơ bản -->
     <meta name="description" content="BookNest - Không gian sách ấm cúng với hàng ngàn tựa sách chọn lọc tỉ mỉ, ưu đãi hấp dẫn mỗi ngày." />
@@ -137,31 +137,42 @@
     </div>
   </nav>
 
-    <!-- 2. BANNER TIÊU ĐỀ & THANH ĐIỀU HƯỚNG BƯỚC -->
-    <div class="bg-line/30 dark:bg-line-invert/50 py-10 px-6 border-b border-line dark:border-line-invert">
-      <div class="max-w-7xl mx-auto">
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-ink dark:text-ink-invert mb-2">Thanh Toán Đơn Hàng</h1>
-        <p class="text-sm text-muted dark:text-muted-invert mb-8">Vui lòng điền thông tin và lựa chọn các phương thức giao hàng phù hợp</p>
-
-        <!-- Stepper Tracker -->
-        <div class="max-w-xl mx-auto bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light py-3.5 px-8 rounded-full shadow-sm flex items-center justify-between text-xs sm:text-sm font-medium">
-          <div class="flex items-center gap-2 text-muted dark:text-muted-invert">
-            <span class="w-6 h-6 rounded-full bg-line dark:bg-surface-invert flex items-center justify-center text-xs font-bold">1</span>
-            <span>Giỏ hàng</span>
-          </div>
-          <span class="h-0.5 w-12 bg-line dark:border-line-invert"></span>
-          <div class="flex items-center gap-2 text-ink dark:text-ink-invert font-bold">
-            <span class="w-6 h-6 rounded-full bg-accent-500 text-white flex items-center justify-center text-xs font-bold">2</span>
-            <span>Thông tin thanh toán</span>
-          </div>
-          <span class="h-0.5 w-12 bg-line dark:border-line-invert"></span>
-          <div class="flex items-center gap-2 text-muted dark:text-muted-invert opacity-60">
-            <span class="w-6 h-6 rounded-full bg-line dark:bg-surface-invert flex items-center justify-center text-xs font-bold">3</span>
-            <span>Hoàn tất đơn hàng</span>
-          </div>
-        </div>
-      </div>
+    <!-- ==================== BANNER TIÊU ĐỀ CHUẨN ==================== -->
+  <section class="border-b border-line dark:border-line-invert bg-[#F4EDE5] dark:bg-line-invert/40 py-10 sm:py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink dark:text-ink-invert">Thanh Toán Đơn Hàng</h1>
+      <p class="mt-2 text-xs sm:text-sm text-muted dark:text-muted-invert">Vui lòng điền thông tin và lựa chọn các phương thức giao hàng phù hợp</p>
     </div>
+  </section>
+
+  <!-- ==================== THANH STEPPER TRACKER (3 BƯỚC) ==================== -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 -mt-6 sm:-mt-7 relative z-10">
+    <div class="max-w-2xl mx-auto bg-surface dark:bg-line-invert border border-line dark:border-line-invert-light py-3.5 px-6 sm:px-10 rounded-2xl sm:rounded-3xl shadow-md flex items-center justify-between text-xs sm:text-sm font-medium">
+      
+      <!-- Bước 1: Giỏ hàng -->
+      <a href="cart.html" class="flex items-center gap-2 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
+        <span class="w-6 h-6 rounded-full bg-line dark:bg-surface-invert flex items-center justify-center text-xs font-bold text-muted dark:text-muted-invert">1</span>
+        <span>Giỏ hàng</span>
+      </a>
+
+      <span class="h-px w-8 sm:w-16 bg-line dark:bg-line-invert-light"></span>
+
+      <!-- Bước 2: Thông tin thanh toán -->
+      <div class="flex items-center gap-2 text-ink dark:text-ink-invert font-bold">
+        <span class="w-6 h-6 rounded-full bg-accent-500 text-white flex items-center justify-center text-xs font-bold shadow-sm">2</span>
+        <span>Thông tin thanh toán</span>
+      </div>
+
+      <span class="h-px w-8 sm:w-16 bg-line dark:bg-line-invert-light"></span>
+
+      <!-- Bước 3: Hoàn tất -->
+      <div class="flex items-center gap-2 text-muted dark:text-muted-invert opacity-60">
+        <span class="w-6 h-6 rounded-full bg-line dark:bg-surface-invert flex items-center justify-center text-xs font-bold text-muted dark:text-muted-invert">3</span>
+        <span>Hoàn tất đơn hàng</span>
+      </div>
+
+    </div>
+  </div>
 
     <!-- 3. MAIN FORM 2 CỘT -->
     <main class="max-w-7xl mx-auto px-6 py-12 w-full">
