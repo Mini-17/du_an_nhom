@@ -60,3 +60,32 @@
   --radius-card: 1.5rem;
   --radius-input: 0.5rem;
 }
+
+@layer components {
+  /* Khung chứa & Khoảng cách chuẩn */
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6;
+  }
+  
+  /* Nút bấm tiện ích */
+  .btn-icon {
+    @apply p-2 rounded-full hover:bg-line dark:hover:bg-line-invert text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition flex items-center justify-center;
+  }
+
+  /* Footer dùng chung */
+  .footer-root {
+    @apply bg-brand-600 text-surface/90 dark:bg-surface-invert dark:text-ink-invert pt-14 pb-8 border-t border-brand-600/20 dark:border-line-invert text-xs;
+  }
+  .footer-heading {
+    @apply font-display font-bold text-surface dark:text-ink-invert text-sm mb-3;
+  }
+  .footer-link-list {
+    @apply space-y-2 text-surface/70 dark:text-muted-invert;
+  }
+  .footer-link {
+    @apply hover:text-surface dark:hover:text-ink-invert transition;
+  }
+  .footer-social-btn {
+    @apply w-8 h-8 rounded-full bg-surface/10 hover:bg-accent-500 text-surface flex items-center justify-center transition;
+  }
+}
