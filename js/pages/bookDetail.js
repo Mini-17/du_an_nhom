@@ -26,13 +26,13 @@ export async function initBookDetailPage() {
     return;
   }
 
-  // Đồng bộ Breadcrumb
+  // Cập nhật Breadcrumb
   const catBreadcrumb = document.getElementById("breadcrumb-category");
   const titleBreadcrumb = document.getElementById("breadcrumb-title");
   if (catBreadcrumb) catBreadcrumb.textContent = book.category || "Sách";
   if (titleBreadcrumb) titleBreadcrumb.textContent = book.title;
 
-  // Lọc 4 sách liên quan
+  // Lấy 4 cuốn sách liên quan
   const relatedBooks = allBooks
     .filter((b) => b.id !== book.id && b.category === book.category)
     .slice(0, 4);
@@ -45,26 +45,20 @@ export async function initBookDetailPage() {
     relatedBooks.push(...remaining);
   }
 
-  // 5. Danh sách bình luận mẫu (lưu trữ/đọc từ localStorage theo bookId)
+  // Đọc danh sách đánh giá theo bookId
   const COMMENT_KEY = `booknest_reviews_${book.id}`;
   let reviews = JSON.parse(localStorage.getItem(COMMENT_KEY)) || [
     {
       name: "Phan Anh Tuấn",
       time: "Một tuần trước",
       rating: 5,
-      content: "Sách cực kỳ ý nghĩa, chất lượng in ấn tốt của NXB Trẻ. Giao hàng nhanh và đóng gói trong hộp carton rất ấm cúng và sạch sẽ."
+      content: `Cuốn "${book.title}" thực sự rất đáng đọc. Đóng gói cẩn thận, bìa sách đẹp nguyên vẹn.`
     },
     {
       name: "Lê Thị Hồng Ngát",
       time: "Một tuần trước",
       rating: 5,
-      content: "Văn phong giản dị nhưng thấm đẫm triết lý nhân sinh. Cuốn sách gối đầu giường của tôi."
-    },
-    {
-      name: "Nguyễn Minh Triết",
-      time: "Một tuần trước",
-      rating: 4,
-      content: "Rất thích phong cách phục vụ của BookNest, đóng gói cẩn thận có tặng kèm bookmark xinh xắn."
+      content: "Văn phong sâu sắc, mang lại nhiều góc nhìn mới mẻ. Rất ưng ý với dịch vụ của BookNest."
     }
   ];
 
@@ -74,12 +68,12 @@ export async function initBookDetailPage() {
   wrapper.className = "space-y-16 lg:space-y-20";
 
   wrapper.innerHTML = `
-    <!-- PHẦN 1: HERO DETAIL KHỚP FIGMA -->
+    <!-- HERO DETAIL -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
       
-      <!-- Cột trái: Khung Bìa Sách Chuẩn Figma (5/12) -->
+      <!-- Cột bìa sách -->
       <div class="lg:col-span-5 w-full">
-        <div class="w-full aspect-4/5] sm:aspect-square lg:aspect-4/5 max-h-125 flex items-center justify-center rounded-3xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert p-6 sm:p-10 shadow-sm">
+        <div class="w-full aspect-4/5 sm:aspect-square lg:aspect-4/5 max-h-125 flex items-center justify-center rounded-3xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert p-6 sm:p-10 shadow-sm">
           <img 
             src="${book.cover}" 
             alt="${book.title}" 
@@ -89,16 +83,16 @@ export async function initBookDetailPage() {
         </div>
       </div>
 
-      <!-- Cột phải: Thông Tin Chi Tiết (7/12) -->
+      <!-- Cột thông tin sách -->
       <div class="lg:col-span-7 flex flex-col justify-between">
         <div>
           <!-- Tag danh mục & Nhà xuất bản -->
           <div class="flex items-center gap-2 mb-2 text-xs">
             <span class="font-bold uppercase tracking-wider text-accent-600 dark:text-accent-400">
-              ${book.badge || "Sách Bán Chạy"}
+              ${book.badge || "Sách Chọn Lọc"}
             </span>
             <span class="text-muted dark:text-muted-invert">•</span>
-            <span class="text-muted dark:text-muted-invert">Nhà xuất bản: <strong class="text-ink dark:text-ink-invert font-semibold">NXB Trẻ</strong></span>
+            <span class="text-muted dark:text-muted-invert">Nhà xuất bản: <strong class="text-ink dark:text-ink-invert font-semibold">${book.publisher || "NXB Trẻ"}</strong></span>
           </div>
 
           <!-- Tên sách -->
@@ -115,9 +109,9 @@ export async function initBookDetailPage() {
           <div class="mt-4 flex flex-wrap items-center gap-3 border-b border-line dark:border-line-invert-light pb-4 text-xs">
             <span class="text-amber-500 text-sm">★★★★★</span>
             <span class="font-bold text-ink dark:text-ink-invert">${book.rating ? book.rating.toFixed(1) : "5.0"}</span>
-            <span class="text-muted dark:text-muted-invert">(${book.reviewsCount || 124} đánh giá)</span>
+            <span class="text-muted dark:text-muted-invert">(${book.reviewsCount || 100} đánh giá)</span>
             <span class="h-3 w-px bg-line dark:bg-line-invert-light"></span>
-            <span class="text-muted dark:text-muted-invert">Đã bán ${book.sold || "1.2k"}</span>
+            <span class="text-muted dark:text-muted-invert">Đã bán ${book.sold || "1k"}</span>
           </div>
 
           <!-- Giá tiền & Giảm giá -->
@@ -133,29 +127,28 @@ export async function initBookDetailPage() {
             </span>
           </div>
 
-          <!-- Đoạn mô tả ngắn gọn -->
-          <p class="mt-4 text-xs sm:text-sm leading-relaxed text-muted dark:text-muted-invert line-clamp-3">
+          <p class="mt-4 text-xs sm:text-sm leading-relaxed text-muted dark:text-muted-invert">
             "${book.description}"
           </p>
 
-          <!-- Bảng thông số sách -->
+          <!-- Bảng thông số đọc trực tiếp từ dữ liệu sách -->
           <div class="mt-6 rounded-2xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert px-5 py-3 text-xs space-y-2.5">
             <div class="flex justify-between py-1 border-b border-line/50 dark:border-line-invert-light">
               <span class="text-muted dark:text-muted-invert">Số trang</span>
-              <span class="font-semibold text-ink dark:text-ink-invert">320 trang</span>
+              <span class="font-semibold text-ink dark:text-ink-invert">${book.pages || 320} trang</span>
             </div>
             <div class="flex justify-between py-1 border-b border-line/50 dark:border-line-invert-light">
               <span class="text-muted dark:text-muted-invert">Ngôn ngữ</span>
-              <span class="font-semibold text-ink dark:text-ink-invert">Tiếng Việt</span>
+              <span class="font-semibold text-ink dark:text-ink-invert">${book.language || "Tiếng Việt"}</span>
             </div>
             <div class="flex justify-between py-1">
               <span class="text-muted dark:text-muted-invert">Năm xuất bản</span>
-              <span class="font-semibold text-ink dark:text-ink-invert">2026</span>
+              <span class="font-semibold text-ink dark:text-ink-invert">${book.publishYear || 2021}</span>
             </div>
           </div>
         </div>
 
-        <!-- Cụm Nút Tăng Giảm & Thêm/Mua Ngay -->
+        <!-- Bộ nút đặt hàng -->
         <div class="mt-8 flex flex-col sm:flex-row gap-3">
           <div class="flex h-11 items-center justify-between rounded-xl border border-line dark:border-line-invert-light bg-surface dark:bg-line-invert sm:w-28 px-3 text-xs font-bold shadow-sm">
             <button type="button" id="qty-minus" class="w-6 h-full text-muted hover:text-ink text-base">-</button>
@@ -173,7 +166,7 @@ export async function initBookDetailPage() {
       </div>
     </div>
 
-    <!-- PHẦN 2: TAB MÔ TẢ & ĐÁNH GIÁ KHÁCH HÀNG -->
+    <!-- TABS MÔ TẢ & ĐÁNH GIÁ -->
     <div class="border-t border-line dark:border-line-invert-light pt-10">
       <div class="flex border-b border-line dark:border-line-invert-light gap-8 mb-8 text-sm font-bold">
         <button type="button" id="tab-desc-btn" class="pb-3 text-muted dark:text-muted-invert hover:text-ink dark:hover:text-ink-invert transition">
@@ -187,7 +180,7 @@ export async function initBookDetailPage() {
       <!-- Tab Mô tả -->
       <div id="tab-desc-content" class="hidden text-sm leading-relaxed text-muted dark:text-muted-invert space-y-4">
         <p>${book.description}</p>
-        <p>Mỗi trang sách là một bước đi chiêm nghiệm, được đóng gói kỹ lưỡng và chuyển đến tay bạn với tinh thần trân quý nhất từ BookNest.</p>
+        <p>Tác phẩm được in trên chất liệu giấy xốp cao cấp chống mỏi mắt, trình bày công phu và kiểm duyệt chất lượng kỹ lưỡng từ nhà xuất bản.</p>
       </div>
 
       <!-- Tab Đánh giá -->
@@ -250,7 +243,7 @@ export async function initBookDetailPage() {
       </div>
     </div>
 
-    <!-- PHẦN 3: SÁCH LIÊN QUAN -->
+    <!-- SÁCH LIÊN QUAN -->
     <div class="border-t border-line dark:border-line-invert-light pt-10">
       <h2 class="font-display text-2xl font-bold text-ink dark:text-ink-invert mb-6">Sách Liên Quan</h2>
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -291,7 +284,7 @@ export async function initBookDetailPage() {
   container.innerHTML = "";
   container.appendChild(fragment);
 
-  // Gắn sự kiện nút
+  // Xử lý tăng giảm số lượng & Giỏ hàng
   let quantity = 1;
   const qtyVal = document.getElementById("qty-val");
 
@@ -336,7 +329,7 @@ export async function initBookDetailPage() {
     tabDescContent?.classList.add("hidden");
   });
 
-  // Gửi Form bình luận
+  // Gửi Đánh Giá
   const commentForm = document.getElementById("comment-form");
   commentForm?.addEventListener("submit", (e) => {
     e.preventDefault();

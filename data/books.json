@@ -11,7 +11,11 @@
     "sold": "1.2k",
     "cover": "assets/img/tuoi-tre-dang-gia-bao-nhieu.jpg",
     "badge": "Sách bán chạy",
-    "description": "\"Tuổi Trẻ Đáng Giá Bao Nhiêu\" không chỉ là một cuốn sách, mà còn là người bạn đồng hành giúp những người trẻ hiểu hơn về cuộc sống, học tập và hành trình trưởng thành."
+    "publisher": "NXB Hội Nhà Văn",
+    "pages": 292,
+    "language": "Tiếng Việt",
+    "publishYear": 2018,
+    "description": "Cuốn sách đúc kết những trải nghiệm tự học, rèn luyện kỹ năng và đi tìm lý tưởng sống cho người trẻ."
   },
   {
     "id": "bn-002",
@@ -25,7 +29,11 @@
     "sold": "2.5k",
     "cover": "assets/img/mat-biec.jpg",
     "badge": "Yêu thích",
-    "description": "Tác phẩm văn học kinh điển xoay quanh mối tình đơn phương thuần khiết của Ngạn dành cho Hà Lan giữa miền quê Đo Đo yên bình."
+    "publisher": "NXB Trẻ",
+    "pages": 298,
+    "language": "Tiếng Việt",
+    "publishYear": 2019,
+    "description": "Tác phẩm văn học kinh điển kể về tình yêu thầm lặng, bền bỉ của Ngạn dành cho cô bạn thời thơ ấu Hà Lan."
   },
   {
     "id": "bn-003",
@@ -39,12 +47,16 @@
     "sold": "1.8k",
     "cover": "assets/img/hieu-ve-trai-tim.jpg",
     "badge": "Tâm đắc",
-    "description": "Hành trình thấu hiểu bản thân, nhận diện và chuyển hóa những năng lượng tiêu cực để tìm lại sự bình yên trong tâm hồn."
+    "publisher": "NXB Tổng Hợp TP.HCM",
+    "pages": 480,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Những bài viết thực chứng về tâm lý, soi rọi vào từng ngóc ngách của khổ đau, sợ hãi để nuôi dưỡng bình an nội tâm."
   },
   {
     "id": "bn-004",
     "title": "Cây Cam Ngọt Của Tôi",
-    "author": "José Mauro",
+    "author": "José Mauro de Vasconcelos",
     "category": "Văn Học",
     "price": 81000,
     "originalPrice": 108000,
@@ -53,7 +65,11 @@
     "sold": "950",
     "cover": "assets/img/cay-cam-ngot.jpg",
     "badge": "Kinh điển",
-    "description": "Câu chuyện cảm động về cậu bé năm tuổi Zezé với tâm hồn nhạy cảm và bài học sâu sắc về tình thương yêu giữa người với người."
+    "publisher": "NXB Hội Nhà Văn",
+    "pages": 244,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Bản tình ca cảm động về thế giới tâm hồn của cậu bé Zezé 5 tuổi và bài học về tình yêu thương giữa người với người."
   },
   {
     "id": "bn-005",
@@ -67,7 +83,11 @@
     "sold": "780",
     "cover": "assets/img/rung-na-uy.jpg",
     "badge": "Nổi bật",
-    "description": "Bản tình ca đầy ám ảnh về sự cô đơn, mất mát và hành trình tìm kiếm ý nghĩa sự sống của thế hệ trẻ Tokyo những năm 1960."
+    "publisher": "NXB Hội Nhà Văn",
+    "pages": 556,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Câu chuyện giàu cảm xúc về sự mất mát, những bất ổn tâm lý và tình yêu thời thanh xuân tại Tokyo thập niên 60."
   },
   {
     "id": "bn-006",
@@ -81,7 +101,11 @@
     "sold": "3.1k",
     "cover": "assets/img/dac-nhan-tam.jpg",
     "badge": "Bán chạy nhất",
-    "description": "Nghệ thuật thu phục lòng người và xây dựng các mối quan hệ bền vững, thành công trong cả công việc lẫn cuộc sống thường nhật."
+    "publisher": "NXB Tổng Hợp TP.HCM",
+    "pages": 320,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Nghệ thuật thu phục lòng người, giao tiếp khéo léo và xây dựng mối quan hệ xã hội bền vững."
   },
   {
     "id": "bn-007",
@@ -95,7 +119,11 @@
     "sold": "4.2k",
     "cover": "assets/img/nha-gia-kim.jpg",
     "badge": "Kinh điển",
-    "description": "Hành trình theo đuổi vận mệnh của chàng chăn cừu Santiago, khẳng định sức mạnh của ước mơ."
+    "publisher": "NXB Hội Nhà Văn",
+    "pages": 228,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Cuộc hành trình vượt sa mạc đi tìm kho báu của chàng chăn cừu Santiago, khẳng định sức mạnh của việc lắng nghe tiếng gọi số phận."
   },
   {
     "id": "bn-008",
@@ -109,7 +137,11 @@
     "sold": "1.5k",
     "cover": "assets/img/tam-ly-hoc-ve-tien.jpg",
     "badge": "Khuyên đọc",
-    "description": "Những góc nhìn tâm lý học sắc bén về cách con người ứng xử với tiền bạc và tài chính."
+    "publisher": "NXB Dân Trí",
+    "pages": 384,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "19 mẩu chuyện phân tích cách định kiến, cảm xúc và cái tôi chi phối hành vi quản lý tài chính cá nhân."
   },
   {
     "id": "bn-009",
@@ -123,7 +155,11 @@
     "sold": "620",
     "cover": "assets/img/vu-tru-trong-vo-hat-de.jpg",
     "badge": "Khoa học",
-    "description": "Khám phá những bí ẩn sâu thẳm nhất của vũ trụ, từ lý thuyết tương đối đến cơ học lượng tử."
+    "publisher": "NXB Trẻ",
+    "pages": 256,
+    "language": "Tiếng Việt",
+    "publishYear": 2019,
+    "description": "Những khám phá vật lý lý thuyết mở đường về thuyết lượng tử, lỗ đen và bản chất thực sự của không-thời gian."
   },
   {
     "id": "bn-010",
@@ -137,7 +173,11 @@
     "sold": "2.8k",
     "cover": "assets/img/hoang-tu-be.jpg",
     "badge": "Yêu thích",
-    "description": "Cuốn sách tuyệt mỹ nhắc nhở chúng ta nhìn cuộc đời và những người xung quanh bằng trái tim."
+    "publisher": "NXB Kim Đồng",
+    "pages": 112,
+    "language": "Tiếng Việt",
+    "publishYear": 2022,
+    "description": "Câu chuyện ngụ ngôn giàu chất thơ về tình yêu, sự gắn kết và cách nhìn nhận cuộc sống bằng trái tim."
   },
   {
     "id": "bn-011",
@@ -151,7 +191,11 @@
     "sold": "2.1k",
     "cover": "assets/img/sapiens.jpg",
     "badge": "Best Seller",
-    "description": "Cái nhìn toàn cảnh đột phá về toàn bộ tiến trình lịch sử và sinh học của loài người."
+    "publisher": "NXB Tri Thức",
+    "pages": 560,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Toàn cảnh ba cuộc cách mạng lớn định hình nhân loại: Nhận thức, Nông nghiệp và Khoa học."
   },
   {
     "id": "bn-012",
@@ -165,7 +209,11 @@
     "sold": "1.9k",
     "cover": "assets/img/toi-thay-hoa-vang-tren-co-xanh.jpg",
     "badge": "Tuổi thơ",
-    "description": "Bức tranh tuổi thơ làng quê êm đềm với những tình cảm gia đình và tình bạn mộc mạc."
+    "publisher": "NXB Trẻ",
+    "pages": 378,
+    "language": "Tiếng Việt",
+    "publishYear": 2018,
+    "description": "Những mẩu chuyện tuổi thơ trong trẻo, mộc mạc bên làng quê với tình anh em và tình bạn đầu đời."
   },
   {
     "id": "bn-013",
@@ -179,7 +227,11 @@
     "sold": "1.6k",
     "cover": "assets/img/nguoi-dua-dieu.jpg",
     "badge": "Xúc động",
-    "description": "Câu chuyện lay động về tình bạn, sự phản bội và hành trình chuộc lại lỗi lầm tại Afghanistan."
+    "publisher": "NXB Nhã Nam & Hội Nhà Văn",
+    "pages": 448,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Tác phẩm lay động về tình bạn giữa Amir và Hassan, cùng hành trình chuộc lỗi đầy đau xót tại Kabul."
   },
   {
     "id": "bn-014",
@@ -193,7 +245,11 @@
     "sold": "1.3k",
     "cover": "assets/img/ngay-mat-troi-ruc-ro.jpg",
     "badge": "Cảm động",
-    "description": "Bức tranh bi tráng và kiên cường về số phận của hai người phụ nữ Afghanistan giữa chiến tranh."
+    "publisher": "NXB Nhã Nam & Hội Nhà Văn",
+    "pages": 460,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Bức tranh khắc họa tình mẫu tử, lòng kiên cường và số phận bi tráng của phụ nữ Afghanistan trong khói lửa chiến tranh."
   },
   {
     "id": "bn-015",
@@ -207,7 +263,11 @@
     "sold": "920",
     "cover": "assets/img/kafka.jpg",
     "badge": "Kỳ ảo",
-    "description": "Cuộc phiêu lưu siêu thực đan xen giữa chàng trai 15 tuổi bỏ nhà đi và ông lão Nakata."
+    "publisher": "NXB Hội Nhà Văn",
+    "pages": 648,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Câu chuyện đan cài giữa thực và ảo, dẫn dắt hai cuộc hành trình song song tìm kiếm bản ngã của cậu bé Kafka và cụ Nakata."
   },
   {
     "id": "bn-016",
@@ -221,7 +281,11 @@
     "sold": "2.4k",
     "cover": "assets/img/giet-con-chim-nhai.jpg",
     "badge": "Kinh điển",
-    "description": "Tác phẩm bất hủ lên tiếng mạnh mẽ chống lại định kiến sắc tộc và bảo vệ công lý, lương tri."
+    "publisher": "NXB Văn Học",
+    "pages": 420,
+    "language": "Tiếng Việt",
+    "publishYear": 2019,
+    "description": "Tiếng nói bảo vệ phẩm giá con người, chống lại sự bất công và phân biệt sắc tộc qua góc nhìn của cô bé Scout."
   },
   {
     "id": "bn-017",
@@ -235,7 +299,11 @@
     "sold": "3.5k",
     "cover": "assets/img/va-roi-chang-con-ai.jpg",
     "badge": "Trinh thám",
-    "description": "Kiệt tác trinh thám với vụ án bí ẩn mười người trên hòn đảo cô lập không lối thoát."
+    "publisher": "NXB Trẻ",
+    "pages": 268,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Vụ án mạng mười người trên hòn đảo biệt lập bí ẩn, đặt ra đỉnh cao mới cho nghệ thuật suy luận trinh thám thế giới."
   },
   {
     "id": "bn-018",
@@ -249,7 +317,11 @@
     "sold": "2.9k",
     "cover": "assets/img/an-mang-cao-toc.jpg",
     "badge": "Trinh thám",
-    "description": "Vụ án mạng ly kỳ trên chuyến tàu tuyết bao phủ với màn phá án đỉnh cao của Hercule Poirot."
+    "publisher": "NXB Trẻ",
+    "pages": 312,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Vụ án mạng mạng lưới tinh vi trên đoàn tàu bị tuyết chặn, đòi hỏi trí tuệ xuất sắc của thám tử Hercule Poirot."
   },
   {
     "id": "bn-019",
@@ -263,7 +335,11 @@
     "sold": "1.7k",
     "cover": "assets/img/gone-girl.jpg",
     "badge": "Tâm lý ly kỳ",
-    "description": "Tác phẩm trinh thám tâm lý xoay quanh vụ mất tích đầy toan tính và dối trá trong hôn nhân."
+    "publisher": "NXB Dân Trí",
+    "pages": 584,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Tiểu thuyết tâm lý hình sự vén màn những bí mật đen tối, rạn nứt và dối trá đằng sau cuộc hôn nhân tưởng chừng hoàn hảo."
   },
   {
     "id": "bn-020",
@@ -277,7 +353,11 @@
     "sold": "1.1k",
     "cover": "assets/img/PHM.jpg",
     "badge": "Khoa học viễn tưởng",
-    "description": "Hành trình giải cứu Trái Đất đầy hài hước và nghẹt thở của một nhà khoa học cô độc ngoài vũ trụ."
+    "publisher": "NXB Hội Nhà Văn",
+    "pages": 520,
+    "language": "Tiếng Việt",
+    "publishYear": 2022,
+    "description": "Hành trình khoa học vũ trụ đầy nghẹt thở của nhà sinh vật học Ryland Grace để cứu rỗi nền văn minh Trái Đất."
   },
   {
     "id": "bn-021",
@@ -291,7 +371,11 @@
     "sold": "5.4k",
     "cover": "assets/img/HP-hon-da.jpg",
     "badge": "Bán chạy nhất",
-    "description": "Cánh cửa bước vào thế giới phù thủy kỳ diệu tại trường Hogwarts cùng cậu bé Harry Potter."
+    "publisher": "NXB Trẻ",
+    "pages": 368,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Khởi đầu huyền thoại tại thế giới phù thủy Hogwarts, nơi Harry Potter bắt đầu khám phá thân phận thực sự của mình."
   },
   {
     "id": "bn-022",
@@ -305,7 +389,11 @@
     "sold": "2.2k",
     "cover": "assets/img/di-tim-le-song.jpg",
     "badge": "Truyền cảm hứng",
-    "description": "Kinh nghiệm sinh tồn từ trại tập trung và liệu pháp ý nghĩa giúp con người tìm thấy mục đích sống."
+    "publisher": "NXB Tổng Hợp TP.HCM",
+    "pages": 216,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Bài học sinh tồn từ trại tập trung Auschwitz và phương pháp tâm lý trị liệu giúp con người tìm thấy ý nghĩa tồn tại."
   },
   {
     "id": "bn-023",
@@ -319,7 +407,11 @@
     "sold": "1.8k",
     "cover": "assets/img/dam-bi-ghet.jpg",
     "badge": "Tâm lý",
-    "description": "Tư tưởng tâm lý học Adler giúp bạn tự tin sống thật với chính mình và đạt được tự do hạnh phúc."
+    "publisher": "NXB Lao Động",
+    "pages": 336,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Cuộc đối thoại giữa chàng thanh niên và nhà triết học dưới ánh sáng của trường phái tâm lý học Alfred Adler."
   },
   {
     "id": "bn-024",
@@ -333,7 +425,11 @@
     "sold": "1.4k",
     "cover": "assets/img/tu-duy-nhanh-va-cham.jpg",
     "badge": "Kinh điển",
-    "description": "Công trình đoạt giải Nobel phân tích hai hệ thống điều khiển cách chúng ta suy nghĩ và ra quyết định."
+    "publisher": "NXB Thế Giới",
+    "pages": 612,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Khảo sát chuyên sâu về hai hệ thống chi phối cách não bộ xử lý dữ liệu, đánh giá rủi ro và ra quyết định."
   },
   {
     "id": "bn-025",
@@ -347,7 +443,11 @@
     "sold": "1.2k",
     "cover": "assets/img/su-that-ve-the-gioi.jpg",
     "badge": "Tri thức",
-    "description": "Mười lý do khiến chúng ta hiểu sai về thế giới và tại sao mọi thứ đang tốt đẹp hơn bạn nghĩ."
+    "publisher": "NXB Thế Giới",
+    "pages": 432,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "10 bản năng khiến con người hiểu sai về tiến trình của thế giới và cách sử dụng dữ liệu để nhìn nhận sự việc khách quan."
   },
   {
     "id": "bn-026",
@@ -361,7 +461,11 @@
     "sold": "1.5k",
     "cover": "assets/img/noi-buon-chien-tranh.jpg",
     "badge": "Văn học VN",
-    "description": "Tác phẩm văn học đỉnh cao phản ánh nỗi đau, mất mát và chiều sâu tâm lý của người lính sau chiến tranh."
+    "publisher": "NXB Hội Nhà Văn",
+    "pages": 312,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Kiệt tác văn học phản ánh chân thực nỗi đau đớn, mất mát tâm lý và những vết thương tinh thần hậu chiến tranh."
   },
   {
     "id": "bn-027",
@@ -375,7 +479,11 @@
     "sold": "3.3k",
     "cover": "assets/img/so-do.jpg",
     "badge": "Hiện thực phê phán",
-    "description": "Bản châm biếm sắc sảo về xã hội tư sản Hà Nội thời Pháp thuộc qua cuộc đời của Xuân Tóc Đỏ."
+    "publisher": "NXB Văn Học",
+    "pages": 240,
+    "language": "Tiếng Việt",
+    "publishYear": 2020,
+    "description": "Tiểu thuyết trào phúng đỉnh cao châm biếm sâu cay bộ mặt xã hội tư sản thành thị thời kỳ Pháp thuộc."
   },
   {
     "id": "bn-028",
@@ -389,6 +497,10 @@
     "sold": "2.7k",
     "cover": "assets/img/kieu-hanh-va-dinh-kien.jpg",
     "badge": "Kinh điển",
-    "description": "Câu chuyện tình lãng mạn kinh điển giữa Elizabeth Bennet và Darcy, vượt qua ranh giới định kiến xã hội."
+    "publisher": "NXB Văn Học",
+    "pages": 504,
+    "language": "Tiếng Việt",
+    "publishYear": 2021,
+    "description": "Kiệt tác lãng mạn kinh điển nước Anh về xung đột giữa sự kiêu hãnh và định kiến giai cấp trong tình yêu."
   }
 ]
